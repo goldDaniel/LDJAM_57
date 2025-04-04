@@ -1,0 +1,80 @@
+.main-menu-button {
+    width: 344px;
+    align-self: center;
+    margin-top: 32px;
+    margin-bottom: 4px;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Ethnocentric%20Rg.otf?fileID=12800000&guid=b8776583a0c99b843b454e5347f9f356&type=3#Ethnocentric Rg");
+    font-size: 32px;
+    color: rgb(204, 204, 204);
+    border-left-color: rgb(204, 204, 204);
+    border-right-color: rgb(204, 204, 204);
+    border-top-color: rgb(204, 204, 204);
+    border-bottom-color: rgb(204, 204, 204);
+    border-top-width: 4px;
+    border-right-width: 4px;
+    border-bottom-width: 4px;
+    border-left-width: 4px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    -unity-text-outline-color: rgb(255, 0, 0);
+    justify-content: flex-start;
+    align-items: auto;
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);
+}
+
+.main-menu-button:hover {
+    width: 344px;
+    align-self: center;
+    margin-top: 32px;
+    margin-bottom: 4px;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Ethnocentric%20Rg.otf?fileID=12800000&guid=b8776583a0c99b843b454e5347f9f356&type=3#Ethnocentric Rg");
+    font-size: 32px;
+    color: rgb(255, 255, 255);
+    border-left-color: rgb(178, 255, 255);
+    border-right-color: rgb(178, 255, 255);
+    border-top-color: rgb(178, 255, 255);
+    border-bottom-color: rgb(178, 255, 255);
+    border-top-width: 4px;
+    border-right-width: 4px;
+    border-bottom-width: 4px;
+    border-left-width: 4px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    -unity-text-outline-color: rgb(255, 255, 255);
+    justify-content: flex-start;
+    align-items: auto;
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);
+}
+
+.main-menu-button:active {
+    width: 344px;
+    align-self: center;
+    margin-top: 32px;
+    margin-bottom: 4px;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Ethnocentric%20Rg.otf?fileID=12800000&guid=b8776583a0c99b843b454e5347f9f356&type=3#Ethnocentric Rg");
+    font-size: 32px;
+    color: rgb(142, 204, 204);
+    border-left-color: rgb(178, 255, 255);
+    border-right-color: rgb(178, 255, 255);
+    border-top-color: rgb(178, 255, 255);
+    border-bottom-color: rgb(178, 255, 255);
+    border-top-width: 4px;
+    border-right-width: 4px;
+    border-bottom-width: 4px;
+    border-left-width: 4px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    -unity-text-outline-color: rgb(255, 255, 255);
+    justify-content: flex-start;
+    align-items: auto;
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);
+}

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 810296627145612144}
   - component: {fileID: 5662112949318427333}
   - component: {fileID: 8954074999798792023}
+  - component: {fileID: 8475773014922967520}
   m_Layer: 0
   m_Name: Tentacle
   m_TagString: Untagged
@@ -95,7 +96,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4591945013772017195}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ca3c1419e50068b47a428df6eef28753, type: 3}
   m_Name: 
@@ -105,5 +106,19 @@ MonoBehaviour:
   - {fileID: 9038696716526687296, guid: 99e311db6bcc458498f9204edefaada0, type: 3}
   - {fileID: 247395175132406316, guid: 93fd8a5ded14a8547bbc0c848d95a1b8, type: 3}
   spriteRenderer: {fileID: 5662112949318427333}
-  timePerFrame: 0.2
+  timePerFrame: 0.25
   reverse: 0
+--- !u!114 &8475773014922967520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4591945013772017195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d49bcdce9dfe8e4c98badaaaedc51df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: {x: 0, y: 0}
+  rotation: 0

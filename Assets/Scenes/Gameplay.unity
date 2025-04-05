@@ -164,10 +164,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minRadius: 17
-  maxRadius: 27
+  maxRadius: 35
   madness: 0
-  TentaclePrefab: {fileID: 4591945013772017195, guid: eefe39b970023e74eaaef8850e453b68, type: 3}
-  tentacleCount: 40
+  TentaclePrefab: {fileID: 8475773014922967520, guid: eefe39b970023e74eaaef8850e453b68, type: 3}
+  tentacleCount: 60
 --- !u!1 &484162646
 GameObject:
   m_ObjectHideFlags: 0
@@ -402,7 +402,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 8
+  orthographic size: 15
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

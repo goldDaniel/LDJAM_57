@@ -1,4 +1,6 @@
+using System;
 using System.Collections;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -29,16 +31,16 @@ public class SceneTransitions : MonoSingleton<SceneTransitions>
 		_ => null
 	};
 
-	public void LoadScene(string scene, SceneTransition type)
+	public void LoadScene(string scene, SceneTransition type, Action onTransitionComplete = null)
 	{
 		if(!_inTransition)
 		{
 			_inTransition = true;
-			StartCoroutine(TransitionToScene(scene, type));
+			StartCoroutine(TransitionToScene(scene, type, onTransitionComplete));
 		}
 	}
 
-	private IEnumerator TransitionToScene(string scene, SceneTransition type)
+	private IEnumerator TransitionToScene(string scene, SceneTransition type, Action onTransitionComplete)
 	{
 		var transition = Instantiate(TransitionFor(type));
 		DontDestroyOnLoad(transition);
@@ -47,17 +49,18 @@ public class SceneTransitions : MonoSingleton<SceneTransitions>
 		while (!transition.IsComplete)
 			yield return null;
 
-		transition.Setup(true);
-
 		var currentScene = SceneManager.GetActiveScene();
 		var loadOp = SceneManager.LoadSceneAsync(scene, LoadSceneMode.Single);
 		while (!loadOp.isDone)
 			yield return null;
 
+		transition.Setup(true);
 		while (!transition.IsComplete)
 			yield return null;
 
 		Destroy(transition.gameObject);
 		_inTransition = false;
+
+		onTransitionComplete?.Invoke();
 	}
 }

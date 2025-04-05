@@ -211,6 +211,7 @@ GameObject:
   m_Component:
   - component: {fileID: 631677076}
   - component: {fileID: 631677077}
+  - component: {fileID: 631677078}
   m_Layer: 0
   m_Name: Level
   m_TagString: Untagged
@@ -258,6 +259,20 @@ MonoBehaviour:
   - {fileID: 1244839742}
   - {fileID: 1008438338}
   - {fileID: 803812918}
+--- !u!114 &631677078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 631677075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afbac71bac0cac74a822d1dad0f3e4d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 2016958861}
+  cursorTexture: {fileID: 2800000, guid: fc9bbb70284531348944dcae292b7783, type: 3}
 --- !u!1001 &803812916
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -377,7 +392,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.4745098, g: 0.19215688, b: 0.27717975, a: 0}
+  m_BackGroundColor: {r: 0.1509434, g: 0.064079724, b: 0.09062138, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0

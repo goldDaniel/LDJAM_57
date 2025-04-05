@@ -57,7 +57,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 2048
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -122,12 +122,12 @@ TextureImporter:
       name: Fireball_0
       rect:
         serializedVersion: 2
-        x: 619
-        y: 504
-        width: 675
-        height: 999
+        x: 566
+        y: 760
+        width: 937
+        height: 438
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -144,12 +144,12 @@ TextureImporter:
       name: Fireball_1
       rect:
         serializedVersion: 2
-        x: 886
-        y: 509
-        width: 15
-        height: 23
+        x: 509
+        y: 1147
+        width: 23
+        height: 15
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -166,12 +166,12 @@ TextureImporter:
       name: Fireball_2
       rect:
         serializedVersion: 2
-        x: 894
-        y: 511
-        width: 21
-        height: 40
+        x: 511
+        y: 1134
+        width: 40
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -188,7 +188,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: a20f58c50733adb4395a6863c75410fa
     internalID: 0
     vertices: []
     indices: 
@@ -197,7 +197,10 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Fireball_0: -6607481912129624618
+      Fireball_1: -7250195882505504687
+      Fireball_2: 4403933487624526528
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -5,6 +5,7 @@ public class Tentacle : MonoBehaviour
 {
 	public Vector2 initial;
 
+	public float distanceOffset;
 	public Vector2 offset;
 	public float rotation;
 

@@ -33,7 +33,7 @@ public class WipeLeftTransition : Transition
 	public void Update()
 	{
 		wipeSquare.transform.position = Vector3.Lerp(_initial, _target, Easing.InCirc(_t));
-		_t += Time.deltaTime * 2.5f;
+		_t += Time.deltaTime * 1.75f;
 		_t = Mathf.Clamp01(_t);
 	}
 }

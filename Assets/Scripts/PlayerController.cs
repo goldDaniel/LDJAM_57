@@ -13,7 +13,6 @@ public class PlayerController : MonoBehaviour
 	private InputAction attackAction;
 
 	private Vector2 moveDir = Vector2.zero;
-	private float desiredMoveAngle = 0f;
 	private int colliderTouchCount = 0;
 	private bool touchingTerrain => colliderTouchCount > 0;
 

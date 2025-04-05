@@ -164,10 +164,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minRadius: 22
-  maxRadius: 38
+  maxRadius: 45
   madness: 0
   TentaclePrefab: {fileID: 8475773014922967520, guid: eefe39b970023e74eaaef8850e453b68, type: 3}
-  tentacleCount: 256
+  tentacleCount: 512
 --- !u!1 &484162646
 GameObject:
   m_ObjectHideFlags: 0

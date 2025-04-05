@@ -19,7 +19,6 @@ public class Game : MonoBehaviour
 		levelBounds.min = new Vector3(-level.arenaWidth / 2 + level.wallWidth, -level.arenaHeight / 2 + level.wallWidth, 0);
 		levelBounds.max = new Vector3(level.arenaWidth / 2 - level.wallWidth, level.arenaHeight / 2 - level.wallWidth, 0);
 
-
 		for(int i = 0; i < 10; ++i)
 		{
 			var brainCrab = Instantiate(brainCrabPrefab);

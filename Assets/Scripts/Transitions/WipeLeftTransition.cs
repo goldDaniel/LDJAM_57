@@ -22,6 +22,8 @@ public class WipeLeftTransition : Transition
 		_initial = reverse ? new Vector3(0, 0, 0) : new Vector3(-20, 0, 0);
 		_target = reverse ? new Vector3(-20, 0, 0) : new Vector3(0, 0, 0);
 
+		
+
 		wipeSquare.transform.position = _initial;
 		GetComponent<AudioSource>().Play();
 	}

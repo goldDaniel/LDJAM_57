@@ -25,23 +25,18 @@ public class MadnessFOV : MonoBehaviour
 		for(int i = 0; i < tentacleCount; ++i)
 		{
 			float angle = (i / (float)tentacleCount) * Mathf.PI * 2;
-			Vector2 offset = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * distance;
-			offset += new Vector2(Random.Range(-2f, 2f), Random.Range(-2f, 2f));
+			Vector2 initial = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * distance;
 
 			var tentacle = Instantiate(TentaclePrefab);
-			tentacle.offset = offset;
-			tentacle.rotation = -Mathf.Atan2(offset.y, -offset.x);
+			tentacles.Add(tentacle);
 
 			tentacle.transform.parent = this.transform;
-			tentacle.transform.localPosition = offset;
-			tentacle.transform.localRotation = Quaternion.Euler(0, 0, tentacle.rotation * Mathf.Rad2Deg);
+			tentacle.offset = new Vector2(Random.Range(-2f, 2f), Random.Range(-2f, 2f)); ;
 			tentacle.GetComponent<SpriteRenderer>().sortingOrder = Random.Range(100, 200);
-
-			tentacles.Add(tentacle);
 		}
 	}
 
-	private float lastMadness = 0;
+	private float lastMadness = -1;
 	private void Update()
 	{
 		if(lastMadness != madness)
@@ -51,12 +46,10 @@ public class MadnessFOV : MonoBehaviour
 			for (int i = 0; i < tentacleCount; ++i)
 			{
 				float angle = (i / (float)tentacleCount) * Mathf.PI * 2;
-				Vector2 offset = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * distance;
-				offset += new Vector2(Random.value * 2.0f - 1.0f, Random.value * 2.0f - 1.0f);
+				Vector2 initial = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * distance;
 
 				var tentacle = tentacles[i];
-				tentacle.offset = offset;
-				tentacle.rotation = -Mathf.Atan2(offset.y, -offset.x);
+				tentacle.initial = initial;
 			}
 		}
 	}

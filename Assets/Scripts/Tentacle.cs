@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Tentacle : MonoBehaviour
 {
+	public Vector2 initial;
+
 	public Vector2 offset;
 	public float rotation;
 
@@ -21,9 +23,11 @@ public class Tentacle : MonoBehaviour
 
 	void Update()
 	{
-		Vector2 dir = offset.normalized;
+		Vector2 dir = (initial + offset).normalized;
 
-		transform.localPosition = offset + dir * Mathf.Sin(Time.realtimeSinceStartup * 2.7f + timeOffset0) * 2f;
+		transform.localPosition = initial + offset + dir * Mathf.Sin(Time.realtimeSinceStartup * 2.7f + timeOffset0) * 2f;
+
+		float rotation = -Mathf.Atan2(transform.localPosition.y, -transform.localPosition.x);
 		transform.localRotation = Quaternion.Euler(0, 0, rotation * Mathf.Rad2Deg + Mathf.Sin(Time.realtimeSinceStartup * Mathf.PI + timeOffset1) * 10);
 	}
 }

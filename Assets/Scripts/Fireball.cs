@@ -29,6 +29,11 @@ public class Fireball : MonoBehaviour
 	// when something hits a fireball
 	void OnTriggerEnter2D(Collider2D collision)
 	{
+		if(collision.TryGetComponent<Enemy>(out var enemy))
+		{
+			enemy.ApplyDamage(1);
+		}
+
 		Destroy(this.gameObject);
 	}
 }

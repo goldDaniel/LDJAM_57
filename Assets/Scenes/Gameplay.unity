@@ -163,11 +163,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fff039195edd49d4d92c261ed7cebc6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minRadius: 17
+  minRadius: 22
   maxRadius: 38
   madness: 0
   TentaclePrefab: {fileID: 8475773014922967520, guid: eefe39b970023e74eaaef8850e453b68, type: 3}
-  tentacleCount: 60
+  tentacleCount: 256
 --- !u!1 &484162646
 GameObject:
   m_ObjectHideFlags: 0
@@ -273,6 +273,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 2016958861}
   cursorTexture: {fileID: 2800000, guid: fc9bbb70284531348944dcae292b7783, type: 3}
+  brainCrabPrefab: {fileID: 8419515943885230746, guid: 0944814610e725d469e86772044e7f7f, type: 3}
+  level: {fileID: 631677077}
 --- !u!1001 &803812916
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -506,7 +508,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 484162647}
   target: {fileID: 2016958858}
-  decay: 1
+  decay: 5
 --- !u!1001 &1008438336
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -925,7 +927,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4869e31748117347abe356d58c7f55c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Force: 25
+  Force: 35
   fireballPrefab: {fileID: 6653065628560307658, guid: 52acc53aed7428342b9420d053d5e133, type: 3}
   attacksPerSecond: 10
 --- !u!1660057539 &9223372036854775807

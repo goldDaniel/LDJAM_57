@@ -36,7 +36,6 @@ public class MadnessFOV : MonoBehaviour
 			tentacle.transform.localPosition = offset;
 			tentacle.transform.localRotation = Quaternion.Euler(0, 0, tentacle.rotation * Mathf.Rad2Deg);
 			tentacle.GetComponent<SpriteRenderer>().sortingOrder = Random.Range(100, 200);
-			tentacle.GetComponent<SimpleSpriteAnimator>().Randomize();
 
 			tentacles.Add(tentacle);
 		}

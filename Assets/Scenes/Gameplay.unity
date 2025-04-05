@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minRadius: 17
-  maxRadius: 35
+  maxRadius: 38
   madness: 0
   TentaclePrefab: {fileID: 8475773014922967520, guid: eefe39b970023e74eaaef8850e453b68, type: 3}
   tentacleCount: 60
@@ -763,7 +763,7 @@ GameObject:
   - component: {fileID: 2016958860}
   - component: {fileID: 2016958859}
   - component: {fileID: 2016958861}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -926,6 +926,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Force: 25
+  fireballPrefab: {fileID: 6653065628560307658, guid: 52acc53aed7428342b9420d053d5e133, type: 3}
+  attacksPerSecond: 10
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

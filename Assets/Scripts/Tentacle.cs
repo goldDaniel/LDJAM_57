@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Tentacle : MonoBehaviour
@@ -8,10 +9,14 @@ public class Tentacle : MonoBehaviour
 	private float timeOffset0;
 	private float timeOffset1;
 
+	public List<Sprite> potentialSprites;
+
 	void Awake()
 	{
 		timeOffset0 = Random.Range(0, Mathf.PI * 32);
 		timeOffset1 = Random.Range(0, Mathf.PI * 32);
+
+		GetComponent<SpriteRenderer>().sprite = potentialSprites[Random.Range(0, potentialSprites.Count)];
 	}
 
 	void Update()

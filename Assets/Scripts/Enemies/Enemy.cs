@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public abstract class Enemy : MonoBehaviour
 {
 	[Range(1, 100)]
 	public int Health;
@@ -14,8 +14,6 @@ public class Enemy : MonoBehaviour
 	public void ApplyDamage(int damage)
 	{
 		hitTimer = hitDisplayTime;
-		this.enabled = true;
-
 		Health -= damage;
 		if(Health <= 0)
 		{
@@ -29,10 +27,5 @@ public class Enemy : MonoBehaviour
 		sr.color = Color.Lerp(Color.white, Color.red, t);
 		hitTimer -= Time.deltaTime;
 		hitTimer = Mathf.Clamp01(hitTimer);
-
-		if(hitTimer == 0)
-		{
-			this.enabled = false;
-		}
 	}
 }

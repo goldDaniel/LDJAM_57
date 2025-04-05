@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class MadnessFOV : MonoBehaviour
 {
@@ -17,6 +19,10 @@ public class MadnessFOV : MonoBehaviour
 	public int tentacleCount = 100;
 
 	private List<Tentacle> tentacles = new();
+
+	[Range(0f, 1f)]
+	public float vignetteScale;
+	public Volume volume;
 
 	private void Awake()
 	{
@@ -52,6 +58,11 @@ public class MadnessFOV : MonoBehaviour
 
 				float angle = (i / (float)tentacleCount) * Mathf.PI * 2;
 				tentacle.initial = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * (distance + tentacle.distanceOffset);
+			}
+
+			if(volume.profile.TryGet<Vignette>(out var vignette))
+			{
+				vignette.intensity.Override(madness * vignetteScale);
 			}
 		}
 	}

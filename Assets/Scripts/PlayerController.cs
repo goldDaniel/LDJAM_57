@@ -3,6 +3,25 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+	[Range(1, 100)]
+	public int maxHealth;
+
+	private int _currentHealth;
+	public int CurrentHealth
+	{
+		get => _currentHealth;
+		set 
+		{
+			if(_currentHealth != value)
+			{
+				_currentHealth = value;
+				healthBar.SetPercentage((float)CurrentHealth / (float)maxHealth);
+			}
+		}
+	}
+
+	public HealthBar healthBar;
+
 	[Range(1f, 200f)]
 	public float Force = 25;
 
@@ -28,6 +47,8 @@ public class PlayerController : MonoBehaviour
 		moveAction = InputSystem.actions.FindAction("Move");
 		aimAction = InputSystem.actions.FindAction("Look");
 		attackAction = InputSystem.actions.FindAction("Attack");
+
+		CurrentHealth = maxHealth;
 	}
 
 	void Update()

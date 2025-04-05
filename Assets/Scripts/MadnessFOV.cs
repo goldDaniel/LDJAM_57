@@ -26,7 +26,7 @@ public class MadnessFOV : MonoBehaviour
 		{
 			float angle = (i / (float)tentacleCount) * Mathf.PI * 2;
 			Vector2 offset = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * distance;
-			offset += new Vector2(Random.value * 2.0f - 1.0f, Random.value * 2.0f - 1.0f);
+			offset += new Vector2(Random.Range(-2f, 2f), Random.Range(-2f, 2f));
 
 			var tentacle = Instantiate(TentaclePrefab);
 			tentacle.offset = offset;

@@ -43,7 +43,7 @@ public class PerkTemplate : ScriptableObject
 	public bool panic = false;
 
 	public float madnessThreshold = 0;
-	public float rollWeight = 0;
+	public int rollWeight = 0;
 
 
     public List<PerkTemplate> nextTier;

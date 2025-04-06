@@ -51,18 +51,6 @@ public class Game : MonoBehaviour
 		}
 	}
 
-	private void Update()
-	{
-		if(Input.GetKeyDown(KeyCode.P))
-		{
-			Pause();
-		}
-		if (Input.GetKeyDown(KeyCode.O))
-		{
-			UnPause();
-		}
-	}
-
 	private void OnDestroy()
 	{
 		Cursor.lockState = CursorLockMode.None;
@@ -93,13 +81,32 @@ public class Game : MonoBehaviour
 	public List<PerkTemplate> SelectPerks(int count)
 	{
 		List<PerkTemplate> result = new(count);
+		int totalWeights = 0;
+		int currentWeight;
+		for(int j = 0; j < currentPerkPool.Count; ++j)
+		{
+			totalWeights += 100 + currentPerkPool[j].rollWeight;
+		}
 
 		for(int i = 0; i < count; ++i)
 		{
-			int index = Random.Range(0, currentPerkPool.Count);
-			while (result.Contains(currentPerkPool[index]))
-				index = Random.Range(0, currentPerkPool.Count);
-
+			int roll;
+			int index = 0;
+			do
+			{
+                roll = Random.Range(0, totalWeights);
+				currentWeight = roll;
+				for(int j = 0;j < currentPerkPool.Count;++j)
+				{
+					currentWeight -= 100 + currentPerkPool[j].rollWeight;
+					if(currentWeight <= 0)
+					{
+						index = j;
+						break;
+					}
+				}
+            }
+			while (result.Contains(currentPerkPool[index]));
 			result.Add(currentPerkPool[index]);
 		}
 

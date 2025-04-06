@@ -422,7 +422,19 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Madness Border_0: -5773722894844780623
+      Madness Border_1: -8789732150152363956
+      Madness Border_10: 6343854654768245276
+      Madness Border_11: -7677901008787888935
+      Madness Border_2: -216401904268849620
+      Madness Border_3: 4223732255483647205
+      Madness Border_4: 2890693019419167196
+      Madness Border_5: 5597660940410183688
+      Madness Border_6: -728898140632673871
+      Madness Border_7: -1394246622616513064
+      Madness Border_8: -8909720187035249609
+      Madness Border_9: 63789422466498608
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

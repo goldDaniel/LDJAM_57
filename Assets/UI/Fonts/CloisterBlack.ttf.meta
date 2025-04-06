@@ -1,18 +1,18 @@
 fileFormatVersion: 2
-guid: 105ce406652304a4abaa1e384a627480
+guid: b87e1258863fbf24cba2cf0a22b4232d
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
-  fontSize: 16
+  fontSize: 32
   forceTextureCase: -2
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Deutsch Gothic
+  - Cloister Black
   fallbackFontReferences: []
   customCharacters: 
-  fontRenderingMode: 0
+  fontRenderingMode: 2
   ascentCalculationMode: 1
   useLegacyBoundsCalculation: 0
   shouldRoundAdvanceValue: 1

@@ -41,6 +41,7 @@ public class Cultist : Enemy
 
 		if (_currentState == CultistState.Attacking)
 		{
+			rb.bodyType = RigidbodyType2D.Static;
 			if (_activeAttack == null)
 			{
 				_activeAttack = Instantiate(attackPrefab);
@@ -55,6 +56,7 @@ public class Cultist : Enemy
 		}
 		else if (_currentState == CultistState.Cooldown)
 		{
+			rb.bodyType = DefaultBodyType;
 			_cooldownTimer -= Time.deltaTime;
 			if(_cooldownTimer <= 0)
 			{
@@ -72,6 +74,8 @@ public class Cultist : Enemy
 		if (movementOverride)
 			return;
 
+
+		rb.bodyType = DefaultBodyType;
 		_targetP = Game.Instance.player.rb.position;
 		if(Vector2.Distance(_targetP, rb.position) <= attackRange)
 		{

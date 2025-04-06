@@ -9,10 +9,10 @@ public class Level : MonoBehaviour
 	[Range(0.1f, 3f)]
 	public float wallWidth;
 
-	[Range(10, 60)]
+	[Range(10, 1000)]
 	public float arenaWidth = 50;
 
-	[Range(10, 60)]
+	[Range(10, 1000)]
 	public float arenaHeight = 30;
 
 	public List<Wall> walls;

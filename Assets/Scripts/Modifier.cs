@@ -1,36 +1,79 @@
 
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 [Serializable]
-public class Modifier
+public abstract class Modifiable<T>
 {
-	public int add = 0;
-	public int mul = 1;
+	[Range(1f, 1000f)] [SerializeField] protected T baseValue;
+	[NonSerialized]  protected List<T> additive = new();
+	[NonSerialized]  protected List<T> multiplicitive = new();
+
+	public Modifiable(T baseValue) => this.baseValue = baseValue;
+	public void Add(T mod)
+	{
+		// Lazy load due to reflection BS 
+		if (additive == null) additive = new();
+		additive.Add(mod);
+	}
+	public void Mul(T mod)
+	{
+		// Lazy load due to reflection BS 
+		if (multiplicitive == null) additive = new();
+		multiplicitive.Add(mod);
+	}
+	public abstract T Modified();
+	public T Base() => baseValue;
 }
 
 [Serializable]
-public class Modifiable
+public class ModifiableInt : Modifiable<int>
 {
-	public float baseValue;
-
-	List<Modifier> modifiers = new();
-
-	public void Apply(Modifier mod) => modifiers.Add(mod);
-
-	public void Remove(Modifier mod) => modifiers.Remove(mod);
-
-	public float Base() => baseValue;
-
-	public float Modified()
+	public static implicit operator ModifiableInt(int val) => new ModifiableInt(val);
+	public ModifiableInt(int baseValue) : base(baseValue) {}
+	public override int Modified()
 	{
+		// Lazy load due to reflection BS 
+		if (multiplicitive == null) multiplicitive = new();
+		if (additive == null) additive = new();
+
+		int result = baseValue;
+
+		int mulSum = 1;
+		foreach (var mul in multiplicitive)
+			mulSum += mul;
+
+		result *= mulSum;
+
+		foreach (var add in additive)
+			result += add;
+
+		return result;
+	}
+}
+
+[Serializable]
+public class ModifiableFloat : Modifiable<float>
+{
+	public static implicit operator ModifiableFloat(float val) => new ModifiableFloat(val);
+	public ModifiableFloat(float baseValue) : base(baseValue) { }
+	public override float Modified()
+	{
+		// Lazy load due to reflection BS 
+		if (multiplicitive == null) multiplicitive = new();
+		if (additive == null) additive = new();
+
 		float result = baseValue;
 
-		foreach (var mul in modifiers)
-			result *= mul.mul;
+		float mulSum = 1;
+		foreach (var mul in multiplicitive)
+			mulSum += mul;
 
-		foreach (var add in modifiers)
-			result += add.add;
+		result *= mulSum;
+
+		foreach (var add in additive)
+			result += add;
 
 		return result;
 	}

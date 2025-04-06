@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Madness Powerup_0: -6236856018257689370
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -172,7 +172,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Sanity Powerup_0: -6695794792535654213
+      Sanity Powerup_1: -5453841632621663161
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

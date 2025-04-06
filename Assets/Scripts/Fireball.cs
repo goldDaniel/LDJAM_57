@@ -56,8 +56,11 @@ public class Fireball : RegisteredBehaviour<Fireball>
 			enemy.KnockBackFrom(rb.position, 30);
 		}
 
-		Destroy(this.gameObject);
-		var explosion = Instantiate(explosionPrefab);
-		explosion.transform.position = this.transform.position;
+		if(!collision.TryGetComponent(out CultistAttack _))
+		{
+			Destroy(this.gameObject);
+			var explosion = Instantiate(explosionPrefab);
+			explosion.transform.position = this.transform.position;
+		}
 	}
 }

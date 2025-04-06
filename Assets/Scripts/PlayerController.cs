@@ -4,44 +4,41 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-	[Range(1, 100)]
-	public int maxMana;
+	public ModifiableFloat maxMana;
 	private float _currentMana;
 	public float CurrentMana
 	{
 		get => _currentMana;
 		set
 		{
-			if (value >= maxMana)
+			float modifiedMax = maxMana.Modified();
+			if (value >= modifiedMax)
 			{
-				value = maxMana;
+				value = modifiedMax;
 			}
 
 			if (_currentMana != value)
 			{
 				_currentMana = value;
-				manaBar.SetPercentage(_currentMana / maxMana);
+				manaBar.SetPercentage(_currentMana / modifiedMax);
 			}
 		}
 	}
 
-	[Range(1f, 100f)]
-	public float manaRegenPerSecond = 5;
+	public ModifiableFloat manaRegenPerSecond = 5;
+	public ModifiableInt manaCost = 1;
 
-	[Range(1, 100)]
-	public int manaCost = 1;
-
-	[Range(1, 100)]
-	public int maxHealth;
+	public ModifiableInt maxHealth;
 	private int _currentHealth;
 	public int CurrentHealth
 	{
 		get => _currentHealth;
 		set 
 		{
-			if (value >= maxHealth)
+			int modifiedMax = maxHealth.Modified();
+			if (value >= modifiedMax)
 			{
-				value = maxHealth;
+				value = modifiedMax;
 			}
 
 			if(value <= 0)
@@ -49,11 +46,10 @@ public class PlayerController : MonoBehaviour
 				// kill player
 			}
 
-
 			if(_currentHealth != value)
 			{
 				_currentHealth = value;
-				healthBar.SetPercentage((float)CurrentHealth / (float)maxHealth);
+				healthBar.SetPercentage(_currentHealth / (float)modifiedMax);
 			}
 		}
 	}
@@ -61,8 +57,7 @@ public class PlayerController : MonoBehaviour
 	public ResourceBar healthBar;
 	public ResourceBar manaBar;
 
-	[Range(1f, 200f)]
-	public float Force = 25;
+	public ModifiableFloat Force = 25;
 
 	private Rigidbody2D rb;
 
@@ -76,22 +71,21 @@ public class PlayerController : MonoBehaviour
 
 	public Fireball fireballPrefab;
 
-	[Range(0.1f, 100f)]
-	public float attacksPerSecond = 0.1f;
+	public ModifiableFloat attacksPerSecond = 0.1f;
 	private float attackTimer = 0;
 
 	[Range(2f, 20f)]
 	public float collisionPushRadius = 10f;
 
-	void Awake()
+	void Start()
 	{
 		rb = GetComponent<Rigidbody2D>();
 		moveAction = InputSystem.actions.FindAction("Move");
 		aimAction = InputSystem.actions.FindAction("Look");
 		attackAction = InputSystem.actions.FindAction("Attack");
 
-		CurrentHealth = maxHealth;
-		CurrentMana = maxMana;
+		CurrentHealth = maxHealth.Modified();
+		CurrentMana = maxMana.Modified();
 	}
 
 	void Update()
@@ -105,10 +99,10 @@ public class PlayerController : MonoBehaviour
 			Vector2 cursorPosWorld = Camera.main.ScreenToWorldPoint(aimDir).xy();
 			if (attackAction.ReadValue<float>() > 0)
 			{
-				while (attackTimer <= 0 && CurrentMana >= manaCost)
+				while (attackTimer <= 0 && CurrentMana >= manaCost.Modified())
 				{
-					CurrentMana -= manaCost;
-					attackTimer += 1.0f / attacksPerSecond;
+					CurrentMana -= manaCost.Modified();
+					attackTimer += 1.0f / attacksPerSecond.Modified();
 
 					// spawn projectile here
 					Vector2 attackDir = (cursorPosWorld - this.transform.position.xy()).normalized;
@@ -126,13 +120,13 @@ public class PlayerController : MonoBehaviour
 
 		// mana regen
 		{
-			CurrentMana += manaRegenPerSecond * Time.deltaTime;
+			CurrentMana += manaRegenPerSecond.Modified() * Time.deltaTime;
 		}
 	}
 
 	void FixedUpdate()
 	{
-		rb.AddForce(moveDir * Force);
+		rb.AddForce(moveDir * Force.Modified());
 	}
 
 	private void OnCollisionEnter2D(Collision2D collision)

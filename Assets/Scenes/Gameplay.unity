@@ -1497,13 +1497,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4869e31748117347abe356d58c7f55c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxMana: 100
-  manaRegenPerSecond: 20
-  manaCost: 5
-  maxHealth: 10
+  maxMana:
+    baseValue: 100
+  manaRegenPerSecond:
+    baseValue: 15
+  manaCost:
+    baseValue: 5
+  maxHealth:
+    baseValue: 100
   healthBar: {fileID: 1320893029}
   manaBar: {fileID: 1435939439}
-  Force: 35
+  Force:
+    baseValue: 25
   fireballPrefab: {fileID: 6653065628560307658, guid: 52acc53aed7428342b9420d053d5e133, type: 3}
   attacksPerSecond: 10
   collisionPushRadius: 10

@@ -17,7 +17,7 @@ MonoBehaviour:
   description: 'Increases Cast Speed
 
     Cast Speed + 35%'
-  borderColor: {r: 0.7372549, g: 0.52156866, b: 0.007843138, a: 0}
+  borderColor: {r: 0.7372549, g: 0.52156866, b: 0.007843138, a: 1}
   showDecoration: 0
   maxHealthMultiplier: 0
   maxHealthAdditive: 0
@@ -26,6 +26,7 @@ MonoBehaviour:
   aoeRadius: 0
   movementSpeed: 0
   manaRegen: 0
+  healthRegen: 0
   maxManaAdditive: 0
   damageReduction: 0
   castSpeed: 0.35
@@ -34,7 +35,11 @@ MonoBehaviour:
   lifesteal: 0
   cascadeChance: 0
   XPIncrease: 0
-  sheldCooldown: 0
+  shieldCooldown: 0
+  madnessGained: 0
+  instakill: 0
+  perksGained: 0
+  retaliate: 0
   equality: 0
   shield: 0
   rampage: 0

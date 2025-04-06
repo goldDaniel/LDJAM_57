@@ -17,7 +17,7 @@ MonoBehaviour:
   description: 'Reduces Spell Cost
 
     Spell Cost 15% > 10%'
-  borderColor: {r: 0, g: 0, b: 0, a: 0}
+  borderColor: {r: 0.19384111, g: 0.68497854, b: 0.7610062, a: 1}
   showDecoration: 0
   maxHealthMultiplier: 0
   maxHealthAdditive: 0
@@ -26,6 +26,7 @@ MonoBehaviour:
   aoeRadius: 0
   movementSpeed: 0
   manaRegen: 0
+  healthRegen: 0
   maxManaAdditive: 0
   damageReduction: 0
   castSpeed: 0
@@ -36,6 +37,9 @@ MonoBehaviour:
   XPIncrease: 0
   shieldCooldown: 0
   madnessGained: 0
+  instakill: 0
+  perksGained: 0
+  retaliate: 0
   equality: 0
   shield: 0
   rampage: 0

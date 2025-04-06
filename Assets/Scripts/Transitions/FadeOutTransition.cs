@@ -16,6 +16,7 @@ public class FadeOutTransition : Transition
 
 	public override void Setup(bool reverse)
 	{
+		fadeSquare.enabled = false;
 		_reverse = reverse;
 		_t = 0;
 
@@ -24,7 +25,9 @@ public class FadeOutTransition : Transition
 
 		var quadHeight = Camera.main.orthographicSize * 2.0f;
 		var quadWidth = quadHeight * Screen.width / Screen.height;
-		fadeSquare.transform.position = Vector3.zero;	
+		fadeSquare.transform.position = Vector3.zero;
+		fadeSquare.transform.localScale = new Vector3(quadWidth, quadHeight, 1);
+
 	}
 
 	public void Update()
@@ -39,6 +42,7 @@ public class FadeOutTransition : Transition
 
 		_t += Time.deltaTime;
 		_t = Mathf.Clamp01(_t);
+		fadeSquare.enabled = true;
 	}
 
 }

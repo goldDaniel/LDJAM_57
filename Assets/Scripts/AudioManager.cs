@@ -10,6 +10,7 @@ public class AudioManager : MonoSingleton<AudioManager>
 	public AudioSource gameplayBackground;
 
 	public AudioSource fireballSwoosh;
+	public AudioSource fireballExplosion;
 
 	public void StartMainMenuMusic()
 	{

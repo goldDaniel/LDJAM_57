@@ -131,6 +131,7 @@ public class PlayerController : MonoBehaviour
 					var fireball = Instantiate(fireballPrefab);
 					fireball.transform.position = this.transform.position;
 					fireball.direction = attackDir;
+					AudioManager.Instance.PlaySFX(AudioManager.Instance.fireballSwoosh);
 				}
 			}
 		}

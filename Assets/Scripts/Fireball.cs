@@ -28,8 +28,6 @@ public class Fireball : RegisteredBehaviour<Fireball>
 
 		rb.linearVelocity = direction * initialSpeed;
 		sr.gameObject.transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(rb.linearVelocityY, rb.linearVelocityX) * Mathf.Rad2Deg);
-
-		AudioManager.Instance.PlaySFX(AudioManager.Instance.fireballSwoosh);
 	}
 
 	private void OnEnable()
@@ -60,9 +58,17 @@ public class Fireball : RegisteredBehaviour<Fireball>
 
 		if(!collision.TryGetComponent(out CultistAttack _))
 		{
+			
 			Destroy(this.gameObject);
 			var explosion = Instantiate(explosionPrefab);
 			explosion.transform.position = this.transform.position;
+
+			Vector3 p = Camera.main.WorldToScreenPoint(this.transform.position);
+			if(p.x > -10 && p.x < Screen.width + 10 &&
+			   p.y > -10 && p.y < Screen.height + 10)
+			{
+				AudioManager.Instance.PlaySFX(AudioManager.Instance.fireballExplosion);
+			}	
 		}
 	}
 }

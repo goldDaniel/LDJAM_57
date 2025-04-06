@@ -28,6 +28,8 @@ public class Fireball : RegisteredBehaviour<Fireball>
 
 		rb.linearVelocity = direction * initialSpeed;
 		sr.gameObject.transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(rb.linearVelocityY, rb.linearVelocityX) * Mathf.Rad2Deg);
+
+		AudioManager.Instance.PlaySFX(AudioManager.Instance.fireballSwoosh);
 	}
 
 	private void OnEnable()

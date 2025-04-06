@@ -26,16 +26,16 @@
 }
 
 .main-menu-button:hover {
-    border-left-color: rgb(178, 255, 255);
-    border-right-color: rgb(178, 255, 255);
-    border-top-color: rgb(178, 255, 255);
-    border-bottom-color: rgb(178, 255, 255);
+    border-left-color: rgb(112, 27, 23);
+    border-right-color: rgb(112, 27, 23);
+    border-top-color: rgb(112, 27, 23);
+    border-bottom-color: rgb(112, 27, 23);
 }
 
 .main-menu-button:active {
     color: rgb(142, 204, 204);
-    border-left-color: rgb(178, 255, 255);
-    border-right-color: rgb(178, 255, 255);
-    border-top-color: rgb(178, 255, 255);
-    border-bottom-color: rgb(178, 255, 255);
+    border-left-color: rgb(112, 27, 23);
+    border-right-color: rgb(112, 27, 23);
+    border-top-color: rgb(112, 27, 23);
+    border-bottom-color: rgb(112, 27, 23);
 }

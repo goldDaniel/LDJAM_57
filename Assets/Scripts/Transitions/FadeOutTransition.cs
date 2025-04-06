@@ -21,10 +21,18 @@ public class FadeOutTransition : Transition
 
 		_initialOpacity = reverse ? 1 : 0;
 		_targetOpacity = reverse ? 0 : 1;
+
+		var quadHeight = Camera.main.orthographicSize * 2.0f;
+		var quadWidth = quadHeight * Screen.width / Screen.height;
+		fadeSquare.transform.position = Vector3.zero;	
 	}
 
 	public void Update()
 	{
+		var quadHeight = Camera.main.orthographicSize * 2.0f;
+		var quadWidth = quadHeight * Screen.width / Screen.height;
+		fadeSquare.transform.localScale = new Vector3(quadWidth, quadHeight, 1);
+
 		Color color = fadeSquare.color;
 		color.a = Mathf.Lerp(_initialOpacity, _targetOpacity, _t);
 		fadeSquare.color = color;

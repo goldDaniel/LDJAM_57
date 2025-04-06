@@ -1,6 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/styles/main-menu.uss?fileID=7433441132597879392&amp;guid=b58caf0003ba79f439a7f6ced09f97d9&amp;type=3#main-menu" />
-    <ui:Label text="Depths of Madness" display-tooltip-when-elided="true" name="Title" style="-unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/CloisterBlack.ttf?fileID=12800000&amp;guid=b87e1258863fbf24cba2cf0a22b4232d&amp;type=3#CloisterBlack&quot;); -unity-text-align: middle-center; font-size: 90px; margin-top: 8px; color: rgb(255, 255, 255);" />
+    <ui:Label text="Depths of Madness" display-tooltip-when-elided="true" name="Title" style="-unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/CloisterBlack.ttf?fileID=12800000&amp;guid=b87e1258863fbf24cba2cf0a22b4232d&amp;type=3#CloisterBlack&quot;); -unity-text-align: middle-center; font-size: 90px; margin-top: 8px; color: rgb(0, 0, 0);" />
     <ui:VisualElement name="ButtonGroup" style="flex-grow: 1; margin-top: 200px;">
         <ui:Button text="Play" name="PlayButton" class="main-menu-button" />
         <ui:Button text="How To Play" name="HowToPlayButton" class="main-menu-button" />

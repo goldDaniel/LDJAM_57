@@ -27,7 +27,7 @@ public class MainMenuUI : MonoBehaviour
 		Button play = uiDoc.rootVisualElement.Q("PlayButton") as Button;
 		play.RegisterCallback((ClickEvent e) =>
 		{
-			SceneTransitions.Instance.LoadScene("Gameplay", SceneTransition.WipeLeft, ()=>Game.Instance.UnPause());
+			SceneTransitions.Instance.LoadScene("Gameplay", SceneTransition.FadeOut, ()=>Game.Instance.UnPause());
 			onClickSound.Play();
 			AudioManager.Instance.SwitchToGameplay();
 		});
@@ -52,7 +52,7 @@ public class MainMenuUI : MonoBehaviour
 
 	void Update()
 	{
-		if(prevScreenWidth != Screen.width || prevScreenHeight != Screen.height)
+		if (prevScreenWidth != Screen.width || prevScreenHeight != Screen.height)
 		{
 			prevScreenWidth = Screen.width;
 			prevScreenHeight = Screen.height;
@@ -67,11 +67,11 @@ public class MainMenuUI : MonoBehaviour
 			var uiTarget = CreateFullScreenRT();
 			uiDoc.panelSettings.targetTexture = uiTarget;
 			mr.material.mainTexture = uiTarget;
-
-			var quadHeight = Camera.main.orthographicSize * 2.0f;
-			var quadWidth = quadHeight * Screen.width / Screen.height;
-			transform.localScale = new Vector3(quadWidth, quadHeight, 1);
 		}
+
+		var quadHeight = Camera.main.orthographicSize * 2.0f;
+		var quadWidth = quadHeight * Screen.width / Screen.height;
+		transform.localScale = new Vector3(quadWidth, quadHeight, 1);
 	}
 
 	RenderTexture CreateFullScreenRT()

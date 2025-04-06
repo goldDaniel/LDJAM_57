@@ -21,9 +21,14 @@ public class MadnessFOV : MonoBehaviour
 	public float vignetteScale;
 	public Volume volume;
 
+	public bool isMainMenu = false;
+
+	[Range(0f, 1f)]
+	public float mainMenuT;
+
 	private void Start()
 	{
-		float distance = Mathf.Lerp(maxRadius, minRadius, Game.Instance.player.madness);
+		float distance = Mathf.Lerp(maxRadius, minRadius, isMainMenu ? mainMenuT : Game.Instance.player.madness);
 		for(int i = 0; i < tentacleCount; ++i)
 		{
 			var tentacle = Instantiate(TentaclePrefab);
@@ -45,10 +50,10 @@ public class MadnessFOV : MonoBehaviour
 	private float lastMadness = -1;
 	private void Update()
 	{
-		if(lastMadness != Game.Instance.player.madness)
+		if(lastMadness != (isMainMenu ? mainMenuT : Game.Instance.player.madness))
 		{
-			lastMadness = Game.Instance.player.madness;
-			float distance = Mathf.Lerp(maxRadius, minRadius, Game.Instance.player.madness);
+			lastMadness = isMainMenu ? mainMenuT : Game.Instance.player.madness;
+			float distance = Mathf.Lerp(maxRadius, minRadius, isMainMenu ? mainMenuT : Game.Instance.player.madness);
 			for (int i = 0; i < tentacleCount; ++i)
 			{
 				var tentacle = tentacles[i];
@@ -59,7 +64,7 @@ public class MadnessFOV : MonoBehaviour
 
 			if(volume.profile.TryGet<Vignette>(out var vignette))
 			{
-				vignette.intensity.Override(Game.Instance.player.madness * vignetteScale);
+				vignette.intensity.Override((isMainMenu ? mainMenuT : Game.Instance.player.madness) * vignetteScale);
 			}
 		}
 	}

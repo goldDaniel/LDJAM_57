@@ -6,7 +6,7 @@ using UnityEngine;
 [Serializable]
 public abstract class Modifiable<T>
 {
-	[Range(1f, 1000f)] [SerializeField] protected T baseValue;
+	[SerializeField] protected T baseValue;
 	[NonSerialized]  protected List<T> additive = new();
 	[NonSerialized]  protected List<T> multiplicitive = new();
 
@@ -40,14 +40,14 @@ public class ModifiableInt : Modifiable<int>
 
 		int result = baseValue;
 
+		foreach (var add in additive)
+			result += add;
+
 		int mulSum = 1;
 		foreach (var mul in multiplicitive)
 			mulSum += mul;
 
 		result *= mulSum;
-
-		foreach (var add in additive)
-			result += add;
 
 		return result;
 	}
@@ -66,14 +66,14 @@ public class ModifiableFloat : Modifiable<float>
 
 		float result = baseValue;
 
+		foreach (var add in additive)
+			result += add;
+
 		float mulSum = 1;
 		foreach (var mul in multiplicitive)
 			mulSum += mul;
 
 		result *= mulSum;
-
-		foreach (var add in additive)
-			result += add;
 
 		return result;
 	}

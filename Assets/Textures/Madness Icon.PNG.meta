@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Madness Icon_0: -234679215618397141
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

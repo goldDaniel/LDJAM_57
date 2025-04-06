@@ -18,7 +18,7 @@ public class Fireball : RegisteredBehaviour<Fireball>
 
 	public Explosion explosionPrefab;
 
-	public ModifiableInt damage = 1;
+	public ModifiableFloat damage = 1f;
 
 	private new void Start()
 	{

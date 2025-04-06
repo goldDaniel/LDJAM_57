@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class Enemy : RegisteredBehaviour<Enemy>
 {
 	[Range(1, 100)]
-	public int Health;
+	public float Health;
 
 	[Range(0.01f, 1f)]
 	public float hitDisplayTime = 0.05f;
@@ -17,7 +17,7 @@ public abstract class Enemy : RegisteredBehaviour<Enemy>
 
 	public bool movementOverride = false;
 
-	public void ApplyDamage(int damage)
+	public void ApplyDamage(float damage)
 	{
 		hitTimer = hitDisplayTime;
 		Health -= damage;

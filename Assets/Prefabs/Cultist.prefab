@@ -165,11 +165,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75c06854f98751a47b22c1d6b405a2f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 10
+  Health: 35
   hitDisplayTime: 0.2
   sr: {fileID: 8223532526096205592}
   rb: {fileID: 2314421833370535033}
   collide: {fileID: 3688240665819838831}
+  xpGain: 55
   movementOverride: 0
   DefaultBodyType: 0
   Force: 1

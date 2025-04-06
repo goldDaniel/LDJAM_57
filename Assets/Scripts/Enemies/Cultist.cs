@@ -1,4 +1,5 @@
 
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Cultist : Enemy
@@ -91,5 +92,10 @@ public class Cultist : Enemy
 	{
 		Gizmos.color = Color.red;
 		Gizmos.DrawWireSphere(transform.position, attackRange);
+	}
+	public override void dropPickup()
+	{
+		var pickup = Instantiate(Game.Instance.pickups[1]);
+		pickup.transform.position = transform.position;
 	}
 }

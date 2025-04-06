@@ -9,7 +9,6 @@ public class PerkTemplate : ScriptableObject
 	[Multiline]
 	public string description;
 	public Color borderColor;
-	public bool showDecoration;
 
 
 	// 10% increase = 1.1f, 22% = 1.22f, etc...

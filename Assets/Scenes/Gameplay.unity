@@ -163,12 +163,69 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fff039195edd49d4d92c261ed7cebc6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minRadius: 30
-  maxRadius: 60
+  minRadius: 23
+  maxRadius: 48.5
   TentaclePrefab: {fileID: 8475773014922967520, guid: eefe39b970023e74eaaef8850e453b68, type: 3}
   tentacleCount: 512
   vignetteScale: 0.4
   volume: {fileID: 871620369}
+--- !u!1001 &288317434
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4243570325519532953, guid: b94a357a2402f20448a5302cfafd0617, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -10.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 4243570325519532953, guid: b94a357a2402f20448a5302cfafd0617, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 4243570325519532953, guid: b94a357a2402f20448a5302cfafd0617, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4243570325519532953, guid: b94a357a2402f20448a5302cfafd0617, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4243570325519532953, guid: b94a357a2402f20448a5302cfafd0617, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4243570325519532953, guid: b94a357a2402f20448a5302cfafd0617, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4243570325519532953, guid: b94a357a2402f20448a5302cfafd0617, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4243570325519532953, guid: b94a357a2402f20448a5302cfafd0617, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4243570325519532953, guid: b94a357a2402f20448a5302cfafd0617, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4243570325519532953, guid: b94a357a2402f20448a5302cfafd0617, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419515943885230746, guid: b94a357a2402f20448a5302cfafd0617, type: 3}
+      propertyPath: m_Name
+      value: Cultist
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b94a357a2402f20448a5302cfafd0617, type: 3}
 --- !u!1 &484162646
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,6 +405,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: de8bb8b998e726d40ab7c134d900c083, type: 2}
   - {fileID: 11400000, guid: c60aace5961ce944c853a85db5a38488, type: 2}
   - {fileID: 11400000, guid: fe57496f2e3ac784e8be2373ab9b90d5, type: 2}
+  pickups:
+  - {fileID: 7050075898809227169, guid: 5f083bccaf60fe948b12621222a5d01a, type: 3}
+  - {fileID: 7050075898809227169, guid: bef8476d94f50ae40b937fcc56534a42, type: 3}
+  - {fileID: 7050075898809227169, guid: 94cd3e3d2b51da04ca8aa428001580ce, type: 3}
   currentWave: {fileID: 0}
   allWaves:
   - {fileID: 11400000, guid: 5a60a261c223889438a25ca40c9a13a7, type: 2}
@@ -863,7 +924,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 25
+  orthographic size: 15
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2083,6 +2144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d537cb6e101b135409f9738879792e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
 --- !u!1 &2016958856
 GameObject:
   m_ObjectHideFlags: 0
@@ -2147,7 +2209,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 92d31bc0db253e441bf35fb3d01af57a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2168,7 +2230,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6.93, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 743209520}
@@ -2277,8 +2339,11 @@ MonoBehaviour:
   fireballPrefab: {fileID: 6653065628560307658, guid: 52acc53aed7428342b9420d053d5e133, type: 3}
   attacksPerSecond:
     baseValue: 1
-  collisionPushRadius: 10
+  collisionPushRadius: 10.0036
   madness: 0
+  currentXP: 0
+  xpNeeded: 100
+  xpScaling: 20
 --- !u!1 &2094099454
 GameObject:
   m_ObjectHideFlags: 0
@@ -2472,3 +2537,4 @@ SceneRoots:
   - {fileID: 1558300500}
   - {fileID: 1943831172}
   - {fileID: 879022315}
+  - {fileID: 288317434}

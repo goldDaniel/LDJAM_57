@@ -83,6 +83,10 @@ public class PlayerController : MonoBehaviour
 	[Range(0f, 1f)]
 	public float madness = 0f;
 
+	public float currentXP = 0;
+	public float xpNeeded = 0;
+	public float xpScaling = 0;
+
 	void Start()
 	{
 		rb = GetComponent<Rigidbody2D>();
@@ -201,5 +205,19 @@ public class PlayerController : MonoBehaviour
 		// madness
 		if (!MathUtils.ApproximatelyZero(perk.madnessGained))
 			madness += perk.madnessGained;
+	}
+
+	public void addXP(float xp)
+	{
+		currentXP += xp;
+		if (currentXP > xpNeeded)
+		{
+			currentXP -= xpNeeded;
+			xpNeeded += xpScaling;
+			PerkUIController.Instance.ActivatePerkSelection();
+			CurrentMana = maxMana.Modified();
+			CurrentHealth = maxHealth.Modified();
+
+		}
 	}
 }

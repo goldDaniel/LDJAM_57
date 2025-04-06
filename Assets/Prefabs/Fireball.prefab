@@ -204,3 +204,5 @@ MonoBehaviour:
   collide: {fileID: 7346693303062401245}
   sr: {fileID: 7643023501477775183}
   explosionPrefab: {fileID: 2370295985701702163, guid: 72462d00a8f107a4ea364bf4ee51f6fc, type: 3}
+  damage:
+    baseValue: 8

@@ -14,6 +14,7 @@ public abstract class Enemy : RegisteredBehaviour<Enemy>
 	public SpriteRenderer sr;
 	public Rigidbody2D rb;
 	public Collider2D collide;
+	public float xpGain;
 
 	public bool movementOverride = false;
 
@@ -80,4 +81,15 @@ public abstract class Enemy : RegisteredBehaviour<Enemy>
 		rb.linearDamping = 6;
 		rb.AddForce(dir.normalized * force);
 	}
+
+    protected override void OnDestroy()
+    {
+        base.OnDestroy();
+		if (Application.isPlaying)
+		{
+			Game.Instance.player.addXP(xpGain);
+			dropPickup();
+		}
+    }
+	public virtual void dropPickup() { }
 }

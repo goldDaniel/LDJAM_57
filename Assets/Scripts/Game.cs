@@ -20,6 +20,8 @@ public class Game : MonoBehaviour
 
     public List<PerkTemplate> madnessPerkPool;
 
+	public List<Pickup> pickups;
+
 	public Wave currentWave;
 	private float _waveTimer;
 
@@ -239,15 +241,27 @@ public class Game : MonoBehaviour
 
 		for(int i = 0; i < count; ++i)
 		{
+			float madnessRoll = Random.Range(0f,1f);
+
+			List<PerkTemplate> perkPool;
+
+			if(madnessRoll > Game.Instance.player.madness || Game.Instance.player.madness < 0.01f)
+			{
+				perkPool = currentPerkPool;
+			} else
+			{
+				perkPool = madnessPerkPool;
+			}
+
 			int roll;
 			int index = 0;
 			do
 			{
                 roll = Random.Range(0, totalWeights);
 				currentWeight = roll;
-				for(int j = 0;j < currentPerkPool.Count;++j)
+				for(int j = 0;j < perkPool.Count;++j)
 				{
-					currentWeight -= 100 + currentPerkPool[j].rollWeight;
+					currentWeight -= 100 + perkPool[j].rollWeight;
 					if(currentWeight <= 0)
 					{
 						index = j;
@@ -255,8 +269,8 @@ public class Game : MonoBehaviour
 					}
 				}
             }
-			while (result.Contains(currentPerkPool[index]));
-			result.Add(currentPerkPool[index]);
+			while (result.Contains(perkPool[index]));
+			result.Add(perkPool[index]);
 		}
 
 		return result;
@@ -264,9 +278,18 @@ public class Game : MonoBehaviour
 
 	public void RemovePerkFromPool(PerkTemplate perk)
 	{
-		currentPerkPool.RemoveSwapBack(perk);
+		List<PerkTemplate> perkPool;
+		if (perk.madnessThreshold > 0f)
+		{
+			perkPool = madnessPerkPool;
+		} else
+		{
+			perkPool = currentPerkPool;
+		}
+
+        perkPool.RemoveSwapBack(perk);
 		if (perk.nextTier != null)
-			currentPerkPool.AddRange(perk.nextTier);
+            perkPool.AddRange(perk.nextTier);
 	}
 
 	public void UnPause()

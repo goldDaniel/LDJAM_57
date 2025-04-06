@@ -22,7 +22,7 @@ public class PerkUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, 
 		titleText.text = template.title;
 		descriptionText.text = template.description;
 		borderImage.color = template.borderColor;
-		decoration.gameObject.SetActive(template.showDecoration);
+		decoration.gameObject.SetActive(template.madnessThreshold > 0);
 	}
 
 	public void OnPointerDown(PointerEventData eventData)

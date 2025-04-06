@@ -3,7 +3,7 @@
     align-self: center;
     margin-top: 32px;
     margin-bottom: 4px;
-    -unity-font-definition: url("project://database/Assets/UI/Fonts/Deutsch.ttf?fileID=12800000&guid=105ce406652304a4abaa1e384a627480&type=3#Deutsch");
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/CloisterBlack.ttf?fileID=12800000&guid=b87e1258863fbf24cba2cf0a22b4232d&type=3#CloisterBlack");
     font-size: 32px;
     color: rgb(204, 204, 204);
     border-left-color: rgb(204, 204, 204);

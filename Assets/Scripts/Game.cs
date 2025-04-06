@@ -42,8 +42,6 @@ public class Game : MonoBehaviour
 			Debug.LogError("Cannot instantiate multiple games. Something is wrong!");
 			Destroy(this.gameObject);
 		}
-
-		currentWave = SelectNextWave();
 	}
 
 	void Start()
@@ -53,10 +51,17 @@ public class Game : MonoBehaviour
 
 		levelBounds.min = new Vector3(-level.arenaWidth / 2 + level.wallWidth, -level.arenaHeight / 2 + level.wallWidth, 0);
 		levelBounds.max = new Vector3(level.arenaWidth / 2 - level.wallWidth, level.arenaHeight / 2 - level.wallWidth, 0);
+
+		Pause();
+		currentWave = SelectNextWave();
 	}
 
 	void Update()
 	{
+		// hack to tell if game is paused
+		if (!player.enabled)
+			return;
+
 		HandleWaveUpdates();
 	}
 

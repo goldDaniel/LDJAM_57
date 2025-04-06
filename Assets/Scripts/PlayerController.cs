@@ -1,5 +1,3 @@
-using System.Linq;
-using TreeEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -96,12 +94,19 @@ public class PlayerController : MonoBehaviour
 	void Start()
 	{
 		rb = GetComponent<Rigidbody2D>();
+		
+		CurrentHealth = maxHealth.Modified();
+		CurrentMana = maxMana.Modified();
+	}
+
+	private void OnEnable()
+	{
 		moveAction = InputSystem.actions.FindAction("Move");
 		aimAction = InputSystem.actions.FindAction("Look");
 		attackAction = InputSystem.actions.FindAction("Attack");
-
-		CurrentHealth = maxHealth.Modified();
-		CurrentMana = maxMana.Modified();
+		moveAction.Enable();
+		aimAction.Enable();
+		attackAction.Enable();
 	}
 
 	void Update()

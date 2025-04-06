@@ -18,9 +18,7 @@ public class Fireball : MonoBehaviour
 
 	public Explosion explosionPrefab;
 
-	private 
-
-	void Start()
+	private void Start()
 	{
 		Debug.Assert(Mathf.Abs(direction.sqrMagnitude - 1.0f) < 0.01f, "Please normalize the direction before setting");
 

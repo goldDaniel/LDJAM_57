@@ -5,14 +5,45 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
 	[Range(1, 100)]
-	public int maxHealth;
+	public int maxMana;
+	private float _currentMana;
+	public float CurrentMana
+	{
+		get => _currentMana;
+		set
+		{
+			if (value >= maxMana)
+			{
+				value = maxMana;
+			}
 
+			if (_currentMana != value)
+			{
+				_currentMana = value;
+				manaBar.SetPercentage(_currentMana / maxMana);
+			}
+		}
+	}
+
+	[Range(1f, 100f)]
+	public float manaRegenPerSecond = 5;
+
+	[Range(1, 100)]
+	public int manaCost = 1;
+
+	[Range(1, 100)]
+	public int maxHealth;
 	private int _currentHealth;
 	public int CurrentHealth
 	{
 		get => _currentHealth;
 		set 
 		{
+			if (value >= maxHealth)
+			{
+				value = maxHealth;
+			}
+
 			if(value <= 0)
 			{
 				// kill player
@@ -27,7 +58,8 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 
-	public HealthBar healthBar;
+	public ResourceBar healthBar;
+	public ResourceBar manaBar;
 
 	[Range(1f, 200f)]
 	public float Force = 25;
@@ -59,6 +91,7 @@ public class PlayerController : MonoBehaviour
 		attackAction = InputSystem.actions.FindAction("Attack");
 
 		CurrentHealth = maxHealth;
+		CurrentMana = maxMana;
 	}
 
 	void Update()
@@ -72,8 +105,9 @@ public class PlayerController : MonoBehaviour
 			Vector2 cursorPosWorld = Camera.main.ScreenToWorldPoint(aimDir).xy();
 			if (attackAction.ReadValue<float>() > 0)
 			{
-				while (attackTimer <= 0)
+				while (attackTimer <= 0 && CurrentMana >= manaCost)
 				{
+					CurrentMana -= manaCost;
 					attackTimer += 1.0f / attacksPerSecond;
 
 					// spawn projectile here
@@ -88,6 +122,11 @@ public class PlayerController : MonoBehaviour
 		// Move
 		{
 			moveDir = moveAction.ReadValue<Vector2>();
+		}
+
+		// mana regen
+		{
+			CurrentMana += manaRegenPerSecond * Time.deltaTime;
 		}
 	}
 

@@ -100,6 +100,9 @@ public class Game : MonoBehaviour
 								{
 									var crab = Instantiate(brainCrabPrefab);
 									crab.transform.position = spawnPosition + Random.insideUnitCircle * 5f;
+									crab.Health *= currentWave.healthMulti;
+									crab.hitDamage *= currentWave.damageMulti;
+									crab.xpGain *= currentWave.xpMulti;
 								}
 							}
 							break;
@@ -110,7 +113,10 @@ public class Game : MonoBehaviour
 								currentWave.cultistCount--;
 								var cultist = Instantiate(cultistPrefab);
 								cultist.transform.position = spawnPosition;
-							}
+                                cultist.Health *= currentWave.healthMulti;
+                                cultist.hitDamage *= currentWave.damageMulti;
+                                cultist.xpGain *= currentWave.xpMulti;
+                            }
 							break;
 						case 2: // eyeball
 							{
@@ -274,7 +280,7 @@ public class Game : MonoBehaviour
 					}
 				}
             }
-			while (result.Contains(perkPool[index]));
+			while (result.Contains(perkPool[index]) && perkPool[index].madnessThreshold <= Game.Instance.player.madness);
 			result.Add(perkPool[index]);
 		}
 

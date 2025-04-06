@@ -90,6 +90,7 @@ public class PlayerController : MonoBehaviour
 	public float retaliatePercent = 0;
 	public float lifeSteal = 0;
 	public float xpIncrease = 0;
+	public float damageReduction = 1;
 
 	void Start()
 	{
@@ -160,7 +161,7 @@ public class PlayerController : MonoBehaviour
 		colliderTouchCount++;
 		if(collision.collider.gameObject.TryGetComponent(out Enemy hitEnemy))
 		{
-			ApplyDamage(1);
+			ApplyDamage(hitEnemy.hitDamage,hitEnemy);
 			foreach (var enemy in Game.Instance.GetNearbyEnemies(rb.position, collisionPushRadius))
 			{
 				enemy.OnPlayerHit(rb.position, collisionPushRadius);
@@ -168,10 +169,13 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 
-	public void ApplyDamage(int damage)
+	public void ApplyDamage(float damage, Enemy source = null)
 	{
-		// TODO (danielg): apply damage reduction here
-		CurrentHealth -= damage;
+		if (source != null)
+		{
+			source.ApplyDamage(damage * retaliatePercent);
+		}
+		CurrentHealth -= damage * damageReduction;
 	}
 
 	private void OnCollisionExit2D(Collision2D collision)
@@ -204,26 +208,38 @@ public class PlayerController : MonoBehaviour
 			manaRegenPerSecond.Mul(perk.manaRegen);
 		if (!MathUtils.ApproximatelyZero(perk.manaCost))
 			manaCost.Add(perk.manaCost);
-        if (!MathUtils.ApproximatelyZero(perk.manaCostMultiplier))
-            manaCost.Mul(perk.manaCostMultiplier);
-        if (!MathUtils.ApproximatelyZero(perk.maxManaAdditive))
+		if (!MathUtils.ApproximatelyZero(perk.manaCostMultiplier))
+			manaCost.Mul(perk.manaCostMultiplier);
+		if (!MathUtils.ApproximatelyZero(perk.maxManaAdditive))
 			manaCost.Add(perk.manaCost);
 
 		// cast speed
 		if (!MathUtils.ApproximatelyZero(perk.castSpeed))
 			attacksPerSecond.Mul(perk.castSpeed);
 
-		// madness
-		if (!MathUtils.ApproximatelyZero(perk.madnessGained))
+        // damage reduction
+        if (!MathUtils.ApproximatelyZero(perk.damageReduction))
+            damageReduction += perk.damageReduction;
+
+        // madness
+        if (!MathUtils.ApproximatelyZero(perk.madnessGained))
 			madness += perk.madnessGained;
 
 		if (!MathUtils.ApproximatelyZero(perk.cascadeChance))
-			cascadeChance += cascadeChance;
+			cascadeChance += perk.cascadeChance;
+		if (!MathUtils.ApproximatelyZero(perk.instakill))
+			instakillChance += perk.instakill;
+		if (!MathUtils.ApproximatelyZero(perk.retaliate))
+			retaliatePercent += perk.retaliate;
+		if (!MathUtils.ApproximatelyZero(perk.lifesteal))
+			lifeSteal += perk.lifesteal;
+        if (!MathUtils.ApproximatelyZero(perk.XPIncrease))
+            xpIncrease += perk.XPIncrease;
     }
 
 	public void addXP(float xp)
 	{
-		currentXP += xp;
+		currentXP += xp * (1+ xpIncrease);
 		if (currentXP > xpNeeded)
 		{
 			currentXP -= xpNeeded;

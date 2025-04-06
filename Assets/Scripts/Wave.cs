@@ -12,6 +12,9 @@ public class Wave : ScriptableObject
 	public int cultistCount;
 	public int eyeballCount;
 	public int bossCount;
+	public float healthMulti;
+	public float damageMulti;
+	public float xpMulti;
 
 	public bool WaveComplete()
 	{

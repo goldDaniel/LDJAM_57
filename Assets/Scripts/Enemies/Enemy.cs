@@ -16,6 +16,7 @@ public abstract class Enemy : RegisteredBehaviour<Enemy>
 	public Rigidbody2D rb;
 	public Collider2D collide;
 	public float xpGain;
+	public float hitDamage;
 
 	public bool movementOverride = false;
 
@@ -23,12 +24,22 @@ public abstract class Enemy : RegisteredBehaviour<Enemy>
 
 	public void ApplyDamage(float damage)
 	{
-		hitTimer = hitDisplayTime;
-		Health -= damage;
-		if(Health <= 0)
+        hitTimer = hitDisplayTime;
+		Game.Instance.player.CurrentHealth += damage * Game.Instance.player.lifeSteal;
+		// Need to add logic to not apply to bosses
+		if (UnityEngine.Random.Range(0f, 1f) < Game.Instance.player.instakillChance)
 		{
 			this.onDeath();
 			Destroy(this.gameObject);
+		}
+		else
+		{
+			Health -= damage;
+			if (Health <= 0)
+			{
+				this.onDeath();
+				Destroy(this.gameObject);
+			}
 		}
 	}
 
@@ -101,8 +112,8 @@ public abstract class Enemy : RegisteredBehaviour<Enemy>
 				{
 					var fireball = Instantiate(Game.Instance.player.fireballPrefab);
 					fireball.transform.position = this.transform.position;
-					var angle = 60 * i;
-					fireball.direction = new Vector2(math.cos(angle), math.sin(angle));
+					var angle = Mathf.Deg2Rad * (60 * i);
+					fireball.direction = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
 				}
 			}
 		}

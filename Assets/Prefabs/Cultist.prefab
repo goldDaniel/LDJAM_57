@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 8223532526096205592}
   - component: {fileID: 3688240665819838831}
   - component: {fileID: 2314421833370535033}
-  - component: {fileID: 176202257156836776}
+  - component: {fileID: 300594833365778432}
   m_Layer: 7
-  m_Name: Brain Crab
+  m_Name: Cultist
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 6098554023285348450, guid: dbc0cb0afe14ed74cb841e7ba224fc0e, type: 3}
+  m_Sprite: {fileID: 1012188541264668013, guid: c0ff3e5a73ba91a4cab4a7441d99077e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -139,7 +139,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 0.1
-  m_LinearDamping: 0
+  m_LinearDamping: 10
   m_AngularDamping: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
@@ -153,7 +153,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &176202257156836776
+--- !u!114 &300594833365778432
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -162,13 +162,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 8419515943885230746}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f6b1a00f9d9d454e94b995f56243aff, type: 3}
+  m_Script: {fileID: 11500000, guid: 75c06854f98751a47b22c1d6b405a2f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 3
-  hitDisplayTime: 0.15
+  Health: 10
+  hitDisplayTime: 0.2
   sr: {fileID: 8223532526096205592}
   rb: {fileID: 2314421833370535033}
   collide: {fileID: 3688240665819838831}
   movementOverride: 0
-  attackRange: 1
+  DefaultBodyType: 0
+  Force: 1
+  attackPrefab: {fileID: -3207451831639857984, guid: 2a462a36f7c008442bdc3ef5ae631cbf, type: 3}
+  attackRange: 15
+  cooldownTime: 2
+  attackTime: 2

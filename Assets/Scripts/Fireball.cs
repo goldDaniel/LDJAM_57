@@ -53,6 +53,7 @@ public class Fireball : RegisteredBehaviour<Fireball>
 		if(collision.TryGetComponent<Enemy>(out var enemy))
 		{
 			enemy.ApplyDamage(damage.Modified());
+			enemy.KnockBackFrom(rb.position, 30);
 		}
 
 		Destroy(this.gameObject);

@@ -17,6 +17,8 @@ public abstract class Enemy : RegisteredBehaviour<Enemy>
 
 	public bool movementOverride = false;
 
+	public RigidbodyType2D DefaultBodyType = RigidbodyType2D.Kinematic;
+
 	public void ApplyDamage(float damage)
 	{
 		hitTimer = hitDisplayTime;
@@ -55,7 +57,7 @@ public abstract class Enemy : RegisteredBehaviour<Enemy>
 		if(MathUtils.ApproximatelyZero(rb.linearVelocity.sqrMagnitude, 0.1f))
 		{
 			movementOverride = false;
-			rb.bodyType = RigidbodyType2D.Kinematic;
+			rb.bodyType = DefaultBodyType;
 		}
 	}
 
@@ -68,5 +70,14 @@ public abstract class Enemy : RegisteredBehaviour<Enemy>
 		rb.bodyType = RigidbodyType2D.Dynamic;
 		rb.linearDamping = 5;
 		rb.AddForce(dir.normalized * t * 200);
+	}
+
+	public void KnockBackFrom(Vector2 position, float force)
+	{
+		movementOverride = true;
+		Vector2 dir = (rb.position - position).normalized;
+		rb.bodyType = RigidbodyType2D.Dynamic;
+		rb.linearDamping = 6;
+		rb.AddForce(dir.normalized * force);
 	}
 }

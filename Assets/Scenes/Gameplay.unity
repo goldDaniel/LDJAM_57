@@ -163,12 +163,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fff039195edd49d4d92c261ed7cebc6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minRadius: 22
-  maxRadius: 50
-  madness: 0
+  minRadius: 30
+  maxRadius: 60
   TentaclePrefab: {fileID: 8475773014922967520, guid: eefe39b970023e74eaaef8850e453b68, type: 3}
   tentacleCount: 512
-  vignetteScale: 0.6
+  vignetteScale: 0.4
   volume: {fileID: 871620369}
 --- !u!1 &484162646
 GameObject:
@@ -774,7 +773,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 15
+  orthographic size: 25
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -945,6 +944,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f616e3bbd25ab64eb70fcb0febe8577, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &1070805953
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4243570325519532953, guid: b94a357a2402f20448a5302cfafd0617, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -17.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4243570325519532953, guid: b94a357a2402f20448a5302cfafd0617, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 16.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 4243570325519532953, guid: b94a357a2402f20448a5302cfafd0617, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4243570325519532953, guid: b94a357a2402f20448a5302cfafd0617, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4243570325519532953, guid: b94a357a2402f20448a5302cfafd0617, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4243570325519532953, guid: b94a357a2402f20448a5302cfafd0617, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4243570325519532953, guid: b94a357a2402f20448a5302cfafd0617, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4243570325519532953, guid: b94a357a2402f20448a5302cfafd0617, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4243570325519532953, guid: b94a357a2402f20448a5302cfafd0617, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4243570325519532953, guid: b94a357a2402f20448a5302cfafd0617, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419515943885230746, guid: b94a357a2402f20448a5302cfafd0617, type: 3}
+      propertyPath: m_Name
+      value: Cultist
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b94a357a2402f20448a5302cfafd0617, type: 3}
 --- !u!1001 &1135288696
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1741,6 +1797,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PowerUpTest
       objectReference: {fileID: 0}
+    - target: {fileID: 6829183764896305247, guid: c2f3c5a46b6058c4c8ce8552070a0561, type: 3}
+      propertyPath: m_BodyType
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1829,7 +1889,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1850,7 +1910,7 @@ Transform:
   m_GameObject: {fileID: 2016958856}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 6.93, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1948,16 +2008,20 @@ MonoBehaviour:
     baseValue: 5
   manaCost:
     baseValue: 8
+  healthRegenPerSecond:
+    baseValue: 0
   maxHealth:
     baseValue: 100
   healthBar: {fileID: 1320893029}
   manaBar: {fileID: 1435939439}
   Force:
-    baseValue: 25
+    baseValue: 35
+  rb: {fileID: 0}
   fireballPrefab: {fileID: 6653065628560307658, guid: 52acc53aed7428342b9420d053d5e133, type: 3}
   attacksPerSecond:
     baseValue: 1
   collisionPushRadius: 10
+  madness: 0
 --- !u!1 &2094099454
 GameObject:
   m_ObjectHideFlags: 0
@@ -1974,7 +2038,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2094099455
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2150,3 +2214,4 @@ SceneRoots:
   - {fileID: 529905302}
   - {fileID: 1558300500}
   - {fileID: 1943831172}
+  - {fileID: 1070805953}

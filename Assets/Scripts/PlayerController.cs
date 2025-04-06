@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour
 
 	public ModifiableFloat Force = 25;
 
-	private Rigidbody2D rb;
+	public Rigidbody2D rb;
 
 	private InputAction moveAction;
 	private InputAction aimAction;
@@ -143,14 +143,20 @@ public class PlayerController : MonoBehaviour
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
 		colliderTouchCount++;
-		if(collision.collider.gameObject.TryGetComponent(out Enemy _))
+		if(collision.collider.gameObject.TryGetComponent(out Enemy hitEnemy))
 		{
-			CurrentHealth--;
+			ApplyDamage(1);
 			foreach (var enemy in Game.Instance.GetNearbyEnemies(rb.position, collisionPushRadius))
 			{
 				enemy.OnPlayerHit(rb.position, collisionPushRadius);
 			}
 		}
+	}
+
+	public void ApplyDamage(int damage)
+	{
+		// TODO (danielg): apply damage reduction here
+		CurrentHealth -= damage;
 	}
 
 	private void OnCollisionExit2D(Collision2D collision)

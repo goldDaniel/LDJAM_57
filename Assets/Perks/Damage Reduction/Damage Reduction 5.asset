@@ -17,7 +17,7 @@ MonoBehaviour:
   description: 'Reduces Damage Taken
 
     Damage Taken 50% > 45%'
-  borderColor: {r: 0, g: 0, b: 0, a: 0}
+  borderColor: {r: 0.3584906, g: 0.3505993, b: 0.3505993, a: 0}
   showDecoration: 0
   maxHealthMultiplier: 0
   maxHealthAdditive: 0

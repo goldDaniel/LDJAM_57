@@ -21,6 +21,7 @@ public class PerkTemplate : ScriptableObject
 	public float aoeRadius = 0;
 	public float movementSpeed = 0;
 	public float manaRegen = 0;
+	public float healthRegen = 0;
 	public float maxManaAdditive = 0;
 	public float damageReduction = 0;
 	public float castSpeed = 0;
@@ -29,7 +30,11 @@ public class PerkTemplate : ScriptableObject
 	public float lifesteal = 0;
 	public float cascadeChance = 0;
 	public float XPIncrease = 0;
-	public float sheldCooldown = 0;
+	public float shieldCooldown = 0;
+	public float madnessGained = 0;
+	public float instakill = 0;
+	public int perksGained = 0;
+	public float retaliate = 0;
 
     public bool equality = false;
     public bool shield = false;

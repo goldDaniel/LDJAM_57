@@ -17,7 +17,7 @@ MonoBehaviour:
   description: 'Increases XP Gained
 
     XP Gain +50%'
-  borderColor: {r: 0, g: 0, b: 0, a: 0}
+  borderColor: {r: 0.899371, g: 0.74724346, b: 0.031110214, a: 0}
   showDecoration: 0
   maxHealthMultiplier: 0
   maxHealthAdditive: 0
@@ -39,6 +39,7 @@ MonoBehaviour:
   shield: 0
   rampage: 0
   panic: 0
-  madnessThreshold: 20
+  madnessThreshold: 0.2
   rollWeight: 0
-  nextTier: []
+  nextTier:
+  - {fileID: 11400000, guid: 257b44190647a374bb2490c836f6cb0d, type: 2}

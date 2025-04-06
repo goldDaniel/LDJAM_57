@@ -57,7 +57,7 @@ public static class MathUtils
 		return x + y + z;
 	}
 
-	public static bool ApproximatelyZero(float value, float epsilon = 0.001f)
+	public static bool ApproximatelyZero(float value, float epsilon = 0.00001f)
 	{
 		return Mathf.Abs(value) < epsilon;
 	}

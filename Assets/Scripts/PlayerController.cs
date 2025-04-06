@@ -1,4 +1,5 @@
 using System.Linq;
+using TreeEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -26,16 +27,18 @@ public class PlayerController : MonoBehaviour
 	}
 
 	public ModifiableFloat manaRegenPerSecond = 5;
-	public ModifiableInt manaCost = 1;
+	public ModifiableFloat manaCost = 1;
 
-	public ModifiableInt maxHealth;
-	private int _currentHealth;
-	public int CurrentHealth
+	public ModifiableFloat healthRegenPerSecond = 0;
+
+	public ModifiableFloat maxHealth;
+	private float _currentHealth;
+	public float CurrentHealth
 	{
 		get => _currentHealth;
 		set 
 		{
-			int modifiedMax = maxHealth.Modified();
+			float modifiedMax = maxHealth.Modified();
 			if (value >= modifiedMax)
 			{
 				value = modifiedMax;
@@ -76,6 +79,9 @@ public class PlayerController : MonoBehaviour
 
 	[Range(2f, 20f)]
 	public float collisionPushRadius = 10f;
+
+	[Range(0f, 1f)]
+	public float madness = 0f;
 
 	void Start()
 	{
@@ -122,6 +128,11 @@ public class PlayerController : MonoBehaviour
 		{
 			CurrentMana += manaRegenPerSecond.Modified() * Time.deltaTime;
 		}
+
+		// health regen
+		{
+			CurrentHealth += healthRegenPerSecond.Modified() * Time.deltaTime;
+		}
 	}
 
 	void FixedUpdate()
@@ -149,6 +160,38 @@ public class PlayerController : MonoBehaviour
 
 	public void ApplyPerk(PerkTemplate perk)
 	{
-		
+		// health
+		if (!MathUtils.ApproximatelyZero(perk.maxHealthMultiplier))
+			maxHealth.Mul(perk.maxHealthMultiplier);
+		if (!MathUtils.ApproximatelyZero(perk.maxManaAdditive))
+			maxHealth.Add(perk.maxManaAdditive);
+		if (!MathUtils.ApproximatelyZero(perk.healthRegen))
+			healthRegenPerSecond.Add(perk.healthRegen);
+
+		// damage
+		if (!MathUtils.ApproximatelyZero(perk.damage))
+			fireballPrefab.damage.Add(perk.damage);
+		if (!MathUtils.ApproximatelyZero(perk.damageMultiplier))
+			fireballPrefab.damage.Mul(perk.damageMultiplier);
+
+		// movement speed
+		if (!MathUtils.ApproximatelyZero(perk.movementSpeed))
+			Force.Mul(perk.movementSpeed);
+
+		// mana 
+		if (!MathUtils.ApproximatelyZero(perk.manaRegen))
+			manaRegenPerSecond.Mul(perk.manaRegen);
+		if (!MathUtils.ApproximatelyZero(perk.manaCost))
+			manaCost.Mul(perk.manaCost);
+		if (!MathUtils.ApproximatelyZero(perk.maxManaAdditive))
+			manaCost.Add(perk.manaCost);
+
+		// cast speed
+		if (!MathUtils.ApproximatelyZero(perk.castSpeed))
+			attacksPerSecond.Mul(perk.castSpeed);
+
+		// madness
+		if (!MathUtils.ApproximatelyZero(perk.madnessGained))
+			madness += perk.madnessGained;
 	}
 }

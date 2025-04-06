@@ -10,9 +10,6 @@ public class MadnessFOV : MonoBehaviour
 	[Range(5f, 100f)]
 	public float maxRadius = 10; // radius around the player when madness is at its lowest
 
-	[Range(0f, 1f)]
-	public float madness;
-
 	public Tentacle TentaclePrefab;
 
 	[Range(10, 1000)]
@@ -24,9 +21,9 @@ public class MadnessFOV : MonoBehaviour
 	public float vignetteScale;
 	public Volume volume;
 
-	private void Awake()
+	private void Start()
 	{
-		float distance = Mathf.Lerp(maxRadius, minRadius, madness);
+		float distance = Mathf.Lerp(maxRadius, minRadius, Game.Instance.player.madness);
 		for(int i = 0; i < tentacleCount; ++i)
 		{
 			var tentacle = Instantiate(TentaclePrefab);
@@ -48,10 +45,10 @@ public class MadnessFOV : MonoBehaviour
 	private float lastMadness = -1;
 	private void Update()
 	{
-		if(lastMadness != madness)
+		if(lastMadness != Game.Instance.player.madness)
 		{
-			lastMadness = madness;
-			float distance = Mathf.Lerp(maxRadius, minRadius, madness);
+			lastMadness = Game.Instance.player.madness;
+			float distance = Mathf.Lerp(maxRadius, minRadius, Game.Instance.player.madness);
 			for (int i = 0; i < tentacleCount; ++i)
 			{
 				var tentacle = tentacles[i];
@@ -62,7 +59,7 @@ public class MadnessFOV : MonoBehaviour
 
 			if(volume.profile.TryGet<Vignette>(out var vignette))
 			{
-				vignette.intensity.Override(madness * vignetteScale);
+				vignette.intensity.Override(Game.Instance.player.madness * vignetteScale);
 			}
 		}
 	}

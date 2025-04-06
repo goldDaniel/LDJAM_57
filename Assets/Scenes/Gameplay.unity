@@ -163,13 +163,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fff039195edd49d4d92c261ed7cebc6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
   minRadius: 30
   maxRadius: 60
-=======
-  minRadius: 22
-  maxRadius: 50
->>>>>>> Stashed changes
   TentaclePrefab: {fileID: 8475773014922967520, guid: eefe39b970023e74eaaef8850e453b68, type: 3}
   tentacleCount: 512
   vignetteScale: 0.4
@@ -2303,8 +2298,4 @@ SceneRoots:
   - {fileID: 529905302}
   - {fileID: 1558300500}
   - {fileID: 1943831172}
-<<<<<<< Updated upstream
-  - {fileID: 1070805953}
-=======
   - {fileID: 879022315}
->>>>>>> Stashed changes

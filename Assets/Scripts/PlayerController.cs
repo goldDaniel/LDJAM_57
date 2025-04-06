@@ -146,4 +146,9 @@ public class PlayerController : MonoBehaviour
 	{
 		colliderTouchCount--;
 	}
+
+	public void ApplyPerk(PerkTemplate perk)
+	{
+		
+	}
 }

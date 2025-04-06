@@ -2,6 +2,7 @@ using JetBrains.Annotations;
 using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.Collections;
 using UnityEngine;
 
 public class Game : MonoBehaviour
@@ -58,7 +59,7 @@ public class Game : MonoBehaviour
 		}
 		if (Input.GetKeyDown(KeyCode.O))
 		{
-			Resume();
+			UnPause();
 		}
 	}
 
@@ -89,7 +90,30 @@ public class Game : MonoBehaviour
 			fireball.enabled = false;
 	}
 
-	public void Resume()
+	public List<PerkTemplate> SelectPerks(int count)
+	{
+		List<PerkTemplate> result = new(count);
+
+		for(int i = 0; i < count; ++i)
+		{
+			int index = Random.Range(0, currentPerkPool.Count);
+			while (result.Contains(currentPerkPool[index]))
+				index = Random.Range(0, currentPerkPool.Count);
+
+			result.Add(currentPerkPool[index]);
+		}
+
+		return result;
+	}
+
+	public void RemovePerkFromPool(PerkTemplate perk)
+	{
+		currentPerkPool.RemoveSwapBack(perk);
+		if (perk.nextTier != null)
+			currentPerkPool.AddRange(perk.nextTier);
+	}
+
+	public void UnPause()
 	{
 		player.enabled = true;
 		foreach (var enemy in Enemy.instances)

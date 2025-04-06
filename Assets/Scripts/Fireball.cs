@@ -18,6 +18,8 @@ public class Fireball : RegisteredBehaviour<Fireball>
 
 	public Explosion explosionPrefab;
 
+	public ModifiableInt damage = 1;
+
 	private new void Start()
 	{
 		base.Start();
@@ -50,7 +52,7 @@ public class Fireball : RegisteredBehaviour<Fireball>
 	{
 		if(collision.TryGetComponent<Enemy>(out var enemy))
 		{
-			enemy.ApplyDamage(1);
+			enemy.ApplyDamage(damage.Modified());
 		}
 
 		Destroy(this.gameObject);

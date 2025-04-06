@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Unity.Collections;
+using Unity.Mathematics;
 using UnityEngine;
 
 public abstract class Enemy : RegisteredBehaviour<Enemy>
@@ -26,6 +27,7 @@ public abstract class Enemy : RegisteredBehaviour<Enemy>
 		Health -= damage;
 		if(Health <= 0)
 		{
+			this.onDeath();
 			Destroy(this.gameObject);
 		}
 	}
@@ -82,13 +84,27 @@ public abstract class Enemy : RegisteredBehaviour<Enemy>
 		rb.AddForce(dir.normalized * force);
 	}
 
-    protected override void OnDestroy()
-    {
-        base.OnDestroy();
-		if (Application.isPlaying)
+	protected override void OnDestroy()
+	{
+		base.OnDestroy();
+	}
+	public virtual void onDeath()
+	{
+        Game.Instance.player.addXP(xpGain);
+        dropPickup();
+		float cascadeChance = Game.Instance.player.cascadeChance;
+		if (cascadeChance > 0)
 		{
-			Game.Instance.player.addXP(xpGain);
-			dropPickup();
+			if (UnityEngine.Random.Range(0f, 1f) < cascadeChance)
+			{
+				for (int i = 0; i < 6; i++)
+				{
+					var fireball = Instantiate(Game.Instance.player.fireballPrefab);
+					fireball.transform.position = this.transform.position;
+					var angle = 60 * i;
+					fireball.direction = new Vector2(math.cos(angle), math.sin(angle));
+				}
+			}
 		}
     }
 	public virtual void dropPickup() { }

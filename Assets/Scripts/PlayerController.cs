@@ -87,6 +87,12 @@ public class PlayerController : MonoBehaviour
 	public float xpNeeded = 0;
 	public float xpScaling = 0;
 
+	public float cascadeChance = 0;
+	public float instakillChance = 0;
+	public float retaliatePercent = 0;
+	public float lifeSteal = 0;
+	public float xpIncrease = 0;
+
 	void Start()
 	{
 		rb = GetComponent<Rigidbody2D>();
@@ -205,7 +211,10 @@ public class PlayerController : MonoBehaviour
 		// madness
 		if (!MathUtils.ApproximatelyZero(perk.madnessGained))
 			madness += perk.madnessGained;
-	}
+
+		if (!MathUtils.ApproximatelyZero(perk.cascadeChance))
+			cascadeChance += cascadeChance;
+    }
 
 	public void addXP(float xp)
 	{

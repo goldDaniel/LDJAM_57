@@ -18,7 +18,9 @@ public class Game : MonoBehaviour
 
 	public List<PerkTemplate> currentPerkPool;
 
-	void Awake()
+    public List<PerkTemplate> madnessPerkPool;
+
+    void Awake()
 	{
 		if (Instance == null)
 			Instance = this;

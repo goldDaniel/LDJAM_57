@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 [CreateAssetMenu(fileName = "PerkTemplate", menuName = "Perk")]
 public class PerkTemplate : ScriptableObject
@@ -12,8 +13,32 @@ public class PerkTemplate : ScriptableObject
 
 
 	// 10% increase = 1.1f, 22% = 1.22f, etc...
-	public float maxHealthMultiplier;
-	public float maxHealthAdditive;
+	public float maxHealthMultiplier = 0;
+	public float maxHealthAdditive = 0;
 
-	public PerkTemplate nextTier;
+	public float damage = 0;
+	public float aoeDamage = 0;
+	public float aoeRadius = 0;
+	public float movementSpeed = 0;
+	public float manaRegen = 0;
+	public float maxManaAdditive = 0;
+	public float damageReduction = 0;
+	public float castSpeed = 0;
+	public float manaCost = 0;
+	public float homingSpeed = 0;
+	public float lifesteal = 0;
+	public float cascadeChance = 0;
+	public float XPIncrease = 0;
+	public float sheldCooldown = 0;
+
+    public bool equality = false;
+    public bool shield = false;
+	public bool rampage = false;
+	public bool panic = false;
+
+	public float madnessThreshold = 0;
+	public float rollWeight = 0;
+
+
+    public List<PerkTemplate> nextTier;
 }

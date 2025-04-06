@@ -16,6 +16,8 @@ public class Game : MonoBehaviour
 
 	public Level level;
 
+	public List<PerkTemplate> currentPerkPool;
+
 	void Awake()
 	{
 		if (Instance == null)

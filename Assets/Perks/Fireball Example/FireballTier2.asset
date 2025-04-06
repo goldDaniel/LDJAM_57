@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 371b4eeba3f3d6140bd2e3183140e7d4, type: 3}
-  m_Name: TestPerkA
+  m_Name: FireballTier2
   m_EditorClassIdentifier: 
   icon: {fileID: 5986030973748356752, guid: 2ef7cfb5944aef448b186383c78ac21d, type: 3}
   title: Explosion Test

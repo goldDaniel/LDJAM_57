@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 371b4eeba3f3d6140bd2e3183140e7d4, type: 3}
   m_Name: Fireball 7
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 2449836824585923721, guid: 6a707507639de0f49b83479a3d758de3, type: 3}
   title: Fireball VII
   description: 'Increase Fireball damage and mana cost
 
@@ -25,6 +25,7 @@ MonoBehaviour:
   maxHealthMultiplier: 0
   maxHealthAdditive: 0
   damage: 8
+  damageMultiplier: 0
   aoeDamage: 0
   aoeRadius: 0
   movementSpeed: 0

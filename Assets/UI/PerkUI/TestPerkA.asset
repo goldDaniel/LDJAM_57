@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 371b4eeba3f3d6140bd2e3183140e7d4, type: 3}
+  m_Name: TestPerkA
+  m_EditorClassIdentifier: 
+  icon: {fileID: 5986030973748356752, guid: 2ef7cfb5944aef448b186383c78ac21d, type: 3}
+  title: Explosion Test
+  description: 'This is a test description for the explosion powerup. Lots of text
+    to fill up space.
+
+    It has the following effects. It should also not show
+    the border decoration. The glow should be purpleish
+
+    - lorem
+
+    - ipsum
+
+
+
+
+
+'
+  borderColor: {r: 0.61903614, g: 0, b: 0.7924528, a: 1}
+  showDecoration: 0

@@ -342,7 +342,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4064439a778fba54d979aaee973e71f1, type: 2}
   - {fileID: 11400000, guid: 3150463a9adc50d439a45cd143c21650, type: 2}
   - {fileID: 11400000, guid: 00919167c98b97d4691e5ce0ca51ab84, type: 2}
-  madnessPerkPool: []
+  madnessPerkPool:
+  - {fileID: 11400000, guid: 0498b047967e0874c8df8c0917639734, type: 2}
+  - {fileID: 11400000, guid: 62caf9299db8e39438350d479f48aa32, type: 2}
+  - {fileID: 11400000, guid: e6962c63c8642724cac2ad65874c12b1, type: 2}
+  - {fileID: 11400000, guid: de8bb8b998e726d40ab7c134d900c083, type: 2}
+  - {fileID: 11400000, guid: c60aace5961ce944c853a85db5a38488, type: 2}
+  - {fileID: 11400000, guid: fe57496f2e3ac784e8be2373ab9b90d5, type: 2}
 --- !u!1 &743209516
 GameObject:
   m_ObjectHideFlags: 0
@@ -1587,9 +1593,9 @@ MonoBehaviour:
   maxMana:
     baseValue: 100
   manaRegenPerSecond:
-    baseValue: 15
-  manaCost:
     baseValue: 5
+  manaCost:
+    baseValue: 8
   maxHealth:
     baseValue: 100
   healthBar: {fileID: 1320893029}
@@ -1598,7 +1604,7 @@ MonoBehaviour:
     baseValue: 25
   fireballPrefab: {fileID: 6653065628560307658, guid: 52acc53aed7428342b9420d053d5e133, type: 3}
   attacksPerSecond:
-    baseValue: 10
+    baseValue: 1
   collisionPushRadius: 10
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

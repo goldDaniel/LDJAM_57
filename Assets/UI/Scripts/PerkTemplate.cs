@@ -17,6 +17,7 @@ public class PerkTemplate : ScriptableObject
 	public float maxHealthAdditive = 0;
 
 	public float damage = 0;
+	public float damageMultiplier = 0;
 	public float aoeDamage = 0;
 	public float aoeRadius = 0;
 	public float movementSpeed = 0;

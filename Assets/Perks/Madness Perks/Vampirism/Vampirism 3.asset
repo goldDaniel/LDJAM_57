@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 371b4eeba3f3d6140bd2e3183140e7d4, type: 3}
-  m_Name: Vampirism 1
+  m_Name: Vampirism 3
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
-  title: Vampirism I
+  title: Vampirism III
   description: 'Heal a % of damage dealt to enemies
 
     Vampirism + 5%'
@@ -45,8 +45,6 @@ MonoBehaviour:
   shield: 0
   rampage: 0
   panic: 0
-  madnessThreshold: 0.1
+  madnessThreshold: 0.5
   rollWeight: 0
-  nextTier:
-  - {fileID: 11400000, guid: 50d8890d156e6ae498a5959fa5305c99, type: 2}
-  - {fileID: 11400000, guid: 0e74f9a4ac5608f4eac33d48fc8ce980, type: 2}
+  nextTier: []

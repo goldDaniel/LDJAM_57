@@ -22,6 +22,7 @@ MonoBehaviour:
   maxHealthMultiplier: 0
   maxHealthAdditive: 0
   damage: 0
+  damageMultiplier: 0
   aoeDamage: 0
   aoeRadius: 0
   movementSpeed: 0
@@ -44,7 +45,7 @@ MonoBehaviour:
   shield: 0
   rampage: 0
   panic: 0
-  madnessThreshold: 0.1
+  madnessThreshold: 0.01
   rollWeight: 0
   nextTier:
   - {fileID: 11400000, guid: 688a86390d4b7764ca61567c9270ea8b, type: 2}

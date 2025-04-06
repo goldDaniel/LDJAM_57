@@ -1,4 +1,7 @@
+using NUnit.Framework;
+using System.Collections.Generic;
 using UnityEngine;
+
 
 public class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T>
 {
@@ -26,5 +29,26 @@ public class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T>
 	public virtual void Awake()
 	{
 		DontDestroyOnLoad(this);
+	}
+}
+
+public class RegisteredBehaviour<T> : MonoBehaviour where T : RegisteredBehaviour<T>
+{
+	private static readonly List<T> _instances = new();
+
+	public static IReadOnlyList<T> instances => _instances;
+
+	protected virtual void Start()
+	{
+		var instance = (T)this;
+		if (!_instances.Contains(instance))
+		{
+			_instances.Add(instance);
+		}
+	}
+
+	protected virtual void OnDestroy()
+	{
+		_instances.Remove((T)this);
 	}
 }

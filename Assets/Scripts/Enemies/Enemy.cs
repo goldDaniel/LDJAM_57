@@ -1,6 +1,8 @@
+using System.Collections.Generic;
+using Unity.Collections;
 using UnityEngine;
 
-public abstract class Enemy : MonoBehaviour
+public abstract class Enemy : RegisteredBehaviour<Enemy>
 {
 	[Range(1, 100)]
 	public int Health;
@@ -11,6 +13,7 @@ public abstract class Enemy : MonoBehaviour
 
 	public SpriteRenderer sr;
 	public Rigidbody2D rb;
+	public Collider2D collide;
 
 	public bool movementOverride = false;
 
@@ -22,6 +25,18 @@ public abstract class Enemy : MonoBehaviour
 		{
 			Destroy(this.gameObject);
 		}
+	}
+
+	private void OnEnable()
+	{
+		collide.enabled = true;
+		rb.simulated = true;
+	}
+
+	private void OnDisable()
+	{
+		collide.enabled = false;
+		rb.simulated = false;
 	}
 
 	public virtual void Update()

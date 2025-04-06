@@ -50,6 +50,18 @@ public class Game : MonoBehaviour
 		}
 	}
 
+	private void Update()
+	{
+		if(Input.GetKeyDown(KeyCode.P))
+		{
+			Pause();
+		}
+		if (Input.GetKeyDown(KeyCode.O))
+		{
+			Resume();
+		}
+	}
+
 	private void OnDestroy()
 	{
 		Cursor.lockState = CursorLockMode.None;
@@ -65,5 +77,25 @@ public class Game : MonoBehaviour
 				result.Add(enemy);
         }
 		return result;
+	}
+
+	public void Pause()
+	{
+		player.enabled = false;
+		foreach (var enemy in Enemy.instances)
+			enemy.enabled = false;
+
+		foreach (var fireball in Fireball.instances)
+			fireball.enabled = false;
+	}
+
+	public void Resume()
+	{
+		player.enabled = true;
+		foreach (var enemy in Enemy.instances)
+			enemy.enabled = true;
+
+		foreach (var fireball in Fireball.instances)
+			fireball.enabled = true;
 	}
 }

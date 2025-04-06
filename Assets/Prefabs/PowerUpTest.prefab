@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 830868021481073643}
   - component: {fileID: 6829183764896305247}
   m_Layer: 0
-  m_Name: Pickup
+  m_Name: PowerUpTest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

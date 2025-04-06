@@ -169,4 +169,5 @@ MonoBehaviour:
   hitDisplayTime: 0.1
   sr: {fileID: 8223532526096205592}
   rb: {fileID: 2314421833370535033}
+  collide: {fileID: 3688240665819838831}
   movementOverride: 0

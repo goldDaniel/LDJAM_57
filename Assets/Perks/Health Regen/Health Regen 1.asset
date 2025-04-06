@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: Health Regen 1
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
-  title: 
-  description: 
+  title: Health Regen I
+  description: 'Increases Health Regen
+
+    Health Regen +1'
   borderColor: {r: 0, g: 0, b: 0, a: 0}
   showDecoration: 0
   maxHealthMultiplier: 0
@@ -35,6 +37,9 @@ MonoBehaviour:
   XPIncrease: 0
   shieldCooldown: 0
   madnessGained: 0
+  instakill: 0
+  perksGained: 0
+  retaliate: 0
   equality: 0
   shield: 0
   rampage: 0

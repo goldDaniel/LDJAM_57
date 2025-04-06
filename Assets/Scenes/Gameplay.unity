@@ -332,7 +332,16 @@ MonoBehaviour:
   brainCrabPrefab: {fileID: 8419515943885230746, guid: 0944814610e725d469e86772044e7f7f, type: 3}
   level: {fileID: 631677077}
   currentPerkPool:
-  - {fileID: 11400000, guid: 01ffd4d3079fa1d48a583ac9c6d6fe83, type: 2}
+  - {fileID: 11400000, guid: 5c242880fb760044a87a7d65ba3fa686, type: 2}
+  - {fileID: 11400000, guid: a2dd1098b60a72243b9e42832d90012e, type: 2}
+  - {fileID: 11400000, guid: 9f216501175b3be48bdec5fe52c4e3ef, type: 2}
+  - {fileID: 11400000, guid: 6e3f31f1f955aba479ade1b25cbf7b97, type: 2}
+  - {fileID: 11400000, guid: 03ed5aea995cb4a489d5cf4580633975, type: 2}
+  - {fileID: 11400000, guid: 85c08b9241a2ba044952467b0fe529a4, type: 2}
+  - {fileID: 11400000, guid: 841427d201680d14a94cd242478f410c, type: 2}
+  - {fileID: 11400000, guid: 4064439a778fba54d979aaee973e71f1, type: 2}
+  - {fileID: 11400000, guid: 3150463a9adc50d439a45cd143c21650, type: 2}
+  - {fileID: 11400000, guid: 00919167c98b97d4691e5ce0ca51ab84, type: 2}
   madnessPerkPool: []
 --- !u!1 &743209516
 GameObject:

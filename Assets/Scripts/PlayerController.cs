@@ -80,6 +80,9 @@ public class PlayerController : MonoBehaviour
 	[Range(2f, 20f)]
 	public float collisionPushRadius = 10f;
 
+	[Range(0f, 1f)]
+	public float madness = 0f;
+
 	void Start()
 	{
 		rb = GetComponent<Rigidbody2D>();
@@ -183,7 +186,12 @@ public class PlayerController : MonoBehaviour
 		if (!MathUtils.ApproximatelyZero(perk.maxManaAdditive))
 			manaCost.Add(perk.manaCost);
 
+		// cast speed
 		if (!MathUtils.ApproximatelyZero(perk.castSpeed))
 			attacksPerSecond.Mul(perk.castSpeed);
+
+		// madness
+		if (!MathUtils.ApproximatelyZero(perk.madnessGained))
+			madness += perk.madnessGained;
 	}
 }

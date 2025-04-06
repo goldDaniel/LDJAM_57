@@ -32,7 +32,7 @@ public class PerkTemplate : ScriptableObject
 	public float cascadeChance = 0;
 	public float XPIncrease = 0;
 	public float shieldCooldown = 0;
-	public float madnessGained = 0;
+	public float madnessGained = 0; // implemented
 	public float instakill = 0;
 	public int perksGained = 0;
 	public float retaliate = 0;

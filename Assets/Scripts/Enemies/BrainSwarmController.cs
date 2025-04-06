@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class BrainSwarmController : MonoSingleton<BrainSwarmController>
@@ -36,7 +37,7 @@ public class BrainSwarmController : MonoSingleton<BrainSwarmController>
 	public override void Awake()
 	{
 		base.Awake();
-		brainLayer = LayerMask.NameToLayer("BrainCrab");
+		brainLayer = LayerMask.NameToLayer("Enemy");
 	}
 
 	public GameObject Spawn()
@@ -50,8 +51,8 @@ public class BrainSwarmController : MonoSingleton<BrainSwarmController>
 		return boid;
 	}
 
-	public Collider2D[] NearbyCrabs(BrainCrab current)
+	public List<Collider2D> NearbyCrabs(BrainCrab current)
 	{
-		return Physics2D.OverlapCircleAll(current.rb.position, neighborDist * 4, brainLayer);
+		return Physics2D.OverlapCircleAll(current.rb.position, neighborDist * 4, brainLayer).Where(c => c.TryGetComponent(typeof(Enemy), out _)).ToList();
 	}
 }

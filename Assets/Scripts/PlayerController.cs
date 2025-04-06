@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,6 +13,12 @@ public class PlayerController : MonoBehaviour
 		get => _currentHealth;
 		set 
 		{
+			if(value <= 0)
+			{
+				// kill player
+			}
+
+
 			if(_currentHealth != value)
 			{
 				_currentHealth = value;
@@ -40,6 +47,9 @@ public class PlayerController : MonoBehaviour
 	[Range(0.1f, 100f)]
 	public float attacksPerSecond = 0.1f;
 	private float attackTimer = 0;
+
+	[Range(2f, 20f)]
+	public float collisionPushRadius = 10f;
 
 	void Awake()
 	{
@@ -89,6 +99,14 @@ public class PlayerController : MonoBehaviour
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
 		colliderTouchCount++;
+		if(collision.collider.gameObject.TryGetComponent(out Enemy _))
+		{
+			CurrentHealth--;
+			foreach (var enemy in Game.Instance.GetNearbyEnemies(rb.position, collisionPushRadius))
+			{
+				enemy.OnPlayerHit(rb.position, collisionPushRadius);
+			}
+		}
 	}
 
 	private void OnCollisionExit2D(Collision2D collision)

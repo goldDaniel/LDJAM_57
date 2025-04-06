@@ -165,7 +165,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f6b1a00f9d9d454e94b995f56243aff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 1
-  hitDisplayTime: 0.05
+  Health: 3
+  hitDisplayTime: 0.1
   sr: {fileID: 8223532526096205592}
   rb: {fileID: 2314421833370535033}
+  movementOverride: 0

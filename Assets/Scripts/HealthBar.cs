@@ -5,14 +5,10 @@ public class HealthBar : MonoBehaviour
 {
 	public Image image;
 
-	void Awake()
-	{
-		image.material = new Material(image.material); // by copy plz
-		image.material.SetTexture("_MainTexture", image.sprite.texture);
-	}
-
 	public void SetPercentage(float percent)
 	{
-		image.material.SetFloat("_UV_Clip", percent);
+		var size = image.rectTransform.sizeDelta;
+		size.x = percent;
+		image.rectTransform.sizeDelta = size;
 	}
 }

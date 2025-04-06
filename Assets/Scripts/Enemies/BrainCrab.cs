@@ -5,8 +5,6 @@ using UnityEngine.InputSystem.XR;
 
 public class BrainCrab : Enemy
 {
-	public Rigidbody2D rb;
-
 	float noiseOffset;
 
 	private void Awake()
@@ -22,17 +20,11 @@ public class BrainCrab : Enemy
 		return diff * (scaler / diffLen);
 	}
 
-	void Update()
-	{	
-		// intentional: do nothing when velocity is 0
-		if (rb.linearVelocityX < 0)
-			sr.flipX = true;
-		else if (rb.linearVelocityX > 0)
-			sr.flipX = false;
-	}
-
 	void FixedUpdate()
 	{
+		if (movementOverride)
+			return;
+
 		var currentPosition = rb.position;
 
 		var noise = Mathf.PerlinNoise(Time.time, noiseOffset) * 2.0f - 1.0f;
@@ -55,13 +47,12 @@ public class BrainCrab : Enemy
 			cohesion += crabRB.position;
 
 			var crabVelocity = crabRB.linearVelocity;
-			if(!float.IsNaN(crabVelocity.x) && !float.IsNaN(crabVelocity.y))
+			if(!float.IsNaN(crabVelocity.x) && !float.IsNaN(crabVelocity.y)) // weird but ok
 				alignment += crabVelocity;
-
 		}
 
 		separation *= BrainSwarmController.Instance.separationWeight;
-		var avg = 1.0f / (crabs.Length == 0 ? 1 : crabs.Length);
+		var avg = 1.0f / (crabs.Count == 0 ? 1 : crabs.Count);
 		alignment *= avg * BrainSwarmController.Instance.alignmentWeight;
 		cohesion *= avg;
 		cohesion = (cohesion - currentPosition).normalized * BrainSwarmController.Instance.cohesionWeight;

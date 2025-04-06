@@ -1,7 +1,13 @@
+using JetBrains.Annotations;
+using NUnit.Framework;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Game : MonoBehaviour
 {
+	public static Game Instance;
+
 	public PlayerController player;
 
 	public Texture2D cursorTexture;
@@ -9,6 +15,17 @@ public class Game : MonoBehaviour
 	public GameObject brainCrabPrefab;
 
 	public Level level;
+
+	void Awake()
+	{
+		if (Instance == null)
+			Instance = this;
+		else
+		{
+			Debug.LogError("Cannot instantiate multiple games. Something is wrong!");
+			Destroy(this.gameObject);
+		}
+	}
 
 	void Start()
 	{
@@ -29,15 +46,20 @@ public class Game : MonoBehaviour
 		}
 	}
 
-	// Update is called once per frame
-	void Update()
-	{
-		
-	}
-
 	private void OnDestroy()
 	{
 		Cursor.lockState = CursorLockMode.None;
 		Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+	}
+
+	public IEnumerable<Enemy> GetNearbyEnemies(Vector2 position, float radius)
+	{
+		List<Enemy> result = new();
+        foreach (var item in Physics2D.OverlapCircleAll(position, radius, LayerMask.NameToLayer("Enemy")))
+        {
+			if(item.TryGetComponent(out Enemy enemy))
+				result.Add(enemy);
+        }
+		return result;
 	}
 }

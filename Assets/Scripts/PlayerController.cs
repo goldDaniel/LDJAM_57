@@ -188,8 +188,10 @@ public class PlayerController : MonoBehaviour
 		if (!MathUtils.ApproximatelyZero(perk.manaRegen))
 			manaRegenPerSecond.Mul(perk.manaRegen);
 		if (!MathUtils.ApproximatelyZero(perk.manaCost))
-			manaCost.Mul(perk.manaCost);
-		if (!MathUtils.ApproximatelyZero(perk.maxManaAdditive))
+			manaCost.Add(perk.manaCost);
+        if (!MathUtils.ApproximatelyZero(perk.manaCostMultiplier))
+            manaCost.Mul(perk.manaCostMultiplier);
+        if (!MathUtils.ApproximatelyZero(perk.maxManaAdditive))
 			manaCost.Add(perk.manaCost);
 
 		// cast speed

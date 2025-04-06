@@ -32,6 +32,7 @@ MonoBehaviour:
   damageReduction: 0
   castSpeed: 0
   manaCost: 4
+  manaCostMultiplier: 0
   homingSpeed: 0
   lifesteal: 0
   cascadeChance: 0

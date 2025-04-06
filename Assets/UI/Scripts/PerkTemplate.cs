@@ -27,6 +27,7 @@ public class PerkTemplate : ScriptableObject
 	public float damageReduction = 0;
 	public float castSpeed = 0; // implemented
 	public float manaCost = 0; // implemented
+	public float manaCostMultiplier = 0;
 	public float homingSpeed = 0;
 	public float lifesteal = 0;
 	public float cascadeChance = 0;

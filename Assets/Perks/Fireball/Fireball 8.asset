@@ -35,6 +35,7 @@ MonoBehaviour:
   damageReduction: 0
   castSpeed: 0
   manaCost: 4
+  manaCostMultiplier: 0
   homingSpeed: 0
   lifesteal: 0
   cascadeChance: 0
@@ -49,6 +50,6 @@ MonoBehaviour:
   rampage: 0
   panic: 0
   madnessThreshold: 0
-  rollWeight: 0
+  rollWeight: 100
   nextTier:
   - {fileID: 11400000, guid: 3db3e076299bddc4a9bec58effc1017b, type: 2}

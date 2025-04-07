@@ -151,4 +151,10 @@ public class Eyeball : Enemy
 			}
 		}
 	}
+
+    public override void DropPickup()
+    {
+        var pickup = Instantiate(Game.Instance.pickups[2]);
+        pickup.transform.position = transform.position;
+    }
 }

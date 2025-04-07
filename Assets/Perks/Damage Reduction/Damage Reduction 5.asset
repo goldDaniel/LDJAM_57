@@ -18,7 +18,6 @@ MonoBehaviour:
 
     Damage Taken 50% > 45%'
   borderColor: {r: 0.3584906, g: 0.3505993, b: 0.3505993, a: 1}
-  showDecoration: 0
   maxHealthMultiplier: 0
   maxHealthAdditive: 0
   damage: 0
@@ -48,4 +47,5 @@ MonoBehaviour:
   panic: 0
   madnessThreshold: 0
   rollWeight: 0
-  nextTier: []
+  nextTier:
+  - {fileID: 11400000, guid: 444db73418a9796478ee8f2409725098, type: 2}

@@ -78,7 +78,7 @@ public class Cultist : Enemy
 
 
 		rb.bodyType = DefaultBodyType;
-		_targetP = Game.Instance.player.rb.position;
+		_targetP = Game.Instance.player.rb.position + Game.Instance.player.rb.linearVelocity;
 		if(Vector2.Distance(_targetP, rb.position) <= attackRange)
 		{
 			_currentState = CultistState.Attacking;

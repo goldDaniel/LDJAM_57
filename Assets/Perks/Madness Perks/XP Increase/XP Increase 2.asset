@@ -45,7 +45,7 @@ MonoBehaviour:
   shield: 0
   rampage: 0
   panic: 0
-  madnessThreshold: 0.4
-  rollWeight: 0
+  madnessThreshold: 0.8
+  rollWeight: -60
   nextTier:
   - {fileID: 11400000, guid: 1b06f4b9ea96d7246b11e6668e6d5a96, type: 2}

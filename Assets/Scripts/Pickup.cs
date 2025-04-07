@@ -28,12 +28,12 @@ public class Pickup : MonoBehaviour
 			}
             if (type == pickupType.Madness)
             {
-				Game.Instance.player.madness += Random.Range(0.05f, 0.16f);
+				Game.Instance.player.madness += Random.Range(0.05f, 0.1f);
 				if(Game.Instance.player.madness > 1) { Game.Instance.player.madness = 1; }
             }
             if (type == pickupType.Sanity)
             {
-				Game.Instance.player.madness -= 0.2f;
+				Game.Instance.player.madness -= 0.1f;
                 if (Game.Instance.player.madness < 0) { Game.Instance.player.madness = 0; }
             }
 			Destroy(this.gameObject);

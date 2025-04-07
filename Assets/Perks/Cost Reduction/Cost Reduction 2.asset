@@ -30,8 +30,8 @@ MonoBehaviour:
   maxManaAdditive: 0
   damageReduction: 0
   castSpeed: 0
-  manaCost: -0.15
-  manaCostMultiplier: 0
+  manaCost: 0
+  manaCostMultiplier: -0.15
   homingSpeed: 0
   lifesteal: 0
   cascadeChance: 0
@@ -47,4 +47,5 @@ MonoBehaviour:
   panic: 0
   madnessThreshold: 0
   rollWeight: 100
-  nextTier: []
+  nextTier:
+  - {fileID: 11400000, guid: fb5b276bc03989d47b033aed00fe7fae, type: 2}

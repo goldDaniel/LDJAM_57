@@ -47,4 +47,5 @@ MonoBehaviour:
   panic: 0
   madnessThreshold: 0.3
   rollWeight: 0
-  nextTier: []
+  nextTier:
+  - {fileID: 11400000, guid: a91ca61c1a7fd024fb392d09d7693938, type: 2}

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Endless Speed
   m_EditorClassIdentifier: 
   icon: {fileID: 2449836824585923721, guid: 6a707507639de0f49b83479a3d758de3, type: 3}
-  title: Endless Speed
+  title: Endless Cast Speed
   description: 'Increases Cast Speed
 
     Cast Speed + 10%'
@@ -47,4 +47,5 @@ MonoBehaviour:
   panic: 0
   madnessThreshold: 0
   rollWeight: -80
-  nextTier: []
+  nextTier:
+  - {fileID: 11400000}

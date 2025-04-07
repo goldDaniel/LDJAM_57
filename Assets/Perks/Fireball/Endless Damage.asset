@@ -19,7 +19,7 @@ MonoBehaviour:
     Fireball Damage +10
 
     Fireball Damage +10%'
-  borderColor: {r: 0, g: 0, b: 0, a: 0}
+  borderColor: {r: 0.83137256, g: 0.3137255, b: 0.02745098, a: 1}
   maxHealthMultiplier: 0
   maxHealthAdditive: 0
   damage: 10

@@ -19,5 +19,5 @@ MonoBehaviour:
   eyeballCount: 0
   bossCount: 0
   healthMulti: 2.7
-  damageMulti: 1.2
-  xpMulti: 1.2
+  damageMulti: 2.7
+  xpMulti: 1

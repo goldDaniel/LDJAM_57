@@ -276,6 +276,7 @@ public class PlayerController : MonoBehaviour
 		{
 			StartCoroutine(GetShield(shieldCooldown));
 			shieldSprite.enabled = false;
+			currentShield = false;
 		}
 		else
 		{

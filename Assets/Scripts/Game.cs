@@ -78,14 +78,20 @@ public class Game : MonoBehaviour
 		HandleWaveUpdates();
 	}
 
-	public void Lose()
+	public void Win()
 	{
-		StartCoroutine(LoseInternal());
+		StartCoroutine(EndInternal(true));
 	}
 
-	private IEnumerator LoseInternal()
+	public void Lose()
+	{
+		StartCoroutine(EndInternal(false));
+	}
+
+	private IEnumerator EndInternal(bool win)
 	{
 		loseUI.gameObject.SetActive(true);
+		loseUI.transform.Find("Lose Text").GetComponent<TextMeshProUGUI>().text = win ? "You Win" : "You Lose";
 		loseUI.transform.Find("Score Text").GetComponent<TextMeshProUGUI>().text = $"Final Score: {player.score}";
 		loseUI.SetAlpha(0);
 		float timer = 0;
@@ -220,20 +226,7 @@ public class Game : MonoBehaviour
 		var nextWave = SelectNextWave();
 		if (nextWave == null)
 		{
-			IsPaused = true;
-			text.text = "YOU WIN";
-			while (t < 1)
-			{
-				t += Time.deltaTime;
-				t = Mathf.Clamp01(t);
-				waveCompleteText.SetAlpha(t);
-				yield return null;
-			}
-
-			yield return new WaitForSeconds(5f);
-
-			SceneTransitions.Instance.LoadScene("MainMenu", SceneTransition.FadeOut);
-			AudioManager.Instance.SwitchToMainMenu();
+			yield return EndInternal(true);
 		}
 		else 
 		{

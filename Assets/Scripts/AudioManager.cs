@@ -21,10 +21,12 @@ public class AudioManager : MonoSingleton<AudioManager>
 		if(SceneManager.GetActiveScene().name == "MainMenu" || SceneManager.GetActiveScene().name == "Instructions")
 		{
 			mainMenuBackground.Play();
+			gameplayBackground.Stop();
 		}
 		else 
 		{
 			gameplayBackground.Play();
+			mainMenuBackground.Stop();
 		}
 	}
 
@@ -40,6 +42,8 @@ public class AudioManager : MonoSingleton<AudioManager>
 
 		if (!gameplayBackground.isPlaying)
 			yield return FadeInMusic(gameplayBackground, 2f);
+
+		mainMenuBackground.Stop();
 	}
 
 	private IEnumerator SwitchToMainMenuInternal()
@@ -49,6 +53,8 @@ public class AudioManager : MonoSingleton<AudioManager>
 
 		if (!mainMenuBackground.isPlaying)
 			yield return FadeInMusic(mainMenuBackground, 2f);
+
+		gameplayBackground.Stop();
 	}
 
 	private IEnumerator FadeInMusic(AudioSource source, float time)

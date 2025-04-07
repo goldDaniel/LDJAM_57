@@ -193,9 +193,9 @@ public class PlayerController : MonoBehaviour
 				}
 				else
 				{
-                    CurrentMana += equalitySpeed * Time.deltaTime;
-                    CurrentHealth -= equalitySpeed * Time.deltaTime;
-                }
+					CurrentMana += equalitySpeed * Time.deltaTime;
+					CurrentHealth -= equalitySpeed * Time.deltaTime;
+				}
 			}
 		}
 
@@ -286,10 +286,10 @@ public class PlayerController : MonoBehaviour
 	}
 	private IEnumerator GetShield(float cooldown)
 	{
-        yield return new WaitForSeconds(cooldown);
+		yield return new WaitForSeconds(cooldown);
 		currentShield = true;
 		shieldSprite.enabled = true;
-    }
+	}
 
 	private void OnCollisionExit2D(Collision2D collision)
 	{
@@ -330,12 +330,12 @@ public class PlayerController : MonoBehaviour
 		if (!MathUtils.ApproximatelyZero(perk.castSpeed))
 			attacksPerSecond.Mul(perk.castSpeed);
 
-        // damage reduction
-        if (!MathUtils.ApproximatelyZero(perk.damageReduction))
-            damageReduction += perk.damageReduction;
+		// damage reduction
+		if (!MathUtils.ApproximatelyZero(perk.damageReduction))
+			damageReduction += perk.damageReduction;
 
-        // madness
-        if (!MathUtils.ApproximatelyZero(perk.madnessGained))
+		// madness
+		if (!MathUtils.ApproximatelyZero(perk.madnessGained))
 			madness += perk.madnessGained;
 
 		if (!MathUtils.ApproximatelyZero(perk.cascadeChance))
@@ -346,11 +346,11 @@ public class PlayerController : MonoBehaviour
 			retaliatePercent += perk.retaliate;
 		if (!MathUtils.ApproximatelyZero(perk.lifesteal))
 			lifeSteal += perk.lifesteal;
-        if (!MathUtils.ApproximatelyZero(perk.XPIncrease))
-            xpIncrease += perk.XPIncrease;
-        if (!MathUtils.ApproximatelyZero(perk.shieldCooldown))
-            shieldCooldown += perk.shieldCooldown;
-        if (perk.rampage)
+		if (!MathUtils.ApproximatelyZero(perk.XPIncrease))
+			xpIncrease += perk.XPIncrease;
+		if (!MathUtils.ApproximatelyZero(perk.shieldCooldown))
+			shieldCooldown += perk.shieldCooldown;
+		if (perk.rampage)
 			rampage = perk.rampage;
 		if (perk.equality)
 			equality = perk.equality;
@@ -370,7 +370,7 @@ public class PlayerController : MonoBehaviour
 				Game.Instance.RemovePerkFromPool(Game.Instance.currentPerkPool[index]);
 			}
 		}
-    }
+	}
 
 	public void addXP(float xp)
 	{

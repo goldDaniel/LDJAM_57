@@ -2487,7 +2487,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: de8bb8b998e726d40ab7c134d900c083, type: 2}
   - {fileID: 11400000, guid: c60aace5961ce944c853a85db5a38488, type: 2}
   - {fileID: 11400000, guid: fe57496f2e3ac784e8be2373ab9b90d5, type: 2}
-  - {fileID: 11400000, guid: 0e74f9a4ac5608f4eac33d48fc8ce980, type: 2}
   - {fileID: 11400000, guid: 4a75441385a5a294b8304b6ef4549b70, type: 2}
   - {fileID: 11400000, guid: 61cf44c1e75972e41ba6b57b971c85f3, type: 2}
   - {fileID: 11400000, guid: ca0967806232b044d8b2ae15cdea257c, type: 2}
@@ -9346,7 +9345,7 @@ MonoBehaviour:
   rampageDamage: 2
   equalitySpeed: 10
   shieldCooldown: 0
-  shieldSprite: {fileID: 0}
+  shieldSprite: {fileID: 1431932689}
 --- !u!1001 &2025476820
 PrefabInstance:
   m_ObjectHideFlags: 0

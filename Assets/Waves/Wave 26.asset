@@ -15,8 +15,8 @@ MonoBehaviour:
   spawnInterval: 2
   brainPackCount: 8
   brainWaveCount: 4
-  cultistCount: 1
-  eyeballCount: 0
+  cultistCount: 6
+  eyeballCount: 4
   bossCount: 0
   healthMulti: 7.5
   damageMulti: 2

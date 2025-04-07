@@ -116,6 +116,7 @@ public abstract class Enemy : RegisteredBehaviour<Enemy>
 			for (int i = 0; i < 6; i++)
 			{
 				var fireball = Instantiate(Game.Instance.player.fireballPrefab);
+				fireball.damage = Game.Instance.player.fireballPrefab.damage.Modified();
 				fireball.transform.position = this.transform.position;
 				var angle = Mathf.Deg2Rad * (60 * i);
 				fireball.direction = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));

@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnInterval: 2
   brainPackCount: 8
-  brainWaveCount: 4
-  cultistCount: 1
+  brainWaveCount: 8
+  cultistCount: 3
   eyeballCount: 0
   bossCount: 0
   healthMulti: 5.9

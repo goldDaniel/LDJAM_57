@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Wave 17
   m_EditorClassIdentifier: 
   spawnInterval: 2
-  brainPackCount: 8
-  brainWaveCount: 4
-  cultistCount: 1
+  brainPackCount: 25
+  brainWaveCount: 2
+  cultistCount: 4
   eyeballCount: 0
   bossCount: 0
   healthMulti: 3.6

@@ -133,53 +133,48 @@ public class Game : MonoBehaviour
 				bool picked = currentWave.WaveComplete();
 				while (!picked)
 				{
-					int type = Random.Range(0, 4);
-					switch (type)
+					int type = Random.Range(0, 2);
+					if(currentWave.eyeballCount > 0)
 					{
-						case 0: // brain crab
-							if (currentWave.brainWaveCount > 0)
-							{
-								picked = true;
-								currentWave.brainWaveCount--;
-								for (int i = 0; i < currentWave.brainPackCount; ++i)
+                        picked = true;
+                        currentWave.eyeballCount--;
+                        var eye = Instantiate(eyeballPrefab);
+                        eye.transform.position = spawnPosition;
+                        eye.Health *= currentWave.healthMulti;
+                        eye.hitDamage *= currentWave.damageMulti;
+                        eye.xpGain *= currentWave.xpMulti;
+                        eye.attackDamage *= currentWave.damageMulti;
+                    } else {
+						switch (type)
+						{
+							case 0: // brain crab
+								if (currentWave.brainWaveCount > 0)
 								{
-									var crab = Instantiate(brainCrabPrefab);
-									crab.transform.position = spawnPosition + Random.insideUnitCircle * 5f;
-									crab.Health *= currentWave.healthMulti;
-									crab.hitDamage *= currentWave.damageMulti;
-									crab.xpGain *= currentWave.xpMulti;
+									picked = true;
+									currentWave.brainWaveCount--;
+									for (int i = 0; i < currentWave.brainPackCount; ++i)
+									{
+										var crab = Instantiate(brainCrabPrefab);
+										crab.transform.position = spawnPosition + Random.insideUnitCircle * 5f;
+										crab.Health *= currentWave.healthMulti;
+										crab.hitDamage *= currentWave.damageMulti;
+										crab.xpGain *= currentWave.xpMulti;
+									}
 								}
-							}
-							break;
-						case 1: // cultist
-							if (currentWave.cultistCount > 0)
-							{
-								picked = true;
-								currentWave.cultistCount--;
-								var cultist = Instantiate(cultistPrefab);
-								cultist.transform.position = spawnPosition;
-                                cultist.Health *= currentWave.healthMulti;
-                                cultist.hitDamage *= currentWave.damageMulti;
-                                cultist.xpGain *= currentWave.xpMulti;
-                            }
-							break;
-						case 2: // eye
-							if (currentWave.eyeballCount > 0)
-							{
-								picked = true;
-								currentWave.eyeballCount--;
-								var eye = Instantiate(eyeballPrefab);
-								eye.transform.position = spawnPosition;
-								eye.Health *= currentWave.healthMulti;
-								eye.hitDamage *= currentWave.damageMulti;
-								eye.xpGain *= currentWave.xpMulti;
-								eye.attackDamage *= currentWave.damageMulti;
-							}
-							break;
-						case 3: // boss
-							{
 								break;
-							}
+							case 1: // cultist
+								if (currentWave.cultistCount > 0)
+								{
+									picked = true;
+									currentWave.cultistCount--;
+									var cultist = Instantiate(cultistPrefab);
+									cultist.transform.position = spawnPosition;
+									cultist.Health *= currentWave.healthMulti;
+									cultist.hitDamage *= currentWave.damageMulti;
+									cultist.xpGain *= currentWave.xpMulti;
+								}
+								break;
+						}
 					}
 				}
 
@@ -350,7 +345,7 @@ public class Game : MonoBehaviour
 					}
 				}
             }
-			while (result.Contains(perkPool[index]) && perkPool[index].madnessThreshold <= Game.Instance.player.madness);
+			while (result.Contains(perkPool[index]) || perkPool[index].madnessThreshold > Game.Instance.player.madness);
 			result.Add(perkPool[index]);
 		}
 

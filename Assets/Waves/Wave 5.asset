@@ -16,7 +16,7 @@ MonoBehaviour:
   brainPackCount: 0
   brainWaveCount: 0
   cultistCount: 0
-  eyeballCount: 0
+  eyeballCount: 1
   bossCount: 0
   healthMulti: 1
   damageMulti: 1

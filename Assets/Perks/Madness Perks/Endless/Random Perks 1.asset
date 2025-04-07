@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 371b4eeba3f3d6140bd2e3183140e7d4, type: 3}
-  m_Name: Equality
+  m_Name: Random Perks 1
   m_EditorClassIdentifier: 
   icon: {fileID: -234679215618397141, guid: 4e5ba6393b86ebf4c90a9aae6752ecf9, type: 3}
-  title: Equality
-  description: Causes health and mana to equalize
+  title: Random Perks II
+  description: Gives 4 random non-madness perks
   borderColor: {r: 0.078431375, g: 0.4, b: 0.03137255, a: 1}
   maxHealthMultiplier: 0
   maxHealthAdditive: 0
@@ -37,12 +37,13 @@ MonoBehaviour:
   shieldCooldown: 0
   madnessGained: 0
   instakill: 0
-  perksGained: 0
+  perksGained: 2
   retaliate: 0
-  equality: 1
+  equality: 0
   shield: 0
   rampage: 0
   panic: 0
-  madnessThreshold: 0.8
+  madnessThreshold: 1
   rollWeight: 0
-  nextTier: []
+  nextTier:
+  - {fileID: 11400000}

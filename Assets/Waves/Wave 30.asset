@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Wave 30
   m_EditorClassIdentifier: 
   spawnInterval: 2
-  brainPackCount: 8
-  brainWaveCount: 4
-  cultistCount: 1
-  eyeballCount: 0
+  brainPackCount: 12
+  brainWaveCount: 25
+  cultistCount: 16
+  eyeballCount: 6
   bossCount: 0
   healthMulti: 10
   damageMulti: 2

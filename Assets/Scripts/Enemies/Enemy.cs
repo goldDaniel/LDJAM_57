@@ -103,7 +103,7 @@ public abstract class Enemy : RegisteredBehaviour<Enemy>
 	}
 	public virtual void OnDeath()
 	{
-		if (!deathEffectApplied)
+		if (deathEffectApplied)
 			return;
 
 		deathEffectApplied = true;

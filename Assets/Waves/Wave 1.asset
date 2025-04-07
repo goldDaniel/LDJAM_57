@@ -20,4 +20,4 @@ MonoBehaviour:
   bossCount: 0
   healthMulti: 1
   damageMulti: 1
-  xpMulti: 1
+  xpMulti: 1.5

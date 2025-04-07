@@ -350,14 +350,15 @@ MonoBehaviour:
   sr: {fileID: 7200607298311331107}
   rb: {fileID: 1774286091035739769}
   collide: {fileID: 9163601584426136564}
-  xpGain: 0
+  xpGain: 200
   hitDamage: 0
   movementOverride: 0
   DefaultBodyType: 0
   Force: 50
   attackPrefab: {fileID: 6878551824493684182}
   attackCollider: {fileID: 0}
+  attackSprite: {fileID: 0}
   attackRange: 45
-  attackDamage: 15
-  attackTime: 3
-  cooldownTime: 4
+  attackDamage: 45
+  attackTime: 1.25
+  cooldownTime: 2.5

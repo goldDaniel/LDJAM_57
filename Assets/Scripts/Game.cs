@@ -33,6 +33,7 @@ public class Game : MonoBehaviour
 
 	public Cultist cultistPrefab;
 	public BrainCrab brainCrabPrefab;
+	public Eyeball eyeballPrefab;
 
 	public CanvasRenderer waveCompleteText;
 
@@ -127,10 +128,19 @@ public class Game : MonoBehaviour
                                 cultist.xpGain *= currentWave.xpMulti;
                             }
 							break;
-						case 2: // eyeball
+						case 2: // eye
+							if (currentWave.eyeballCount > 0)
 							{
-								break;
+								picked = true;
+								currentWave.eyeballCount--;
+								var eye = Instantiate(eyeballPrefab);
+								eye.transform.position = spawnPosition;
+								eye.Health *= currentWave.healthMulti;
+								eye.hitDamage *= currentWave.damageMulti;
+								eye.xpGain *= currentWave.xpMulti;
+								eye.attackDamage *= currentWave.damageMulti;
 							}
+							break;
 						case 3: // boss
 							{
 								break;

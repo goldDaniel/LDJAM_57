@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Wave 4
   m_EditorClassIdentifier: 
   spawnInterval: 2
-  brainPackCount: 8
-  brainWaveCount: 3
+  brainPackCount: 18
+  brainWaveCount: 1
   cultistCount: 1
   eyeballCount: 0
   bossCount: 0
-  healthMulti: 1
+  healthMulti: 1.1
   damageMulti: 1
-  xpMulti: 1
+  xpMulti: 0.8

@@ -27,7 +27,7 @@ public class Eyeball : Enemy
 	[Range(1f, 100f)]
 	public float attackRange;
 
-	public int attackDamage = 15;
+	public float attackDamage = 15;
 
 	public float attackTime = 3;
 	private float _attackTimer = 0;

@@ -266,7 +266,6 @@ public class PlayerController : MonoBehaviour
 			return false;
 
 		_invulnTimer = _invulnTime;
-		AudioManager.Instance.PlaySFX(AudioManager.Instance.playerDamaged);
 
 		if (source != null)
 		{
@@ -280,6 +279,7 @@ public class PlayerController : MonoBehaviour
 		else
 		{
 			CurrentHealth -= damage * damageReduction;
+			AudioManager.Instance.PlaySFX(AudioManager.Instance.playerDamaged);
 		}
 
 		return true;

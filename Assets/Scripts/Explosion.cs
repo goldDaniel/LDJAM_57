@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-public class Explosion : MonoBehaviour
+public class Explosion : RegisteredBehaviour<Explosion>
 {
 	[Range(0.1f, 1f)]
 	public float animationTime;

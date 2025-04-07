@@ -102,22 +102,19 @@ public abstract class Enemy : RegisteredBehaviour<Enemy>
 	public virtual void onDeath()
 	{
         Game.Instance.player.addXP(xpGain);
-        dropPickup();
+        DropPickup();
 		float cascadeChance = Game.Instance.player.cascadeChance;
-		if (cascadeChance > 0)
+		if (UnityEngine.Random.Range(0f, 1f) < cascadeChance)
 		{
-			if (UnityEngine.Random.Range(0f, 1f) < cascadeChance)
+			for (int i = 0; i < 6; i++)
 			{
-				for (int i = 0; i < 6; i++)
-				{
-					var fireball = Instantiate(Game.Instance.player.fireballPrefab);
-					fireball.transform.position = this.transform.position;
-					var angle = Mathf.Deg2Rad * (60 * i);
-					fireball.direction = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
-				}
+				var fireball = Instantiate(Game.Instance.player.fireballPrefab);
+				fireball.transform.position = this.transform.position;
+				var angle = Mathf.Deg2Rad * (60 * i);
+				fireball.direction = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
 			}
 		}
-		Game.Instance.player.getKill();
+		Game.Instance.player.GetKill();
     }
-	public virtual void dropPickup() { }
+	public virtual void DropPickup() { }
 }

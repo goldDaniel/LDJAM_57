@@ -27,7 +27,7 @@ public class MainMenuUI : MonoBehaviour
 		Button play = uiDoc.rootVisualElement.Q("PlayButton") as Button;
 		play.RegisterCallback((ClickEvent e) =>
 		{
-			SceneTransitions.Instance.LoadScene("Gameplay", SceneTransition.FadeOut, ()=>Game.Instance.UnPause());
+			SceneTransitions.Instance.LoadScene("Gameplay", SceneTransition.FadeOut, ()=>Game.Instance.IsPaused = false);
 			onClickSound.Play();
 			AudioManager.Instance.SwitchToGameplay();
 		});

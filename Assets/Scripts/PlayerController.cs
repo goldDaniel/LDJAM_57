@@ -115,13 +115,14 @@ public class PlayerController : MonoBehaviour
 		moveAction = InputSystem.actions.FindAction("Move");
 		aimAction = InputSystem.actions.FindAction("Look");
 		attackAction = InputSystem.actions.FindAction("Attack");
-		moveAction.Enable();
-		aimAction.Enable();
-		attackAction.Enable();
 	}
 
 	void Update()
 	{
+		moveAction.Enable();
+		aimAction.Enable();
+		attackAction.Enable();
+
 		// Aim
 		{
 			if (attackTimer > 0)
@@ -304,7 +305,7 @@ public class PlayerController : MonoBehaviour
 
 		}
 	}
-	public void getKill()
+	public void GetKill()
 	{
 		score++;
 		if (rampage)

@@ -18,7 +18,7 @@ public class Game : MonoBehaviour
 
 	public List<PerkTemplate> currentPerkPool;
 
-    public List<PerkTemplate> madnessPerkPool;
+	public List<PerkTemplate> madnessPerkPool;
 
 	public List<Pickup> pickups;
 
@@ -32,6 +32,12 @@ public class Game : MonoBehaviour
 	public BrainCrab brainCrabPrefab;
 
 	public CanvasRenderer waveCompleteText;
+
+	public bool IsPaused
+	{
+		get => !player.enabled;
+		set => player.enabled = !value;
+	}
 
 	void Awake()
 	{
@@ -52,15 +58,15 @@ public class Game : MonoBehaviour
 		levelBounds.min = new Vector3(-level.arenaWidth / 2 + level.wallWidth, -level.arenaHeight / 2 + level.wallWidth, 0);
 		levelBounds.max = new Vector3(level.arenaWidth / 2 - level.wallWidth, level.arenaHeight / 2 - level.wallWidth, 0);
 
-		Pause();
 		currentWave = SelectNextWave();
 	}
 
 	void Update()
 	{
-		// hack to tell if game is paused
-		if (!player.enabled)
-			return;
+		if (IsPaused)
+			Pause();
+		else
+			UnPause();
 
 		HandleWaveUpdates();
 	}
@@ -230,16 +236,6 @@ public class Game : MonoBehaviour
 		return result;
 	}
 
-	public void Pause()
-	{
-		player.enabled = false;
-		foreach (var enemy in Enemy.instances)
-			enemy.enabled = false;
-
-		foreach (var fireball in Fireball.instances)
-			fireball.enabled = false;
-	}
-
 	public List<PerkTemplate> SelectPerks(int count)
 	{
 		List<PerkTemplate> result = new(count);
@@ -302,14 +298,34 @@ public class Game : MonoBehaviour
 		if (perk.nextTier != null)
             perkPool.AddRange(perk.nextTier);
 	}
-
-	public void UnPause()
+	
+	private void Pause()
 	{
-		player.enabled = true;
+		foreach (var enemy in Enemy.instances)
+			enemy.enabled = false;
+
+		foreach (var fireball in Fireball.instances)
+			fireball.enabled = false;
+
+		foreach (var explosion in Explosion.instances)
+			explosion.enabled = false;
+
+		foreach (var attack in CultistAttack.instances)
+			attack.enabled = false;
+	}
+
+	private void UnPause()
+	{
 		foreach (var enemy in Enemy.instances)
 			enemy.enabled = true;
 
 		foreach (var fireball in Fireball.instances)
 			fireball.enabled = true;
+
+		foreach (var explosion in Explosion.instances)
+			explosion.enabled = true;
+
+		foreach (var attack in CultistAttack.instances)
+			attack.enabled = true;
 	}
 }

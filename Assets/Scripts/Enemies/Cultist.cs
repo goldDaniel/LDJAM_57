@@ -93,7 +93,7 @@ public class Cultist : Enemy
 		Gizmos.color = Color.red;
 		Gizmos.DrawWireSphere(transform.position, attackRange);
 	}
-	public override void dropPickup()
+	public override void DropPickup()
 	{
 		var pickup = Instantiate(Game.Instance.pickups[1]);
 		pickup.transform.position = transform.position;

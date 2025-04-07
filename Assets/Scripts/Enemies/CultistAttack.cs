@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CultistAttack : MonoBehaviour
+public class CultistAttack : RegisteredBehaviour<CultistAttack>
 {
 	public SpriteRenderer baseSprite;
 	public SpriteRenderer glowSprite;
@@ -21,8 +21,9 @@ public class CultistAttack : MonoBehaviour
 
 	private bool _playerInsideExplosion = false;
 
-	void Start()
+	protected override void Start()
 	{
+		base.Start();
 		StartCoroutine(Explode());
 
 		for(int i = 0; i < 20; ++i)

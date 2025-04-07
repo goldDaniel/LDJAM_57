@@ -26,7 +26,7 @@ public class PerkUIController : MonoBehaviour
 
 	public void ActivatePerkSelection()
 	{
-		Game.Instance.Pause();
+		Game.Instance.IsPaused = true;
 		var perks = Game.Instance.SelectPerks(uiElements.Count);
 		for (int i = 0; i < uiElements.Count; ++i)
 		{
@@ -71,6 +71,6 @@ public class PerkUIController : MonoBehaviour
 		uiElementContainer.alpha = 0.0f;
 		yield return null;
 		uiElementContainer.gameObject.SetActive(false);
-		Game.Instance.UnPause();
+		Game.Instance.IsPaused = false;
 	}
 }

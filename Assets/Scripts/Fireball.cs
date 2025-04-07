@@ -20,7 +20,7 @@ public class Fireball : RegisteredBehaviour<Fireball>
 
 	public ModifiableFloat damage = 1f;
 
-	private new void Start()
+	protected override void Start()
 	{
 		base.Start();
 

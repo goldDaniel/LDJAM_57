@@ -325,6 +325,7 @@ public class PlayerController : MonoBehaviour
 			{
 				int index = Random.Range(0, Game.Instance.currentPerkPool.Count);
 				ApplyPerk(Game.Instance.currentPerkPool[index]);
+				Game.Instance.RemovePerkFromPool(Game.Instance.currentPerkPool[index]);
 			}
 		}
     }

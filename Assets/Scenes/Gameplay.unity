@@ -2525,6 +2525,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a84905cd8bf7a744b99e9946c06f1a17, type: 2}
   - {fileID: 11400000, guid: 941586250080be64a916901ce4e8c1fe, type: 2}
   - {fileID: 11400000, guid: 67cdf4fac7ce9e54caa3d7e9f8ea392b, type: 2}
+  - {fileID: 11400000, guid: 998883836442bb244a171eddc446340f, type: 2}
+  - {fileID: 11400000, guid: db346621f6f938147b68eff07229d397, type: 2}
+  - {fileID: 11400000, guid: 40a769703df1de64aa1e56798e07eb44, type: 2}
+  - {fileID: 11400000, guid: 503a5ff4fcd4bc7419937170d2b2a2d0, type: 2}
+  - {fileID: 11400000, guid: 2940527bc8062ef4d8c5a9eb3c5b7e8a, type: 2}
   cultistPrefab: {fileID: 300594833365778432, guid: b94a357a2402f20448a5302cfafd0617, type: 3}
   brainCrabPrefab: {fileID: 176202257156836776, guid: 0944814610e725d469e86772044e7f7f, type: 3}
   eyeballPrefab: {fileID: 1463776747021378065, guid: ee491596d4f82384abbd3f4428a234ac, type: 3}

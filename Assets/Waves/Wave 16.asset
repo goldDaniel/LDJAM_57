@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a78423ddc524f574592946861cda6306, type: 3}
   m_Name: Wave 16
   m_EditorClassIdentifier: 
-  spawnInterval: 2
+  spawnInterval: 1
   brainPackCount: 8
   brainWaveCount: 10
   cultistCount: 2

@@ -308,12 +308,7 @@ public class Game : MonoBehaviour
 	public List<PerkTemplate> SelectPerks(int count)
 	{
 		List<PerkTemplate> result = new(count);
-		int totalWeights = 0;
-		int currentWeight;
-		for(int j = 0; j < currentPerkPool.Count; ++j)
-		{
-			totalWeights += 100 + currentPerkPool[j].rollWeight;
-		}
+		
 
 		for(int i = 0; i < count; ++i)
 		{
@@ -321,7 +316,7 @@ public class Game : MonoBehaviour
 
 			List<PerkTemplate> perkPool;
 
-			if(madnessRoll > Game.Instance.player.madness || Game.Instance.player.madness < 0.01f)
+			if(madnessRoll > Game.Instance.player.madness * 0.75f || Game.Instance.player.madness < 0.01f)
 			{
 				perkPool = currentPerkPool;
 			} else
@@ -329,7 +324,14 @@ public class Game : MonoBehaviour
 				perkPool = madnessPerkPool;
 			}
 
-			int roll;
+            int totalWeights = 0;
+            int currentWeight;
+            for (int j = 0; j < perkPool.Count; ++j)
+            {
+                totalWeights += 100 + perkPool[j].rollWeight;
+            }
+
+            int roll;
 			int index = 0;
 			do
 			{

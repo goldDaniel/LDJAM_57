@@ -119,6 +119,7 @@ public class PlayerController : MonoBehaviour
 		CurrentHealth = maxHealth.Modified();
 		CurrentMana = maxMana.Modified();
 		fireballPrefab = Instantiate(fireballPrefab);
+		fireballPrefab.gameObject.SetActive(false);
 	}
 
 	private void OnEnable()
@@ -154,6 +155,7 @@ public class PlayerController : MonoBehaviour
 					fireball.damage = fireballPrefab.damage.Modified();
 					fireball.transform.position = this.transform.position;
 					fireball.direction = attackDir;
+					fireball.gameObject.SetActive(true);
 					AudioManager.Instance.PlaySFX(AudioManager.Instance.fireballSwoosh);
 				}
 			}

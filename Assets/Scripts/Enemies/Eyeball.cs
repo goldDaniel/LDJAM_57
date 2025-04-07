@@ -35,6 +35,8 @@ public class Eyeball : Enemy
 	public float cooldownTime = 1;
 	private float _cooldownTimer = 0;
 
+	private bool _damageApplied = false;
+
 	void Awake()
 	{
 		attackPrefab.SetActive(false);
@@ -87,6 +89,7 @@ public class Eyeball : Enemy
 		if (_currentState == EyeballState.Cooldown)
 		{
 			_activeAttack.gameObject.SetActive(false);
+			_damageApplied = false;
 			_cooldownTimer -= Time.deltaTime;
 			if (_cooldownTimer <= 0)
 			{
@@ -136,10 +139,16 @@ public class Eyeball : Enemy
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
+		if (_damageApplied)
+			return; 
+
 		if(collision.gameObject.tag == "Player")
 		{
-			Game.Instance.player.ApplyDamage(attackDamage);
-			this.attackCollider.enabled = false;
+			if (Game.Instance.player.ApplyDamage(attackDamage))
+			{
+				_damageApplied = true;
+				this.attackCollider.enabled = false;
+			}
 		}
 	}
 }

@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class CultistAttack : RegisteredBehaviour<CultistAttack>
@@ -20,6 +21,7 @@ public class CultistAttack : RegisteredBehaviour<CultistAttack>
 	public CircleCollider2D circle2D;
 
 	private bool _playerInsideExplosion = false;
+	private bool _damageApplied = false;
 
 	protected override void Start()
 	{
@@ -77,8 +79,12 @@ public class CultistAttack : RegisteredBehaviour<CultistAttack>
 			yield return new WaitForSeconds(1.0f / 120f);
 		}
 
-		if (_playerInsideExplosion)
-			Game.Instance.player.ApplyDamage(10);
+		if (_playerInsideExplosion && !_damageApplied)
+		{
+			if(Game.Instance.player.ApplyDamage(10))
+				_damageApplied = true;
+		}
+			
 
 		Destroy(this.gameObject);
 		onAttackComplete?.Invoke();

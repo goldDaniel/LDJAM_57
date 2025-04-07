@@ -19,6 +19,9 @@ public class AudioManager : MonoSingleton<AudioManager>
 	public AudioSource eyeBallLaserCharge;
 	public AudioSource eyeBallLaserHit;
 
+	public AudioSource playerHit;
+	public AudioSource playerDamaged;
+
 	public void Start()
 	{
 		if(SceneManager.GetActiveScene().name == "MainMenu" || SceneManager.GetActiveScene().name == "Instructions")

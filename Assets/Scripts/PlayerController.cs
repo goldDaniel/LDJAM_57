@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 
 public class PlayerController : MonoBehaviour
@@ -112,6 +113,11 @@ public class PlayerController : MonoBehaviour
 
 	public SpriteRenderer shieldSprite;
 
+	public SpriteRenderer pushEffectSprite;
+
+	private float _invulnTime = 8f/60f;
+	private float _invulnTimer = 0;
+
 	void Start()
 	{
 		rb = GetComponent<Rigidbody2D>();
@@ -206,6 +212,12 @@ public class PlayerController : MonoBehaviour
 				}
 			}
 		}
+			
+		// iframes
+		{
+			_invulnTimer -= Time.deltaTime;
+			_invulnTimer = Mathf.Max(0, _invulnTimer);
+		}
 	}
 
 	void FixedUpdate()
@@ -218,31 +230,61 @@ public class PlayerController : MonoBehaviour
 		colliderTouchCount++;
 		if(collision.collider.gameObject.TryGetComponent(out Enemy hitEnemy))
 		{
-			ApplyDamage(hitEnemy.hitDamage,hitEnemy);
-			foreach (var enemy in Game.Instance.GetNearbyEnemies(rb.position, collisionPushRadius))
+			if(ApplyDamage(hitEnemy.hitDamage,hitEnemy))
 			{
-				enemy.OnPlayerHit(rb.position, collisionPushRadius);
-			}
+				StartCoroutine(AnimatePushEffect());
+				AudioManager.Instance.PlaySFX(AudioManager.Instance.playerHit);
+				foreach (var enemy in Game.Instance.GetNearbyEnemies(rb.position, collisionPushRadius))
+				{
+					enemy.OnPlayerHit(rb.position, collisionPushRadius);
+				}
+			}	
 		}
 	}
 
-	public void ApplyDamage(float damage, Enemy source = null)
+	private IEnumerator AnimatePushEffect()
 	{
+		pushEffectSprite.transform.localScale = Vector3.zero;
+		pushEffectSprite.gameObject.SetActive(true);
+
+		float effectTime = _invulnTime;
+		float effectTimer = effectTime;
+		while (effectTimer > 0)
+		{
+			float t = 1.0f - effectTimer / effectTime;
+			pushEffectSprite.transform.localScale = Vector3.one * t * collisionPushRadius / 2;
+			effectTimer -= Time.deltaTime;
+			yield return null;
+		}
+
+		pushEffectSprite.gameObject.SetActive(false);
+	}
+
+	public bool ApplyDamage(float damage, Enemy source = null)
+	{
+		if (_invulnTimer > 0)
+			return false;
+
+		_invulnTimer = _invulnTime;
+		AudioManager.Instance.PlaySFX(AudioManager.Instance.playerDamaged);
+
 		if (source != null)
 		{
 			source.ApplyDamage(damage * retaliatePercent);
 		}
 		if (currentShield)
 		{
-			StartCoroutine(getShield(shieldCooldown));
+			StartCoroutine(GetShield(shieldCooldown));
 			shieldSprite.enabled = false;
 		}
 		else
 		{
 			CurrentHealth -= damage * damageReduction;
 		}
+
+		return true;
 	}
-	private IEnumerator getShield(float cooldown)
+	private IEnumerator GetShield(float cooldown)
 	{
         yield return new WaitForSeconds(cooldown);
 		currentShield = true;

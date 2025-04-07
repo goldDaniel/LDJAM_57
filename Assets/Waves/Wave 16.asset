@@ -18,6 +18,6 @@ MonoBehaviour:
   cultistCount: 1
   eyeballCount: 0
   bossCount: 0
-  healthMulti: 1.8
+  healthMulti: 3.4
   damageMulti: 1.4
   xpMulti: 1.4

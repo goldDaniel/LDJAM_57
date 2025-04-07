@@ -171,6 +171,6 @@ MonoBehaviour:
   rb: {fileID: 2314421833370535033}
   collide: {fileID: 3688240665819838831}
   xpGain: 5
-  hitDamage: 0
+  hitDamage: 5
   movementOverride: 0
   DefaultBodyType: 1

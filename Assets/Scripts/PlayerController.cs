@@ -147,6 +147,7 @@ public class PlayerController : MonoBehaviour
 					// spawn projectile here
 					Vector2 attackDir = (cursorPosWorld - this.transform.position.xy()).normalized;
 					var fireball = Instantiate(fireballPrefab);
+					fireball.damage = fireballPrefab.damage.Modified();
 					fireball.transform.position = this.transform.position;
 					fireball.direction = attackDir;
 					AudioManager.Instance.PlaySFX(AudioManager.Instance.fireballSwoosh);

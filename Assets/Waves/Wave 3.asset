@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Wave 3
   m_EditorClassIdentifier: 
   spawnInterval: 2
-  brainPackCount: 8
-  brainWaveCount: 3
+  brainPackCount: 7
+  brainWaveCount: 2
   cultistCount: 1
   eyeballCount: 0
   bossCount: 0

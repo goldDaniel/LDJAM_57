@@ -35,7 +35,7 @@ MonoBehaviour:
   cascadeChance: 0
   XPIncrease: 0
   shieldCooldown: 0
-  madnessGained: 0.1
+  madnessGained: -0.1
   instakill: 0
   perksGained: 0
   retaliate: 0

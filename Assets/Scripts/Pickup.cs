@@ -1,10 +1,24 @@
+using System.Collections;
 using UnityEngine;
 
 public class Pickup : MonoBehaviour
 {
 	public enum pickupType { Level, Madness, Sanity}
 	public pickupType type;
-	private void OnTriggerEnter2D(Collider2D collision)
+	public float pickupLife = 15;
+
+    private void Start()
+    {
+		StartCoroutine(DestroyPickup(pickupLife));
+    }
+
+	private IEnumerator DestroyPickup(float duration)
+	{
+		yield return new WaitForSeconds(duration);
+		Destroy(this.gameObject);
+	}
+
+    private void OnTriggerEnter2D(Collider2D collision)
 	{
 		if (collision.gameObject.tag == "Player")
 		{

@@ -42,7 +42,7 @@ MonoBehaviour:
   equality: 0
   shield: 0
   rampage: 0
-  panic: 0
-  madnessThreshold: 0
+  panic: 1
+  madnessThreshold: 0.8
   rollWeight: 0
   nextTier: []

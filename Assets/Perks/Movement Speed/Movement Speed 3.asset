@@ -18,7 +18,6 @@ MonoBehaviour:
 
     Movement Speed + 20%'
   borderColor: {r: 0.20011528, g: 0.66666657, b: 0.056603663, a: 1}
-  showDecoration: 0
   maxHealthMultiplier: 0
   maxHealthAdditive: 0
   damage: 0
@@ -32,6 +31,7 @@ MonoBehaviour:
   damageReduction: 0
   castSpeed: 0
   manaCost: 0
+  manaCostMultiplier: 0
   homingSpeed: 0
   lifesteal: 0
   cascadeChance: 0
@@ -47,4 +47,5 @@ MonoBehaviour:
   panic: 0
   madnessThreshold: 0
   rollWeight: 0
-  nextTier: []
+  nextTier:
+  - {fileID: 11400000, guid: 73cd3a754fa0c6f49bb9dbc835ce46e2, type: 2}

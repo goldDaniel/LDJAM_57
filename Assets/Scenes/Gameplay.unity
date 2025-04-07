@@ -710,6 +710,8 @@ MonoBehaviour:
   tentacleCount: 512
   vignetteScale: 0.4
   volume: {fileID: 871620369}
+  isMainMenu: 0
+  mainMenuT: 0
 --- !u!1001 &234030255
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2271,6 +2273,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: de8bb8b998e726d40ab7c134d900c083, type: 2}
   - {fileID: 11400000, guid: c60aace5961ce944c853a85db5a38488, type: 2}
   - {fileID: 11400000, guid: fe57496f2e3ac784e8be2373ab9b90d5, type: 2}
+  - {fileID: 11400000, guid: 0e74f9a4ac5608f4eac33d48fc8ce980, type: 2}
+  - {fileID: 11400000, guid: 4a75441385a5a294b8304b6ef4549b70, type: 2}
+  - {fileID: 11400000, guid: 61cf44c1e75972e41ba6b57b971c85f3, type: 2}
+  - {fileID: 11400000, guid: ca0967806232b044d8b2ae15cdea257c, type: 2}
+  - {fileID: 11400000, guid: 2907ec1a64d8dc6419d90c516dddd93c, type: 2}
+  - {fileID: 11400000, guid: ffd49b0a1f695d743982e0ab069515ec, type: 2}
   pickups:
   - {fileID: 7050075898809227169, guid: 5f083bccaf60fe948b12621222a5d01a, type: 3}
   - {fileID: 7050075898809227169, guid: bef8476d94f50ae40b937fcc56534a42, type: 3}
@@ -8256,6 +8264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  pickupLife: 15
 --- !u!1 &1967045262
 GameObject:
   m_ObjectHideFlags: 0
@@ -8614,6 +8623,15 @@ MonoBehaviour:
   retaliatePercent: 0
   lifeSteal: 0
   xpIncrease: 0
+  damageReduction: 1
+  rampage: 0
+  equality: 0
+  score: 0
+  streakDuration: 5
+  streakTime: 0
+  rampageCount: 0
+  rampageDamage: 2
+  equalitySpeed: 10
 --- !u!1001 &2025476820
 PrefabInstance:
   m_ObjectHideFlags: 0

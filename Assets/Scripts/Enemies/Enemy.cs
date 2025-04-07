@@ -117,6 +117,7 @@ public abstract class Enemy : RegisteredBehaviour<Enemy>
 				}
 			}
 		}
+		Game.Instance.player.getKill();
     }
 	public virtual void dropPickup() { }
 }

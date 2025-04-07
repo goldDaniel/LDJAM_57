@@ -1,3 +1,4 @@
+using TreeEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -91,6 +92,15 @@ public class PlayerController : MonoBehaviour
 	public float lifeSteal = 0;
 	public float xpIncrease = 0;
 	public float damageReduction = 1;
+	public bool rampage = false;
+	public bool equality = false;
+
+	public int score = 0;
+	public float streakDuration = 0;
+	public float streakTime = 0;
+	public int rampageCount = 0;
+	public float rampageDamage = 0;
+	public float equalitySpeed = 0;
 
 	void Start()
 	{
@@ -149,6 +159,37 @@ public class PlayerController : MonoBehaviour
 		// health regen
 		{
 			CurrentHealth += healthRegenPerSecond.Modified() * Time.deltaTime;
+		}
+
+		// equality
+		{
+			if (equality)
+			{
+				if(CurrentMana / maxMana.Modified() > CurrentHealth / maxHealth.Modified())
+				{
+					CurrentMana -= equalitySpeed * Time.deltaTime;
+					CurrentHealth += equalitySpeed * Time.deltaTime;
+				}
+				else
+				{
+                    CurrentMana += equalitySpeed * Time.deltaTime;
+                    CurrentHealth -= equalitySpeed * Time.deltaTime;
+                }
+			}
+		}
+
+		// rampage
+		{
+			if (rampage)
+			{
+				streakTime += Time.deltaTime;
+				if (streakTime > streakDuration)
+				{
+					fireballPrefab.damage.Add(rampageCount * -1 * rampageDamage);
+					rampageCount = 0;
+					streakTime = 0;
+				}
+			}
 		}
 	}
 
@@ -236,6 +277,18 @@ public class PlayerController : MonoBehaviour
 			lifeSteal += perk.lifesteal;
         if (!MathUtils.ApproximatelyZero(perk.XPIncrease))
             xpIncrease += perk.XPIncrease;
+		if (perk.rampage)
+			rampage = perk.rampage;
+		if (perk.equality)
+			equality = perk.equality;
+		if (perk.perksGained > 0)
+		{
+			for (int i = 0; i < perk.perksGained; i++)
+			{
+				int index = Random.Range(0, Game.Instance.currentPerkPool.Count);
+				ApplyPerk(Game.Instance.currentPerkPool[index]);
+			}
+		}
     }
 
 	public void addXP(float xp)
@@ -250,5 +303,16 @@ public class PlayerController : MonoBehaviour
 			CurrentHealth = maxHealth.Modified();
 
 		}
+	}
+	public void getKill()
+	{
+		score++;
+		if (rampage)
+		{
+			rampageCount++;
+			fireballPrefab.damage.Add(rampageDamage);
+			streakTime = 0;
+		}
+
 	}
 }

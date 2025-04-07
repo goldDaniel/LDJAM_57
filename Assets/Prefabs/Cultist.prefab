@@ -171,11 +171,11 @@ MonoBehaviour:
   rb: {fileID: 2314421833370535033}
   collide: {fileID: 3688240665819838831}
   xpGain: 55
-  hitDamage: 10
+  hitDamage: 15
   movementOverride: 0
   DefaultBodyType: 0
   Force: 25
   attackPrefab: {fileID: -3207451831639857984, guid: 2a462a36f7c008442bdc3ef5ae631cbf, type: 3}
   attackRange: 20
   cooldownTime: 2
-  attackTime: 2
+  attackTime: 1.5

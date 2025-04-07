@@ -1745,8 +1745,8 @@ MonoBehaviour:
   target: {fileID: 2016958860}
   brainPrefab: {fileID: 8419515943885230746, guid: 0944814610e725d469e86772044e7f7f, type: 3}
   spawnRadius: 4
-  velocity: 5
-  velocityVariation: 0.5
+  velocity: 7.5
+  velocityVariation: 0.707
   neighborDist: 5
   separationWeight: 5
   alignmentWeight: 4
@@ -8957,7 +8957,7 @@ MonoBehaviour:
   maxMana:
     baseValue: 100
   manaRegenPerSecond:
-    baseValue: 6
+    baseValue: 9
   manaCost:
     baseValue: 8
   healthRegenPerSecond:

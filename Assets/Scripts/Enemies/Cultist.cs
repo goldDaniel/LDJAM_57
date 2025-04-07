@@ -46,6 +46,7 @@ public class Cultist : Enemy
 			if (_activeAttack == null)
 			{
 				_activeAttack = Instantiate(attackPrefab);
+				_activeAttack.owner = this;
 				_activeAttack.transform.position = new Vector3(_targetP.x, _targetP.y, 0);
 				_activeAttack.attackTime = attackTime;
 				_activeAttack.onAttackComplete = () =>

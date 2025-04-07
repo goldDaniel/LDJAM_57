@@ -23,6 +23,9 @@ public class CultistAttack : RegisteredBehaviour<CultistAttack>
 	private bool _playerInsideExplosion = false;
 	private bool _damageApplied = false;
 
+	public Cultist owner;
+	public GameObject indicator;
+
 	protected override void Start()
 	{
 		base.Start();
@@ -39,6 +42,13 @@ public class CultistAttack : RegisteredBehaviour<CultistAttack>
 
 			bombEffect.Add(effect);
 		}
+	}
+
+	public void Update()
+	{
+		Vector2 dir = owner.transform.position - indicator.transform.position;
+		float angleRad = Mathf.Atan2(dir.y, dir.x);
+		indicator.transform.rotation = Quaternion.Euler(0, 0, Mathf.Rad2Deg * angleRad);
 	}
 
 	IEnumerator Explode()

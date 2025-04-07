@@ -28,6 +28,9 @@ public class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T>
 
 	public virtual void Awake()
 	{
+		if (_instance != null)
+			Destroy(this.gameObject);
+
 		DontDestroyOnLoad(this);
 	}
 }

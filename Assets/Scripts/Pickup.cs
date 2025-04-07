@@ -24,7 +24,7 @@ public class Pickup : MonoBehaviour
 		{
 			if (type == pickupType.Level)
 			{
-				PerkUIController.Instance.ActivatePerkSelection();
+				PerkUIController.Instance.ActivatePerkSelection(false);
 			}
             if (type == pickupType.Madness)
             {

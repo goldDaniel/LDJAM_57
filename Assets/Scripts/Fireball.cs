@@ -20,6 +20,8 @@ public class Fireball : RegisteredBehaviour<Fireball>
 
 	public ModifiableFloat damage = 1f;
 
+	private bool explosionPlayed = false;
+
 	protected override void Start()
 	{
 		base.Start();
@@ -67,7 +69,11 @@ public class Fireball : RegisteredBehaviour<Fireball>
 			if(p.x > -10 && p.x < Screen.width + 10 &&
 			   p.y > -10 && p.y < Screen.height + 10)
 			{
-				AudioManager.Instance.PlaySFX(AudioManager.Instance.fireballExplosion);
+				if(!explosionPlayed)
+				{
+					explosionPlayed = true;
+					AudioManager.Instance.PlaySFX(AudioManager.Instance.fireballExplosion);
+				}
 			}	
 		}
 	}

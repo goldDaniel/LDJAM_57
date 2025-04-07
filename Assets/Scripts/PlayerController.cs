@@ -294,15 +294,14 @@ public class PlayerController : MonoBehaviour
 
 	public void addXP(float xp)
 	{
-		currentXP += xp * (1+ xpIncrease);
+		currentXP += xp * (1 + xpIncrease);
 		if (currentXP > xpNeeded)
 		{
 			currentXP -= xpNeeded;
 			xpNeeded += xpScaling;
-			PerkUIController.Instance.ActivatePerkSelection();
+			PerkUIController.Instance.ActivatePerkSelection(true);
 			CurrentMana = maxMana.Modified();
 			CurrentHealth = maxHealth.Modified();
-
 		}
 	}
 	public void GetKill()
@@ -314,6 +313,5 @@ public class PlayerController : MonoBehaviour
 			fireballPrefab.damage.Add(rampageDamage);
 			streakTime = 0;
 		}
-
 	}
 }

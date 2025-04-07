@@ -1,6 +1,7 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PerkUIController : MonoBehaviour
@@ -10,6 +11,8 @@ public class PerkUIController : MonoBehaviour
 	public List<PerkUI> uiElements;
 
 	public CanvasGroup uiElementContainer;
+
+	public TextMeshProUGUI reasonText;
 
 	void Awake()
 	{
@@ -24,9 +27,13 @@ public class PerkUIController : MonoBehaviour
 		uiElementContainer.gameObject.SetActive(false);
 	}
 
-	public void ActivatePerkSelection()
+	public void ActivatePerkSelection(bool levelUp)
 	{
 		Game.Instance.IsPaused = true;
+
+		if (levelUp) reasonText.text = "LEVEL UP";
+		else         reasonText.text = "PERK PICKUP";
+
 		var perks = Game.Instance.SelectPerks(uiElements.Count);
 		for (int i = 0; i < uiElements.Count; ++i)
 		{

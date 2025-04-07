@@ -2286,6 +2286,30 @@ MonoBehaviour:
   currentWave: {fileID: 0}
   allWaves:
   - {fileID: 11400000, guid: 5a60a261c223889438a25ca40c9a13a7, type: 2}
+  - {fileID: 11400000, guid: bfef606d563a85644b63ba22dea96d5e, type: 2}
+  - {fileID: 11400000, guid: 1c08e862b470ad94691bb1a056ea650e, type: 2}
+  - {fileID: 11400000, guid: 035fd2f9d62e2854794338b3f13cb53c, type: 2}
+  - {fileID: 11400000, guid: 1d496adad6f866e4a8f6de7d41fe975d, type: 2}
+  - {fileID: 11400000, guid: b58a7e41fb8faef44a979fa0e0b42d84, type: 2}
+  - {fileID: 11400000, guid: 313b46869077e9b43acf144b088c64cc, type: 2}
+  - {fileID: 11400000, guid: d61f0eb8bb1f4e841a1899e5448ea34f, type: 2}
+  - {fileID: 11400000, guid: 72b05c322af4f8e4b966226caf51931d, type: 2}
+  - {fileID: 11400000, guid: fe130876af2f0384fb5207edef70c86f, type: 2}
+  - {fileID: 11400000, guid: 3912bcb81f0fd854ea9e347a7f187186, type: 2}
+  - {fileID: 11400000, guid: d411e475cee19c2488d931140c2b3c53, type: 2}
+  - {fileID: 11400000, guid: 981d98fcb0513804f99877d133bfc9ec, type: 2}
+  - {fileID: 11400000, guid: 27af8e507af75794e8805a45d259294e, type: 2}
+  - {fileID: 11400000, guid: 55dd539bf869c8e4a9c75face5c88e32, type: 2}
+  - {fileID: 11400000, guid: 4f275b9c5ea5ed147af4e490698aaf16, type: 2}
+  - {fileID: 11400000, guid: 79f807a6a55ff834cbb3a92148871d63, type: 2}
+  - {fileID: 11400000, guid: ef80faca79757f44fa4614b3b056c0ce, type: 2}
+  - {fileID: 11400000, guid: 1adf3bc07d0b9d744a77639ae83fc762, type: 2}
+  - {fileID: 11400000, guid: 3b57fb44e94cb654cb32acf2acc09d7f, type: 2}
+  - {fileID: 11400000, guid: 1432c66f08b7e6444b5ce646e254f0f8, type: 2}
+  - {fileID: 11400000, guid: 371b4dd97399c1a40ab5ab568e432f2d, type: 2}
+  - {fileID: 11400000, guid: a84905cd8bf7a744b99e9946c06f1a17, type: 2}
+  - {fileID: 11400000, guid: 941586250080be64a916901ce4e8c1fe, type: 2}
+  - {fileID: 11400000, guid: 67cdf4fac7ce9e54caa3d7e9f8ea392b, type: 2}
   cultistPrefab: {fileID: 300594833365778432, guid: b94a357a2402f20448a5302cfafd0617, type: 3}
   brainCrabPrefab: {fileID: 176202257156836776, guid: 0944814610e725d469e86772044e7f7f, type: 3}
   waveCompleteText: {fileID: 1529568449}
@@ -7039,7 +7063,7 @@ MonoBehaviour:
   - {fileID: 801652297}
   - {fileID: 2121493429}
   uiElementContainer: {fileID: 2094099457}
-  reasonText: {fileID: 1815662783}
+  reasonText: {fileID: 0}
 --- !u!1 &1562679341
 GameObject:
   m_ObjectHideFlags: 0
@@ -9053,6 +9077,7 @@ MonoBehaviour:
   rampageDamage: 2
   equalitySpeed: 10
   shieldCooldown: 0
+  shieldSprite: {fileID: 1431932689}
 --- !u!1001 &2025476820
 PrefabInstance:
   m_ObjectHideFlags: 0

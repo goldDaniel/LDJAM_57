@@ -107,6 +107,8 @@ public class PlayerController : MonoBehaviour
 	public float equalitySpeed = 0;
 	public float shieldCooldown = 0;
 
+	public SpriteRenderer shieldSprite;
+
 	void Start()
 	{
 		rb = GetComponent<Rigidbody2D>();
@@ -226,6 +228,7 @@ public class PlayerController : MonoBehaviour
 		if (currentShield)
 		{
 			StartCoroutine(getShield(shieldCooldown));
+			shieldSprite.enabled = false;
 		}
 		else
 		{
@@ -236,6 +239,7 @@ public class PlayerController : MonoBehaviour
 	{
         yield return new WaitForSeconds(cooldown);
 		currentShield = true;
+		shieldSprite.enabled = true;
     }
 
 	private void OnCollisionExit2D(Collision2D collision)
@@ -305,6 +309,7 @@ public class PlayerController : MonoBehaviour
 		{
 			shield = perk.shield;
 			currentShield = true;
+			shieldSprite.enabled = true;
 		}
 
 		if (perk.perksGained > 0)

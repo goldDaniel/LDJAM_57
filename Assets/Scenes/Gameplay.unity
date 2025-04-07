@@ -705,7 +705,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minRadius: 23
-  maxRadius: 48.5
+  maxRadius: 45
   TentaclePrefab: {fileID: 8475773014922967520, guid: eefe39b970023e74eaaef8850e453b68, type: 3}
   tentacleCount: 512
   vignetteScale: 0.4
@@ -2535,7 +2535,6 @@ MonoBehaviour:
   eyeballPrefab: {fileID: 1463776747021378065, guid: ee491596d4f82384abbd3f4428a234ac, type: 3}
   waveCompleteText: {fileID: 1529568449}
   loseUI: {fileID: 1362366379}
-  Halted: 0
 --- !u!4 &633851566 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4022407008771602898, guid: 74beefb400ee2a9438b0480281fefd74, type: 3}

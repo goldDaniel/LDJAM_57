@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.UIElements.Experimental;
 
 public class MadnessFOV : MonoBehaviour
 {
@@ -28,7 +29,12 @@ public class MadnessFOV : MonoBehaviour
 
 	private void Start()
 	{
-		float distance = Mathf.Lerp(maxRadius, minRadius, isMainMenu ? mainMenuT : Game.Instance.player.madness);
+		float t = mainMenuT;
+		if (!isMainMenu)
+		{
+			t = Easing.OutCirc(Game.Instance.player.madness);
+		}
+		float distance = Mathf.Lerp(maxRadius, minRadius, t);
 		for(int i = 0; i < tentacleCount; ++i)
 		{
 			var tentacle = Instantiate(TentaclePrefab);

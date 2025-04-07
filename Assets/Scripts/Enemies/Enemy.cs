@@ -28,8 +28,8 @@ public abstract class Enemy : RegisteredBehaviour<Enemy>
 	{
         hitTimer = hitDisplayTime;
 		Game.Instance.player.CurrentHealth += damage * Game.Instance.player.lifeSteal;
-		// Need to add logic to not apply to bosses
-		if (UnityEngine.Random.Range(0f, 1f) < Game.Instance.player.instakillChance)
+		if (this.GetType() != typeof(Eyeball) && // don't instakill boss
+			UnityEngine.Random.Range(0f, 1f) < Game.Instance.player.instakillChance)
 		{
 			this.OnDeath();
 			Destroy(this.gameObject);

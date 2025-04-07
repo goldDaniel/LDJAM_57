@@ -268,8 +268,9 @@ public class PlayerController : MonoBehaviour
 		_invulnTimer = _invulnTime;
 
 		if (source != null)
-		{
-			source.ApplyDamage(damage * retaliatePercent);
+		{	
+			if(damage * retaliatePercent > 0) // needed since ApplyDamage has side effects (hit coloring for enemies for example)
+				source.ApplyDamage(damage * retaliatePercent);
 		}
 		if (currentShield)
 		{

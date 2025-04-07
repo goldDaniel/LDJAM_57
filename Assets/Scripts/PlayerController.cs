@@ -118,6 +118,7 @@ public class PlayerController : MonoBehaviour
 		
 		CurrentHealth = maxHealth.Modified();
 		CurrentMana = maxMana.Modified();
+		fireballPrefab = Instantiate(fireballPrefab);
 	}
 
 	private void OnEnable()

@@ -105,7 +105,7 @@ public class Game : MonoBehaviour
 			yield return null;
 		}
 
-		yield return new WaitForSeconds(10f);
+		yield return new WaitForSeconds(5f);
 		SceneTransitions.Instance.LoadScene("MainMenu", SceneTransition.FadeOut);
 		AudioManager.Instance.SwitchToMainMenu();
 	}

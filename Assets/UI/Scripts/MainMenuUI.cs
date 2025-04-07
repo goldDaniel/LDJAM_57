@@ -4,6 +4,9 @@ using UnityEngine.UIElements;
 
 public class MainMenuUI : MonoBehaviour
 {
+	public GameObject mainMenuFadeIn;
+	private CanvasRenderer fadeImage; 
+
 	public MeshRenderer mr;
 	public UIDocument uiDoc;
 
@@ -15,6 +18,10 @@ public class MainMenuUI : MonoBehaviour
 
 	IEnumerator Start()
 	{
+		fadeImage = mainMenuFadeIn.GetComponent<CanvasRenderer>();
+		fadeImage.SetAlpha(1);
+		fadeInTimer = 4f;
+
 		prevScreenWidth = Screen.width;
 		prevScreenHeight = Screen.height;
 
@@ -48,8 +55,19 @@ public class MainMenuUI : MonoBehaviour
 		mr.enabled = true;
 	}
 
+	private float fadeInTimer = 4f;
 	void Update()
 	{
+		if(fadeInTimer > 0)
+		{
+			float t = fadeInTimer / 4f;
+
+			fadeImage.SetAlpha(t);
+
+			fadeInTimer -= Time.deltaTime;
+			fadeInTimer = Mathf.Clamp01(fadeInTimer);
+		}
+
 		if (prevScreenWidth != Screen.width || prevScreenHeight != Screen.height)
 		{
 			prevScreenWidth = Screen.width;

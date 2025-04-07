@@ -53,13 +53,45 @@ public class MadnessFOV : MonoBehaviour
 		}
 	}
 
-	private float lastMadness = -1;
+	private float lastMadness = -0.01f;
+	private float time = 0;
 	private void Update()
 	{
-		if(lastMadness != (isMainMenu ? mainMenuT : Game.Instance.player.madness))
+		if(!isMainMenu)
 		{
-			lastMadness = isMainMenu ? mainMenuT : Game.Instance.player.madness;
-			float distance = Mathf.Lerp(maxRadius, minRadius, isMainMenu ? mainMenuT : Game.Instance.player.madness);
+			if(lastMadness != Game.Instance.player.madness)
+			{
+				if (time < 1)
+				{
+					float interpolant = Mathf.SmoothStep(lastMadness, Game.Instance.player.madness, time);
+					float distance = Mathf.Lerp(maxRadius, minRadius, interpolant);
+					for (int i = 0; i < tentacleCount; ++i)
+					{
+						var tentacle = tentacles[i];
+
+						float angle = (i / (float)tentacleCount) * Mathf.PI * 2;
+						tentacle.initial = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * (distance + tentacle.distanceOffset);
+					}
+
+					if (volume.profile.TryGet<Vignette>(out var vignette))
+					{
+						vignette.intensity.Override(interpolant * vignetteScale);
+					}
+
+					time += Time.deltaTime * 0.25f;
+					time = Mathf.Clamp01(time);
+				}
+				else
+				{
+					lastMadness = Game.Instance.player.madness;
+					time = 0;
+				}
+			}
+		}
+		else if(lastMadness != mainMenuT)
+		{
+			lastMadness = mainMenuT;
+			float distance = Mathf.Lerp(maxRadius, minRadius, mainMenuT);
 			for (int i = 0; i < tentacleCount; ++i)
 			{
 				var tentacle = tentacles[i];
@@ -68,9 +100,9 @@ public class MadnessFOV : MonoBehaviour
 				tentacle.initial = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * (distance + tentacle.distanceOffset);
 			}
 
-			if(volume.profile.TryGet<Vignette>(out var vignette))
+			if (volume.profile.TryGet<Vignette>(out var vignette))
 			{
-				vignette.intensity.Override((isMainMenu ? mainMenuT : Game.Instance.player.madness) * vignetteScale);
+				vignette.intensity.Override(mainMenuT * vignetteScale);
 			}
 		}
 	}

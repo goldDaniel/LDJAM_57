@@ -199,6 +199,7 @@ public class Game : MonoBehaviour
 			}
 
 			SceneTransitions.Instance.LoadScene("MainMenu", SceneTransition.FadeOut);
+			AudioManager.Instance.SwitchToMainMenu();
 		}
 		else 
 		{

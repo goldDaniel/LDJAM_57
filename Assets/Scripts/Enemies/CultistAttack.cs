@@ -86,13 +86,14 @@ public class CultistAttack : RegisteredBehaviour<CultistAttack>
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		if(collision.gameObject == Game.Instance.player.gameObject) 
+
+		if(Game.Instance.player && collision.gameObject == Game.Instance.player.gameObject) 
 			_playerInsideExplosion = true;
 	}
 
 	private void OnTriggerExit2D(Collider2D collision)
 	{
-		if (collision.gameObject == Game.Instance.player.gameObject)
+		if (Game.Instance.player && collision.gameObject == Game.Instance.player.gameObject)
 			_playerInsideExplosion = false;
 	}
 }

@@ -47,6 +47,10 @@ public class PlayerController : MonoBehaviour
 			if(value <= 0)
 			{
 				// kill player
+				GetComponent<SpriteRenderer>().enabled = false;
+				this.enabled = false;
+				manaBar.enabled = false;
+				Game.Instance.Lose();
 			}
 
 			if(_currentHealth != value)

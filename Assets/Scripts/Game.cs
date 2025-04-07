@@ -6,6 +6,7 @@ using System.Linq;
 using TMPro;
 using Unity.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem.Controls;
 
 public class Game : MonoBehaviour
 {
@@ -36,6 +37,8 @@ public class Game : MonoBehaviour
 	public Eyeball eyeballPrefab;
 
 	public CanvasRenderer waveCompleteText;
+
+	public CanvasRenderer loseUI;
 
 	public bool IsPaused
 	{
@@ -73,6 +76,32 @@ public class Game : MonoBehaviour
 			UnPause();
 
 		HandleWaveUpdates();
+	}
+
+	public void Lose()
+	{
+		StartCoroutine(LoseInternal());
+	}
+
+	private IEnumerator LoseInternal()
+	{
+		loseUI.gameObject.SetActive(true);
+		loseUI.transform.Find("Score Text").GetComponent<TextMeshProUGUI>().text = $"Final Score: {player.score}";
+		loseUI.SetAlpha(0);
+		float timer = 0;
+		float time = 2f;
+
+		while(timer < time)
+		{
+			float t = timer / time;
+			loseUI.SetAlpha(t);
+			timer += Time.deltaTime;
+			yield return null;
+		}
+
+		yield return new WaitForSeconds(10f);
+		SceneTransitions.Instance.LoadScene("MainMenu", SceneTransition.FadeOut);
+		AudioManager.Instance.SwitchToMainMenu();
 	}
 
 	void HandleWaveUpdates()
@@ -200,13 +229,8 @@ public class Game : MonoBehaviour
 				waveCompleteText.SetAlpha(t);
 				yield return null;
 			}
-			while (t > 0)
-			{
-				t -= Time.deltaTime;
-				t = Mathf.Clamp01(t);
-				waveCompleteText.SetAlpha(t);
-				yield return null;
-			}
+
+			yield return new WaitForSeconds(5f);
 
 			SceneTransitions.Instance.LoadScene("MainMenu", SceneTransition.FadeOut);
 			AudioManager.Instance.SwitchToMainMenu();

@@ -3,6 +3,7 @@ using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using Unity.Collections;
 using UnityEngine;
 
@@ -22,8 +23,10 @@ public class Game : MonoBehaviour
 
 	public List<Pickup> pickups;
 
+	
 	public Wave currentWave;
 	private float _waveTimer;
+	private int _currentWaveCount = 0;
 
 	public List<Wave> allWaves; // sorted by #. 0 == first wave, 1 == second wave, etc...
 	Bounds levelBounds = new();
@@ -145,6 +148,7 @@ public class Game : MonoBehaviour
 		{
 			var result = Instantiate(allWaves[0]);
 			allWaves.RemoveAt(0);
+			_currentWaveCount++;
 			return result;
 		}
 
@@ -153,6 +157,9 @@ public class Game : MonoBehaviour
 
 	private IEnumerator SetupNextWave()
 	{
+		var text = waveCompleteText.GetComponent<TextMeshProUGUI>();
+		text.text = $"WAVE {_currentWaveCount} COMPLETE";
+
 		waveCompleteText.SetAlpha(0);
 		waveCompleteText.gameObject.SetActive(true);
 		float t = 0;
@@ -163,7 +170,6 @@ public class Game : MonoBehaviour
 			waveCompleteText.SetAlpha(t);
 			yield return null;
 		}
-
 		while (t > 0)
 		{
 			t -= Time.deltaTime;
@@ -172,11 +178,51 @@ public class Game : MonoBehaviour
 			yield return null;
 		}
 
-		waveCompleteText.gameObject.SetActive(false);
-		currentWave = SelectNextWave();
-		if (currentWave == null)
+		var nextWave = SelectNextWave();
+		if (nextWave == null)
 		{
-			// you win!
+			IsPaused = true;
+			text.text = "YOU WIN";
+			while (t < 1)
+			{
+				t += Time.deltaTime;
+				t = Mathf.Clamp01(t);
+				waveCompleteText.SetAlpha(t);
+				yield return null;
+			}
+			while (t > 0)
+			{
+				t -= Time.deltaTime;
+				t = Mathf.Clamp01(t);
+				waveCompleteText.SetAlpha(t);
+				yield return null;
+			}
+
+			SceneTransitions.Instance.LoadScene("MainMenu", SceneTransition.FadeOut);
+		}
+		else 
+		{
+			text.text = $"WAVE {_currentWaveCount} START";
+			t = 0;
+			while (t < 1)
+			{
+				t += Time.deltaTime;
+				t = Mathf.Clamp01(t);
+				waveCompleteText.SetAlpha(t);
+				yield return null;
+			}
+
+			t = 1;
+			while (t > 0)
+			{
+				t -= Time.deltaTime;
+				t = Mathf.Clamp01(t);
+				waveCompleteText.SetAlpha(t);
+				yield return null;
+			}
+
+			currentWave = nextWave;
+			waveCompleteText.gameObject.SetActive(false);
 		}
 	}
 

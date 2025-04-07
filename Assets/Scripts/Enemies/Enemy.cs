@@ -22,6 +22,8 @@ public abstract class Enemy : RegisteredBehaviour<Enemy>
 
 	public RigidbodyType2D DefaultBodyType = RigidbodyType2D.Kinematic;
 
+	private bool deathEffectApplied = false;
+
 	public void ApplyDamage(float damage)
 	{
         hitTimer = hitDisplayTime;
@@ -29,7 +31,7 @@ public abstract class Enemy : RegisteredBehaviour<Enemy>
 		// Need to add logic to not apply to bosses
 		if (UnityEngine.Random.Range(0f, 1f) < Game.Instance.player.instakillChance)
 		{
-			this.onDeath();
+			this.OnDeath();
 			Destroy(this.gameObject);
 		}
 		else
@@ -37,7 +39,7 @@ public abstract class Enemy : RegisteredBehaviour<Enemy>
 			Health -= damage;
 			if (Health <= 0)
 			{
-				this.onDeath();
+				this.OnDeath();
 				Destroy(this.gameObject);
 			}
 		}
@@ -99,9 +101,14 @@ public abstract class Enemy : RegisteredBehaviour<Enemy>
 	{
 		base.OnDestroy();
 	}
-	public virtual void onDeath()
+	public virtual void OnDeath()
 	{
-        Game.Instance.player.addXP(xpGain);
+		if (!deathEffectApplied)
+			return;
+
+		deathEffectApplied = true;
+
+		Game.Instance.player.addXP(xpGain);
         DropPickup();
 		float cascadeChance = Game.Instance.player.cascadeChance;
 		if (UnityEngine.Random.Range(0f, 1f) < cascadeChance)

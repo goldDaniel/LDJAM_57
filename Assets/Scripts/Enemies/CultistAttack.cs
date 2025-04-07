@@ -41,6 +41,7 @@ public class CultistAttack : RegisteredBehaviour<CultistAttack>
 
 	IEnumerator Explode()
 	{
+		bool soundPlayed = false;
 		while(_attackTimer < attackTime)
 		{
 			float t = _attackTimer / attackTime;
@@ -55,6 +56,12 @@ public class CultistAttack : RegisteredBehaviour<CultistAttack>
 				glowSprite.color = glowColor;
 			}
 
+			if(t > 0.3f && !soundPlayed)
+			{
+				soundPlayed = true;
+				AudioManager.Instance.PlaySFX(AudioManager.Instance.cultistAttackCharge);
+			}
+
 			float scale = Mathf.Lerp(1f, 1.2f, t);
 			glowSprite.transform.localScale = Vector3.one * scale;
 
@@ -62,6 +69,7 @@ public class CultistAttack : RegisteredBehaviour<CultistAttack>
 			yield return null;
 		}
 
+		AudioManager.Instance.PlaySFX(AudioManager.Instance.cultistAttackExplode);
 		glowSprite.color = Color.white;
 		for (int i = 0; i < bombEffect.Count; ++i)
 		{

@@ -12,6 +12,9 @@ public class AudioManager : MonoSingleton<AudioManager>
 	public AudioSource fireballSwoosh;
 	public AudioSource fireballExplosion;
 
+	public AudioSource cultistAttackCharge;
+	public AudioSource cultistAttackExplode;
+
 	public void StartMainMenuMusic()
 	{
 		mainMenuBackground.Play();

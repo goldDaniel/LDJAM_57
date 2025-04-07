@@ -15,8 +15,6 @@ public class MainMenuUI : MonoBehaviour
 
 	IEnumerator Start()
 	{
-		AudioManager.Instance.StartMainMenuMusic();	
-
 		prevScreenWidth = Screen.width;
 		prevScreenHeight = Screen.height;
 
@@ -25,21 +23,21 @@ public class MainMenuUI : MonoBehaviour
 		mr.material.mainTexture = uiTarget;
 
 		Button play = uiDoc.rootVisualElement.Q("PlayButton") as Button;
-		play.RegisterCallback((ClickEvent e) =>
+		play.RegisterCallback((PointerEnterEvent _) => onHoverSound.Play());
+		play.RegisterCallback((ClickEvent _) =>
 		{
-			SceneTransitions.Instance.LoadScene("Gameplay", SceneTransition.FadeOut, ()=>Game.Instance.IsPaused = false);
+			SceneTransitions.Instance.LoadScene("Gameplay", SceneTransition.FadeOut, () => Game.Instance.IsPaused = false);
 			onClickSound.Play();
 			AudioManager.Instance.SwitchToGameplay();
 		});
-		play.RegisterCallback((PointerEnterEvent e) =>
-		{
-			onHoverSound.Play();
-		});
+		
 
 		Button howToPlay = uiDoc.rootVisualElement.Q("HowToPlayButton") as Button;
-		howToPlay.RegisterCallback((PointerEnterEvent e) =>
+		howToPlay.RegisterCallback((PointerEnterEvent _) => onHoverSound.Play());
+		howToPlay.RegisterCallback((ClickEvent _) =>
 		{
-			onHoverSound.Play();
+			SceneTransitions.Instance.LoadScene("Instructions", SceneTransition.FadeOut);
+			onClickSound.Play();
 		});
 
 		var quadHeight = Camera.main.orthographicSize * 2.0f;

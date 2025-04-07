@@ -2253,7 +2253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2016958861}
-  cursorTexture: {fileID: 2800000, guid: fc9bbb70284531348944dcae292b7783, type: 3}
+  cursorTexture: {fileID: 2800000, guid: 7808f32d1668c2c4da392df36a87dbbb, type: 3}
   level: {fileID: 631677077}
   currentPerkPool:
   - {fileID: 11400000, guid: 5c242880fb760044a87a7d65ba3fa686, type: 2}

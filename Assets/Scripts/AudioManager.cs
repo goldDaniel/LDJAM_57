@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 using static Unity.VisualScripting.Member;
 
 public class AudioManager : MonoSingleton<AudioManager>
@@ -15,9 +16,16 @@ public class AudioManager : MonoSingleton<AudioManager>
 	public AudioSource cultistAttackCharge;
 	public AudioSource cultistAttackExplode;
 
-	public void StartMainMenuMusic()
+	public void Start()
 	{
-		mainMenuBackground.Play();
+		if(SceneManager.GetActiveScene().name == "MainMenu" || SceneManager.GetActiveScene().name == "Instructions")
+		{
+			mainMenuBackground.Play();
+		}
+		else 
+		{
+			gameplayBackground.Play();
+		}
 	}
 
 	public void SwitchToGameplay() => StartCoroutine(SwitchToGameplayInternal());

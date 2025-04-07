@@ -2221,6 +2221,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ca0967806232b044d8b2ae15cdea257c, type: 2}
   - {fileID: 11400000, guid: 2907ec1a64d8dc6419d90c516dddd93c, type: 2}
   - {fileID: 11400000, guid: ffd49b0a1f695d743982e0ab069515ec, type: 2}
+  - {fileID: 11400000, guid: 57d38ea6a1ff30c46abee8d060fd2de7, type: 2}
   pickups:
   - {fileID: 7050075898809227169, guid: 5f083bccaf60fe948b12621222a5d01a, type: 3}
   - {fileID: 7050075898809227169, guid: bef8476d94f50ae40b937fcc56534a42, type: 3}

@@ -21,7 +21,6 @@ MonoBehaviour:
     Base
     Mana Cost 28 > 32'
   borderColor: {r: 0.8301887, g: 0.31257835, b: 0.028717123, a: 1}
-  showDecoration: 0
   maxHealthMultiplier: 0
   maxHealthAdditive: 0
   damage: 8
@@ -50,6 +49,6 @@ MonoBehaviour:
   rampage: 0
   panic: 0
   madnessThreshold: 0
-  rollWeight: 100
+  rollWeight: 250
   nextTier:
   - {fileID: 11400000, guid: a8f9a18f38331f648917bfa963ffb91e, type: 2}

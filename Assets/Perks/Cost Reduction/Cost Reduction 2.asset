@@ -18,7 +18,6 @@ MonoBehaviour:
 
     Spell Cost 80% > 65%'
   borderColor: {r: 0.19384111, g: 0.68497854, b: 0.7610062, a: 1}
-  showDecoration: 0
   maxHealthMultiplier: 0
   maxHealthAdditive: 0
   damage: 0
@@ -32,6 +31,7 @@ MonoBehaviour:
   damageReduction: 0
   castSpeed: 0
   manaCost: -0.15
+  manaCostMultiplier: 0
   homingSpeed: 0
   lifesteal: 0
   cascadeChance: 0
@@ -46,5 +46,5 @@ MonoBehaviour:
   rampage: 0
   panic: 0
   madnessThreshold: 0
-  rollWeight: 0
+  rollWeight: 100
   nextTier: []

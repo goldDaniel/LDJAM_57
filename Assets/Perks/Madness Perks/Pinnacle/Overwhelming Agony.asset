@@ -17,7 +17,7 @@ MonoBehaviour:
   description: 'Massively increases damage but lose health every second
 
     Damage
-    x3
+    +200%
 
     Health Regen -5'
   borderColor: {r: 0.078431375, g: 0.4, b: 0.03137255, a: 1}

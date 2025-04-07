@@ -9060,7 +9060,7 @@ MonoBehaviour:
   currentXP: 0
   xpNeeded: 100
   xpScaling: 20
-  cascadeChance: 0.5
+  cascadeChance: 0
   instakillChance: 0
   retaliatePercent: 0
   lifeSteal: 0

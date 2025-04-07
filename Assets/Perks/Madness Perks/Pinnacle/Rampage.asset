@@ -15,7 +15,7 @@ MonoBehaviour:
   icon: {fileID: -234679215618397141, guid: 4e5ba6393b86ebf4c90a9aae6752ecf9, type: 3}
   title: 
   description: 
-  borderColor: {r: 0, g: 0, b: 0, a: 0}
+  borderColor: {r: 0.078431375, g: 0.4, b: 0.03137255, a: 1}
   maxHealthMultiplier: 0
   maxHealthAdditive: 0
   damage: 0

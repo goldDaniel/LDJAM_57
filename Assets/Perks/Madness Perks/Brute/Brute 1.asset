@@ -20,7 +20,7 @@ MonoBehaviour:
     +100%
 
     Movement Speed -30%'
-  borderColor: {r: 0, g: 0, b: 0, a: 0}
+  borderColor: {r: 0.07668558, g: 0.3962264, b: 0.031149792, a: 1}
   maxHealthMultiplier: 1
   maxHealthAdditive: 0
   damage: 0

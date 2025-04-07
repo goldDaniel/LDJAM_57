@@ -10,24 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 371b4eeba3f3d6140bd2e3183140e7d4, type: 3}
-  m_Name: Brute 3
+  m_Name: Shield 4
   m_EditorClassIdentifier: 
   icon: {fileID: -234679215618397141, guid: 4e5ba6393b86ebf4c90a9aae6752ecf9, type: 3}
-  title: Brute I
-  description: 'Increases Max Health and decreases Movement Speed
+  title: Shield IV
+  description: 'Decreases shield cooldown
 
-    Max Health
-    +250%
-
-    Movement Speed -30%'
-  borderColor: {r: 0.07668558, g: 0.3962264, b: 0.031149792, a: 1}
-  maxHealthMultiplier: 2.5
+    Shield Cooldown 15s'
+  borderColor: {r: 0, g: 0, b: 0, a: 0}
+  maxHealthMultiplier: 0
   maxHealthAdditive: 0
   damage: 0
   damageMultiplier: 0
   aoeDamage: 0
   aoeRadius: 0
-  movementSpeed: -0.3
+  movementSpeed: 0
   manaRegen: 0
   healthRegen: 0
   maxManaAdditive: 0
@@ -39,15 +36,15 @@ MonoBehaviour:
   lifesteal: 0
   cascadeChance: 0
   XPIncrease: 0
-  shieldCooldown: 0
+  shieldCooldown: -5
   madnessGained: 0
   instakill: 0
   perksGained: 0
   retaliate: 0
   equality: 0
-  shield: 0
+  shield: 1
   rampage: 0
   panic: 0
-  madnessThreshold: 0.8
+  madnessThreshold: 0.4
   rollWeight: 0
   nextTier: []

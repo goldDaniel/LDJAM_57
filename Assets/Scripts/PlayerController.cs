@@ -1,6 +1,8 @@
+using System.Collections;
 using TreeEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 
 public class PlayerController : MonoBehaviour
 {
@@ -94,6 +96,8 @@ public class PlayerController : MonoBehaviour
 	public float damageReduction = 1;
 	public bool rampage = false;
 	public bool equality = false;
+	public bool shield = false;
+	public bool currentShield = false;
 
 	public int score = 0;
 	public float streakDuration = 0;
@@ -101,6 +105,7 @@ public class PlayerController : MonoBehaviour
 	public int rampageCount = 0;
 	public float rampageDamage = 0;
 	public float equalitySpeed = 0;
+	public float shieldCooldown = 0;
 
 	void Start()
 	{
@@ -218,8 +223,20 @@ public class PlayerController : MonoBehaviour
 		{
 			source.ApplyDamage(damage * retaliatePercent);
 		}
-		CurrentHealth -= damage * damageReduction;
+		if (currentShield)
+		{
+			StartCoroutine(getShield(shieldCooldown));
+		}
+		else
+		{
+			CurrentHealth -= damage * damageReduction;
+		}
 	}
+	private IEnumerator getShield(float cooldown)
+	{
+        yield return new WaitForSeconds(cooldown);
+		currentShield = true;
+    }
 
 	private void OnCollisionExit2D(Collision2D collision)
 	{
@@ -278,10 +295,18 @@ public class PlayerController : MonoBehaviour
 			lifeSteal += perk.lifesteal;
         if (!MathUtils.ApproximatelyZero(perk.XPIncrease))
             xpIncrease += perk.XPIncrease;
-		if (perk.rampage)
+        if (!MathUtils.ApproximatelyZero(perk.shieldCooldown))
+            shieldCooldown += perk.shieldCooldown;
+        if (perk.rampage)
 			rampage = perk.rampage;
 		if (perk.equality)
 			equality = perk.equality;
+		if (perk.shield)
+		{
+			shield = perk.shield;
+			currentShield = true;
+		}
+
 		if (perk.perksGained > 0)
 		{
 			for (int i = 0; i < perk.perksGained; i++)

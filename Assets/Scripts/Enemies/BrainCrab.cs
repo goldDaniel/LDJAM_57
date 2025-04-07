@@ -62,4 +62,13 @@ public class BrainCrab : Enemy
 		var direction = (separation + alignment + cohesion + target).normalized;
 		rb.linearVelocity = direction * speed;
 	}
+    public override void dropPickup()
+    {
+		// Can add variable for drop chance if needed
+		if (UnityEngine.Random.Range(0f, 1f) < 0.01f)
+		{
+			var pickup = Instantiate(Game.Instance.pickups[0]);
+			pickup.transform.position = transform.position;
+		}
+    }
 }

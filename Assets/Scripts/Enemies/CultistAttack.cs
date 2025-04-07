@@ -46,9 +46,16 @@ public class CultistAttack : RegisteredBehaviour<CultistAttack>
 
 	public void Update()
 	{
-		Vector2 dir = owner.transform.position - indicator.transform.position;
-		float angleRad = Mathf.Atan2(dir.y, dir.x);
-		indicator.transform.rotation = Quaternion.Euler(0, 0, Mathf.Rad2Deg * angleRad);
+		if(owner != null && owner)
+		{
+			Vector2 dir = owner.transform.position - indicator.transform.position;
+			float angleRad = Mathf.Atan2(dir.y, dir.x);
+			indicator.transform.rotation = Quaternion.Euler(0, 0, Mathf.Rad2Deg * angleRad);
+		}
+		else 
+		{
+			indicator.SetActive(false);	
+		}
 	}
 
 	IEnumerator Explode()

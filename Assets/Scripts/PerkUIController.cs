@@ -56,10 +56,11 @@ public class PerkUIController : MonoBehaviour
 
 	private IEnumerator FadeInPerkSelection()
 	{
+		Time.timeScale = 0;
 		float alpha = uiElementContainer.alpha;
 		while (alpha < 1.0f)
 		{
-			alpha += Time.deltaTime * (1.0f / 0.5f);
+			alpha += (1f / 60f) * (1.0f / 0.5f);
 			uiElementContainer.alpha = alpha;
 			yield return null;
 		}
@@ -71,7 +72,7 @@ public class PerkUIController : MonoBehaviour
 		float alpha = uiElementContainer.alpha;
 		while (alpha > 0.0f)
 		{
-			alpha -= Time.deltaTime * (1.0f / 0.5f);
+			alpha -= (1f / 60f) * (1.0f / 0.5f);
 			uiElementContainer.alpha = alpha;
 			yield return null;
 		}
@@ -79,5 +80,7 @@ public class PerkUIController : MonoBehaviour
 		yield return null;
 		uiElementContainer.gameObject.SetActive(false);
 		Game.Instance.IsPaused = false;
+
+		Time.timeScale = 1.0f;
 	}
 }

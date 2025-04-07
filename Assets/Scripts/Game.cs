@@ -101,7 +101,7 @@ public class Game : MonoBehaviour
 		{
 			float t = timer / time;
 			loseUI.SetAlpha(t);
-			timer += Time.deltaTime;
+			timer += !IsPaused ? Time.deltaTime : 1f / 60f;
 			yield return null;
 		}
 

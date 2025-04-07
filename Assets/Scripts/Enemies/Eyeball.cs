@@ -69,6 +69,8 @@ public class Eyeball : Enemy
 				{
 					attackCollider.enabled = true;
 					attackSprite.color = Color.white;
+
+					AudioManager.Instance.PlaySFX(AudioManager.Instance.eyeBallLaserHit);
 				}
 			}
 
@@ -104,6 +106,8 @@ public class Eyeball : Enemy
 		float desiredAngle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
 		_activeAttack.transform.rotation = Quaternion.Euler(0, 0, desiredAngle);
 		_activeAttack.gameObject.SetActive(true);
+
+		AudioManager.Instance.PlaySFX(AudioManager.Instance.eyeBallLaserCharge);
 	}
 
 	public void FixedUpdate()

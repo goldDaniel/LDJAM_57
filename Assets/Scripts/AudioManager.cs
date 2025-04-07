@@ -16,6 +16,9 @@ public class AudioManager : MonoSingleton<AudioManager>
 	public AudioSource cultistAttackCharge;
 	public AudioSource cultistAttackExplode;
 
+	public AudioSource eyeBallLaserCharge;
+	public AudioSource eyeBallLaserHit;
+
 	public void Start()
 	{
 		if(SceneManager.GetActiveScene().name == "MainMenu" || SceneManager.GetActiveScene().name == "Instructions")

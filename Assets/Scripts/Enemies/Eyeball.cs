@@ -78,6 +78,7 @@ public class Eyeball : Enemy
 				attackSprite.color = defaultColor;
 				_attackTimer = 0;
 				_currentState = EyeballState.Cooldown;
+				_cooldownTimer = cooldownTime;
 			}
 		}
 

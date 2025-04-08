@@ -12,6 +12,7 @@ public class Eyeball : Enemy
 		Moving,
 		Attacking,
 		Cooldown,
+		Charge,
 	}
 
 	private EyeballState _currentState = EyeballState.Moving;
@@ -36,6 +37,9 @@ public class Eyeball : Enemy
 	private float _cooldownTimer = 0;
 
 	private bool _damageApplied = false;
+
+	private bool beamAttack = true;
+	private Vector2 chargeTarget;
 
 	void Awake()
 	{
@@ -97,25 +101,46 @@ public class Eyeball : Enemy
 				_currentState = EyeballState.Moving;
 			}
 		}
+		if (_currentState == EyeballState.Charge)
+		{
+            Vector2 dir = (chargeTarget - this.rb.position).normalized;
+			rb.AddForce(dir * Force * 1.5f);
+			if(Vector2.Distance(chargeTarget, this.rb.position) <1)
+			{
+				rb.linearVelocity = Vector2.zero;
+				_currentState = EyeballState.Cooldown;
+                _cooldownTimer = cooldownTime;
+            }
+        }
 	}
 
 	void SetupAttack()
 	{
-		_attackTimer = attackTime;
+        if (beamAttack)
+        {
+            _attackTimer = attackTime;
 
-		_activeAttack.transform.GetChild(0).localScale = new Vector3(attackRange, 1, 1);
-		_activeAttack.transform.GetChild(0).localPosition = new Vector3(attackRange / 2.0f, 0, 0);
-		Vector2 dir = (Game.Instance.player.rb.position - rb.position).normalized;
-		float desiredAngle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-		_activeAttack.transform.rotation = Quaternion.Euler(0, 0, desiredAngle);
-		_activeAttack.gameObject.SetActive(true);
+            _activeAttack.transform.GetChild(0).localScale = new Vector3(attackRange, 1, 1);
+            _activeAttack.transform.GetChild(0).localPosition = new Vector3(attackRange / 2.0f, 0, 0);
+            Vector2 dir = (Game.Instance.player.rb.position - rb.position).normalized;
+            float desiredAngle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            _activeAttack.transform.rotation = Quaternion.Euler(0, 0, desiredAngle);
+            _activeAttack.gameObject.SetActive(true);
 
-		AudioManager.Instance.PlaySFX(AudioManager.Instance.eyeBallLaserCharge);
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.eyeBallLaserCharge);
+			beamAttack = false;
+        } else
+		{
+			chargeTarget = Game.Instance.player.rb.position + (Game.Instance.player.rb.position - this.rb.position).normalized * 5;
+			_currentState = EyeballState.Charge;
+			beamAttack = true;
+		}
+        
 	}
 
 	public void FixedUpdate()
 	{
-		if(_currentState != EyeballState.Attacking && _currentState != EyeballState.Cooldown)
+		if(_currentState != EyeballState.Attacking && _currentState != EyeballState.Cooldown && _currentState != EyeballState.Charge)
 		{
 			Vector2 target = Game.Instance.player.rb.position;
 			if (Vector2.Distance(target, rb.position) <= (attackRange - 10))
